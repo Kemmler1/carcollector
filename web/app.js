@@ -388,6 +388,7 @@ $('spot-svg').addEventListener('pointerup', e => {
 });
 $('spot-svg').addEventListener('wheel', e => { e.preventDefault(); e.stopPropagation(); inset.scale = Math.min(30, Math.max(2, inset.scale * Math.exp(-e.deltaY * 0.002))); renderInset(); }, { passive: false });
 function centreInsetOn(spot) { if (spot) { inset.cx = spot.x; inset.cz = spot.z; } renderInset(); }
+$('spot-size').onclick = () => $('spot-inset').classList.toggle('big');
 
 // Orbiting the 3D half also moves the spot: when the camera stops, the spot follows and saves.
 let orbitTimer = null;
