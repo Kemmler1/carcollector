@@ -21,10 +21,12 @@
       <button data-click="btn-import">Import Version…<kbd>⌘I</kbd></button>
       <div class="menu-sep"></div>
       <button data-click="btn-download">Download Current Version JSON</button>
+      <button data-click="btn-revert">Revert Plan Edits</button>
     </div></div>
     <div class="menu"><button class="menu-title">View</button><div class="menu-items">
       <button data-click="btn-iso">Reset View<kbd>R</kbd></button>
       <button data-click="btn-top">Top View<kbd>T</kbd></button>
+      <button data-click="btn-plan">Floor Plan Editor<kbd>P</kbd></button>
       <button data-click="btn-walk">Walk Through<kbd>W</kbd></button>
       <div class="menu-sep"></div>
       <button data-toggle="toggle-roofs">Roofs</button>
@@ -49,14 +51,14 @@
     <span id="version-label"></span>
     <span class="spacer"></span>
     <div class="segmented" id="view-seg">
-      <button data-click="btn-iso" class="active">3D</button><button data-click="btn-top">Plan</button><button data-click="btn-walk">Walk</button><button data-click="btn-compare">Compare</button>
+      <button data-click="btn-iso" class="active">3D</button><button data-click="btn-plan">Plan</button><button data-click="btn-walk">Walk</button><button data-click="btn-compare">Compare</button>
     </div>
     <button data-click="btn-export" class="primary">Export</button>
   </div>
   <div id="hidden-controls">
     <select id="version-select"></select>
     <input type="checkbox" id="toggle-wire"><input type="checkbox" id="toggle-roofs" checked><input type="checkbox" id="toggle-labels" checked><input type="checkbox" id="toggle-markers" checked>
-    <button id="btn-top"></button><button id="btn-iso"></button><button id="btn-walk">Walk through</button><button id="btn-compare"></button><button id="btn-onboard"></button>
+    <button id="btn-top"></button><button id="btn-iso"></button><button id="btn-plan"></button><button id="btn-revert"></button><button id="btn-walk">Walk through</button><button id="btn-compare"></button><button id="btn-onboard"></button>
     <button id="btn-diff"></button><button id="btn-import"></button><button id="btn-export"></button><button id="btn-download"></button><button id="btn-help"></button>
   </div>
 </header>
@@ -89,7 +91,24 @@
       <button id="cmp-assign">Assign…</button>
       <button id="cmp-close">Done</button>
     </div>
+    <div id="plan-bar" class="hidden">
+      <div class="segmented" id="plan-add">
+        <button data-add="room">+ Room</button><button data-add="zone">+ Zone</button><button data-add="pergola">+ Pergola</button>
+      </div>
+      <select id="plan-prop-add"><option value="">+ Item…</option></select>
+      <select id="plan-opening-add"><option value="">+ Door / window…</option></select>
+      <span class="sep"></span>
+      <label>Snap <select id="plan-snap"><option value="0.1">0.1 m</option><option value="0.25" selected>0.25 m</option><option value="0.5">0.5 m</option><option value="1">1 m</option><option value="0">Off</option></select></label>
+      <label><input type="checkbox" id="plan-grid" checked> Grid</label>
+      <span class="sep"></span>
+      <span id="plan-sel" class="muted">Nothing selected</span>
+      <span class="spacer"></span>
+      <button id="plan-mirror">Mirror</button>
+      <button id="plan-undo">Undo</button>
+      <button id="plan-fit">Fit</button>
+    </div>
     <div id="panes">
+      <div id="plan" class="hidden"></div>
       <div id="compare-photo" class="hidden"><img alt=""></div>
       <div id="stage-wrap"><div id="stage"><canvas id="canvas"></canvas><img id="overlay-photo" class="hidden" alt=""></div></div>
     </div>

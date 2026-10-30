@@ -42,6 +42,16 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
   the photo's camera spot, or **Overlay** (`O`) at 50% to line them up. The 3D camera uses the
   4:3 frame and ~85° vertical FOV of a phone's 0.5× ultrawide lens. Orbit until it matches and
   **Save Spot**.
+- **Plan** (`P`): 2D floor-plan editor, sea at the top, metres. Click a room or area to select
+  it; drag to move, corner/edge handles to resize, or type x / z / w / d in the bar. Drag doors
+  and windows along their wall, drag their end handles to resize, change their type in the bar;
+  `+ Door / window…` then click a wall to add one. Drag furniture; `R` rotates 15° (`⇧R` back),
+  `⌘D` duplicates, `⌫` deletes; `+ Item…` then click to place a new one. `+ Room` drags out a
+  new rectangle. **Mirror** copies the selected room across the centre line (the house is
+  symmetrical). Arrow keys nudge by one snap step. `⌘Z` undo. Snap 0.1–1 m or off. Scroll to
+  zoom, shift-drag to pan. Every edit rebuilds the 3D model and is kept in the browser as a
+  working copy of the version (the Plan segment shows a dot); File → Download Current Version
+  JSON writes it out to commit, File → Revert Plan Edits throws it away.
 - **Walk** (`W`): first-person; mouse to look, `W A S D`, `Shift` to run, `Q`/`E` for height, `Esc`.
 - Mac-style menu bar (File / View / Photos / Versions / Help) with keyboard shortcuts under Help.
   Light and dark follow the system. Photos preload in the background after the model loads.

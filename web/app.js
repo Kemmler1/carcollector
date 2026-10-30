@@ -1,16 +1,20 @@
 // UI, data and the export/import loop. Geometry lives in scene.js.
 import { createScene } from './scene.js?v=__BUILD__';
+import { createPlan, PROP_TYPES, OPENING_TYPES } from './plan.js?v=__BUILD__';
 
 const PHOTO_DIR = '../photos/raw/';
 const THUMB_DIR = '../photos/thumbs/';
 const LS_VERSIONS = 'house.versions';       // versions imported in the browser, keyed by version id
 const LS_COMMENTS = 'house.comments';       // { [versionId]: { [sectionId|'general']: Comment[] } }
-const LS_ASSIGN = 'house.assignments';      // { photos: {file: [sectionId]}, spots: {file: spot}, notes: {file: text} }
+const LS_ASSIGN = 'house.assignments';
+const LS_WORKING = 'house.working';        // { [versionId]: sections[] } — edits made in the plan editor      // { photos: {file: [sectionId]}, spots: {file: spot}, notes: {file: text} }
 
 const state = {
   versions: [], current: null, base: null, photos: [],
   comments: loadJSON(LS_COMMENTS, {}),
   assign: loadJSON(LS_ASSIGN, { photos: {}, spots: {}, notes: {} }),
+  working: loadJSON(LS_WORKING, {}),
+  planOn: false,
   selected: null,
   toggles: { wire: false, roofs: true, labels: true, markers: true },
   placing: null, // { file, step: 'pos'|'look', spot }
@@ -45,6 +49,7 @@ function versionNum(v) { return parseFloat(String(v).replace(/^v/i, '')) || 0; }
 
 function applyAssignments(base) {
   const v = JSON.parse(JSON.stringify(base));
+  if (state.working[base.version]) v.sections = JSON.parse(JSON.stringify(state.working[base.version]));
   v.photoSpots = { ...(v.photoSpots || {}), ...state.assign.spots };
   v.photoNotes = { ...(v.photoNotes || {}), ...state.assign.notes };
   for (const [file, ids] of Object.entries(state.assign.photos)) {
@@ -61,13 +66,14 @@ function setVersion(id) {
   state.current = applyAssignments(state.base);
   const sel = $('version-select');
   sel.innerHTML = state.versions.map(v => `<option value="${v.version}" ${v.version === state.base.version ? 'selected' : ''}>${v.version}${v._local ? ' (browser only)' : ''}</option>`).join('');
-  $('version-label').textContent = state.base.version;
+  $('version-label').textContent = state.base.version + (state.working[state.base.version] ? ' · edited' : '');
+  document.querySelector('[data-click=btn-plan]').classList.toggle('edited', !!state.working[state.base.version]);
   view.build(state.current);
   view.applyToggles(state.toggles);
   renderList(); renderGeneralComments(); renderVersionsMenu();
   if (state.selected && sectionById(state.selected)) selectSection(state.selected); else closeDetail();
 }
-function refreshCurrent() { state.current = applyAssignments(state.base); view.build(state.current); view.applyToggles(state.toggles); view.highlight(state.selected); refreshAll(); }
+function refreshCurrent() { state.current = applyAssignments(state.base); view.build(state.current); view.applyToggles(state.toggles); view.highlight(state.selected); refreshAll(); if (state.planOn) plan.render(); }
 function sectionById(id) { return state.current.sections.find(s => s.id === id); }
 function sectionsForPhoto(file) { return state.current.sections.filter(s => (s.photos || []).includes(file)).map(s => s.id); }
 
@@ -133,6 +139,7 @@ function selectSection(id, fly = false) {
   state.selected = id;
   view.highlight(id); renderList(); renderDetail(s);
   $('detail').classList.remove('hidden');
+  if (state.planOn) { plan.select(id); return; }
   if (fly) view.flyTo(s);
   view.resize();
 }
@@ -298,6 +305,7 @@ function saveSpot(file, spot) {
   state.current.photoSpots ||= {}; state.current.photoSpots[file] = spot; view.buildMarkers(state.current);
 }
 function enterCompare(index) {
+  if (state.planOn) exitPlan();
   const c = state.compare;
   c.on = true; c.index = Math.max(0, Math.min(state.photos.length - 1, index));
   $('detail').classList.add('hidden'); $('onboard').classList.add('hidden');
@@ -329,7 +337,7 @@ function renderCompare(goto) {
 $('btn-compare').onclick = () => enterCompare(state.compare.index);
 $('btn-walk').onclick = () => {
   if (view.isWalking()) return view.stopWalk();
-  if (state.compare.on) exitCompare();
+  if (state.compare.on) exitCompare(); if (state.planOn) exitPlan();
   // start at the current camera if it is near the ground, else at the pool pavilion
   const p = view.camera.position; if (p.y > 6) { p.set(0, 1.6, -2.5); view.controls.target.set(0, 1.5, -10); }
   $('walk-banner').classList.remove('hidden'); document.querySelectorAll('[data-click=btn-walk]').forEach(b => b.classList.add('active'));
@@ -496,8 +504,8 @@ function showDiff(v) {
 // ---------------------------------------------------------------------------
 $('version-select').onchange = e => setVersion(e.target.value);
 for (const k of ['wire', 'roofs', 'labels', 'markers']) $('toggle-' + k).onchange = e => { state.toggles[k] = e.target.checked; view.applyToggles(state.toggles); };
-$('btn-top').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); view.topView(); seg('btn-top'); };
-$('btn-iso').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); view.resetView(); seg('btn-iso'); };
+$('btn-top').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); if (state.planOn) exitPlan(); view.topView(); seg('btn-iso'); };
+$('btn-iso').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); if (state.planOn) exitPlan(); view.resetView(); seg('btn-iso'); };
 function seg(id) { document.querySelectorAll('#view-seg button').forEach(b => b.classList.toggle('active', b.dataset.click === id)); }
 addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
@@ -505,6 +513,61 @@ addEventListener('keydown', e => {
   if (state.compare.on && modal.classList.contains('hidden')) exitCompare();
   if (state.placing) { state.placing = null; $('place-banner').classList.add('hidden'); $('onboard').classList.remove('hidden'); renderOnboarding(); }
 });
+
+// ---------------------------------------------------------------------------
+// 2D floor plan editor — edits state.current.sections; persisted as a working copy per version
+// ---------------------------------------------------------------------------
+let rebuildTimer = null;
+const plan = createPlan($('plan'), {
+  getVersion: () => state.current,
+  onChange() {
+    state.working[state.base.version] = JSON.parse(JSON.stringify(state.current.sections));
+    saveJSON(LS_WORKING, state.working);
+    $('version-label').textContent = state.base.version + ' · edited';
+    document.querySelector('[data-click=btn-plan]').classList.add('edited');
+    clearTimeout(rebuildTimer); rebuildTimer = setTimeout(() => { view.build(state.current); view.applyToggles(state.toggles); view.highlight(state.selected); renderList(); }, 150);
+    renderPlanSelection();
+  },
+  onSelect(id) { state.selected = id; renderList(); renderPlanSelection(); if (id) { renderDetail(sectionById(id)); $('detail').classList.remove('hidden'); } else $('detail').classList.add('hidden'); },
+});
+function enterPlan() {
+  if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare();
+  state.planOn = true; $('plan').classList.remove('hidden'); $('stage-wrap').classList.add('hidden'); $('plan-bar').classList.remove('hidden'); $('hint').classList.add('hidden');
+  plan.render(); plan.fit(); if (state.selected) plan.select(state.selected); seg('btn-plan');
+}
+function exitPlan() {
+  state.planOn = false; $('plan').classList.add('hidden'); $('stage-wrap').classList.remove('hidden'); $('plan-bar').classList.add('hidden'); $('hint').classList.remove('hidden'); view.resize();
+}
+$('btn-plan').onclick = () => state.planOn ? ($('btn-iso').click()) : enterPlan();
+$('btn-revert').onclick = () => { if (!state.working[state.base.version]) return; if (confirm(`Discard the plan edits made to ${state.base.version} in this browser?`)) { delete state.working[state.base.version]; saveJSON(LS_WORKING, state.working); refreshCurrent(); $('version-label').textContent = state.base.version; document.querySelector('[data-click=btn-plan]').classList.remove('edited'); } };
+for (const t of PROP_TYPES) { const o = document.createElement('option'); o.value = t; o.textContent = t.replace('-', ' '); $('plan-prop-add').appendChild(o); }
+for (const t of OPENING_TYPES) { const o = document.createElement('option'); o.value = t; o.textContent = t; $('plan-opening-add').appendChild(o); }
+$('plan-prop-add').onchange = e => { if (e.target.value) { plan.startAddProp(e.target.value); $('plan-sel').textContent = `Click inside a room or area to place the ${e.target.value}`; } e.target.value = ''; };
+$('plan-opening-add').onchange = e => { if (e.target.value) { plan.startAddOpening(e.target.value); $('plan-sel').textContent = `Click on a room wall to add the ${e.target.value}`; } e.target.value = ''; };
+document.querySelectorAll('#plan-add button').forEach(b => b.onclick = () => { plan.startAddRoom(b.dataset.add); $('plan-sel').textContent = `Drag a rectangle to add a ${b.dataset.add}`; });
+$('plan-snap').onchange = e => { const v = +e.target.value; plan.setSnapOn(v > 0); if (v > 0) plan.setSnap(v); };
+$('plan-grid').onchange = e => plan.setGrid(e.target.checked);
+$('plan-mirror').onclick = () => plan.mirrorSelected();
+$('plan-undo').onclick = () => plan.undo();
+$('plan-fit').onclick = () => plan.fit();
+function renderPlanSelection() {
+  const id = plan.selected(); const s = id && sectionById(id);
+  const box = $('plan-sel');
+  if (!s) { box.textContent = 'Nothing selected · drag to move · handles to resize · ⌫ delete · ⌘Z undo · shift-drag to pan · scroll to zoom'; return; }
+  const pi = plan.selectedProp(), oi = plan.selectedOpening();
+  if (pi != null && s.props?.[pi]) {
+    const p = s.props[pi];
+    box.innerHTML = `<b>${esc(s.name)}</b> › item <select id="ps-type">${PROP_TYPES.map(t => `<option ${t === p.type ? 'selected' : ''}>${t}</option>`).join('')}</select> at ${p.x}, ${p.z} · rot ${p.rot || 0}° <span class="muted">(R rotates · ⌘D duplicates)</span>`;
+    box.querySelector('#ps-type').onchange = e => plan.setPropType(e.target.value); return;
+  }
+  if (oi != null && s.openings?.[oi]) {
+    const o = s.openings[oi];
+    box.innerHTML = `<b>${esc(s.name)}</b> › ${o.side} wall <select id="ps-otype">${OPENING_TYPES.map(t => `<option ${t === o.type ? 'selected' : ''}>${t}</option>`).join('')}</select> ${o.from}–${o.to} m`;
+    box.querySelector('#ps-otype').onchange = e => plan.setOpeningType(e.target.value); return;
+  }
+  box.innerHTML = `<b>${esc(s.name)}</b> x <input id="ps-x" value="${s.box.x}"> z <input id="ps-z" value="${s.box.z}"> w <input id="ps-w" value="${s.box.w}"> d <input id="ps-d" value="${s.box.d}">`;
+  for (const k of ['x', 'z', 'w', 'd']) box.querySelector('#ps-' + k).onchange = e => { const v = parseFloat(e.target.value); if (!isNaN(v)) plan.setBox({ [k]: v }); };
+}
 
 // ---------------------------------------------------------------------------
 // Mac-style menu bar: menu items trigger the (hidden) controls by id
@@ -526,18 +589,19 @@ function renderVersionsMenu() {
 $('btn-download').onclick = () => download(`${state.base.version}.json`, JSON.stringify(stripLocal(state.current), null, 2));
 $('btn-help').onclick = () => openModal('Keyboard shortcuts', `<div class="shortcuts">
   <div><kbd>R</kbd> Reset view</div><div><kbd>T</kbd> Top / plan view</div><div><kbd>W</kbd> Walk through (then WASD, Shift, Q/E, Esc)</div>
-  <div><kbd>C</kbd> Compare photos</div><div><kbd>A</kbd> Assign photos</div><div><kbd>←</kbd> <kbd>→</kbd> Previous / next photo in Compare</div>
+  <div><kbd>P</kbd> Floor plan editor (⌫ delete, ⌘Z undo, R rotate item, arrows nudge)</div><div><kbd>C</kbd> Compare photos</div><div><kbd>A</kbd> Assign photos</div><div><kbd>←</kbd> <kbd>→</kbd> Previous / next photo in Compare</div>
   <div><kbd>O</kbd> / <kbd>S</kbd> Overlay / side-by-side in Compare</div><div><kbd>⌘E</kbd> Export</div><div><kbd>⌘I</kbd> Import version</div><div><kbd>Esc</kbd> Close / exit mode</div></div>`);
 addEventListener('keydown', e => {
   if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || view.isWalking()) return;
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'e') { e.preventDefault(); $('btn-export').click(); }
   else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'i') { e.preventDefault(); $('btn-import').click(); }
   else if (e.metaKey || e.ctrlKey || e.altKey) return;
-  else if (e.key === 'r') $('btn-iso').click(); else if (e.key === 't') $('btn-top').click(); else if (e.key === 'w') $('btn-walk').click();
+  else if (state.planOn && e.key !== 'p') return;
+  else if (e.key === 'r') $('btn-iso').click(); else if (e.key === 't') $('btn-top').click(); else if (e.key === 'w') $('btn-walk').click(); else if (e.key === 'p') $('btn-plan').click();
   else if (e.key === 'c' && !state.compare.on) $('btn-compare').click(); else if (e.key === 'a') $('btn-onboard').click();
 });
 
-window.__house = { view, state, selectSection, setVersion, openOnboarding, enterCompare };
+window.__house = { view, plan, state, selectSection, setVersion, openOnboarding, enterCompare, enterPlan };
 
 // Warm the browser cache with every photo in the background, thumbnails first, a few at a
 // time, so flicking through Compare is instant. Never blocks the UI.
