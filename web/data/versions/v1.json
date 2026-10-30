@@ -1090,10 +1090,10 @@
       },
       "colors": {
         "ground": "#d8c9a6",
-        "hedge": "#9ccc3c",
+        "hedge": "#a4d43c",
         "palm": "#4f8a3a"
       },
-      "description": "Open to the sky. Sandy ground, a dense block of lime-green clipped shrubs about 1.8 m high, a broad-leaf shrub, three slim coconut palms rising above the roofs, bicycles parked among them.",
+      "description": "Open to the sky, sandy ground. Planted almost solid with tall upright shrubs about 2 m high — slender multi-stemmed plants with narrow, serrated, lime-green leaves (Polyscias-type), set about 0.6 m apart so they read as one soft green mass from the walkway. One broad-leaved shrub with large paddle leaves near the corner. Three slim coconut palms rise through the planting well above the roofs. Bicycles are parked in a gap in the middle. The walls around it carry a run of bright tropical canvases (bird-of-paradise, frangipani, banana) between the louvre windows.",
       "photos": [
         "17-courtyard-walkway-and-garden.jpg",
         "35-courtyard-from-walkway-corner-solar-hw.jpg",
@@ -1120,6 +1120,12 @@
           "z": 11.5,
           "h": 7.5
         }
+      ],
+      "planting": [
+        "Tall upright shrubs, narrow lime-green serrated leaves, ~2 m, planted in a block at ~0.6 m centres",
+        "One broad-leaf shrub with 0.9 m paddle leaves",
+        "Three coconut palms, slim trunks, ~8–9 m",
+        "Sandy ground, no lawn"
       ]
     },
     {
@@ -1450,6 +1456,11 @@
           "h": 7.2,
           "lean": 0.12
         }
+      ],
+      "planting": [
+        "Coarse dry tropical grass, brown and patchy",
+        "Seaward edge: a hedge of beach hibiscus and scrub with yellow flowers, ~1.2 m, then the vegetated bank",
+        "Coconut palms along the edge, several leaning seaward, with green nuts"
       ]
     },
     {
@@ -1822,6 +1833,56 @@
           "z": 31.5,
           "r": 0.8,
           "color": "#5e8a3a"
+        },
+        {
+          "type": "croton",
+          "x": -11.2,
+          "z": 2
+        },
+        {
+          "type": "croton",
+          "x": -11.2,
+          "z": 4.5
+        },
+        {
+          "type": "croton",
+          "x": -11.2,
+          "z": 7
+        },
+        {
+          "type": "tall-shrub",
+          "x": -11,
+          "z": 12,
+          "h": 1.6,
+          "color": "#6e9a3a"
+        },
+        {
+          "type": "tall-shrub",
+          "x": -11,
+          "z": 13,
+          "h": 1.6,
+          "color": "#6e9a3a"
+        },
+        {
+          "type": "tall-shrub",
+          "x": -11,
+          "z": 14,
+          "h": 1.6,
+          "color": "#6e9a3a"
+        },
+        {
+          "type": "tall-shrub",
+          "x": -11,
+          "z": 15,
+          "h": 1.6,
+          "color": "#6e9a3a"
+        },
+        {
+          "type": "tall-shrub",
+          "x": -11,
+          "z": 16,
+          "h": 1.6,
+          "color": "#6e9a3a"
         }
       ],
       "props": [
@@ -1877,6 +1938,12 @@
           "z": 19,
           "rot": 20
         }
+      ],
+      "planting": [
+        "Rendered planter boxes along the entry façade with crotons (red/yellow/green variegated), cordylines and a few tall shrubs",
+        "Clipped green hedge against the left wing's garden wall",
+        "Tree line of coconut palms, casuarina and broad-leaf scrub on both sides",
+        "Bare sand, no lawn"
       ]
     },
     {

@@ -1,5 +1,5 @@
 // UI, data and the export/import loop. Geometry lives in scene.js.
-import { createScene } from './scene.js';
+import { createScene } from './scene.js?v=__BUILD__';
 
 const PHOTO_DIR = '../photos/raw/';
 const THUMB_DIR = '../photos/thumbs/';
@@ -150,6 +150,7 @@ function renderDetail(s) {
     <h3>Description</h3><p>${esc(s.description || '')}</p>
     ${s.materials ? `<h3>Materials</h3>${list(s.materials)}` : ''}
     ${s.furniture ? `<h3>Furniture</h3>${list(s.furniture)}` : ''}
+    ${s.planting ? `<h3>Planting</h3>${list(s.planting)}` : ''}
     ${s.openings?.length ? `<h3>Openings</h3>${list(s.openings.map(o => `${o.side} wall: ${o.type} ${o.from}–${o.to} m`))}` : ''}
     ${s.changes ? `<h3>Changes in this version</h3><p>${esc(s.changes)}</p>` : ''}
     ${notes.length ? `<h3>Photo notes</h3>${list(notes)}` : ''}
@@ -384,6 +385,7 @@ async function buildExport() {
     L.push(`- ${s.description}`);
     if (s.materials?.length) L.push(`- Materials: ${s.materials.join('; ')}`);
     if (s.furniture?.length) L.push(`- Furniture: ${s.furniture.join('; ')}`);
+    if (s.planting?.length) L.push(`- Planting: ${s.planting.join('; ')}`);
     if (s.openings?.length) L.push(`- Openings: ${s.openings.map(o => `${o.side} wall ${o.type} ${o.from}–${o.to} m`).join('; ')}`);
     if (s.props?.length) L.push(`- Modelled props: ${s.props.map(p => p.type).join(', ')}`);
     if (s.photos?.length) L.push(`- Photos: ${s.photos.join(', ')}`);

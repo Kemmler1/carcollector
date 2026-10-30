@@ -31,6 +31,7 @@ const TEX = {
   tile: (rep) => canvasTexture('tile', 64, 64, (g, w, h) => { g.fillStyle = '#8d8578'; g.fillRect(0, 0, w, h); g.strokeStyle = '#6f685d'; g.lineWidth = 2; g.strokeRect(0, 0, w, h); }, rep),
   weave: (rep) => canvasTexture('weave', 32, 32, (g, w, h) => { g.fillStyle = '#d9c28e'; g.fillRect(0, 0, w, h); g.fillStyle = '#b89a62'; for (let y = 0; y < h; y += 8) for (let x = 0; x < w; x += 8) if ((x + y) % 16 === 0) g.fillRect(x, y, 8, 8); }, rep),
   grass: (rep) => canvasTexture('grass', 64, 64, (g, w, h) => { g.fillStyle = '#b3a26e'; g.fillRect(0, 0, w, h); for (let i = 0; i < 300; i++) { g.fillStyle = Math.random() < 0.5 ? '#9c8d5a' : '#c3b47f'; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); } }, rep),
+  leaf: (rep) => canvasTexture('leaf', 64, 64, (g, w, h) => { g.fillStyle = '#9fd33f'; g.fillRect(0, 0, w, h); for (let i = 0; i < 500; i++) { g.fillStyle = ['#7fb52c', '#b8e35a', '#8cc43a', '#6a9c25'][i % 4]; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, 1.5, 4, Math.random() * 3, 0, 7); g.fill(); } }, rep),
   sand: (rep) => canvasTexture('sand', 64, 64, (g, w, h) => { g.fillStyle = '#d6c7a0'; g.fillRect(0, 0, w, h); for (let i = 0; i < 200; i++) { g.fillStyle = Math.random() < 0.5 ? '#c9b98f' : '#e0d3b0'; g.fillRect(Math.random() * w, Math.random() * h, 2, 2); } }, rep),
 };
 
@@ -339,8 +340,15 @@ function buildGarden(ctx, sec) {
   const { x, z, w, d } = sec.box;
   const cx = x + w / 2, cz = z + d / 2;
   g.add(box(w, 0.06, d, mat('#ffffff', { map: TEX.sand([w / 2, d / 2]) }), cx, 0.03, cz));
-  const hedgeMat = mat(sec.colors?.hedge || '#9ccc3c', { roughness: 1 });
-  for (let i = 0; i < 14; i++) { const s = 0.9 + Math.random() * 0.5; const m = new THREE.Mesh(new THREE.SphereGeometry(s, 7, 6), hedgeMat); m.position.set(x + 0.9 + Math.random() * (w - 1.8), 0.9 + Math.random() * 0.4, z + 0.9 + Math.random() * (d - 1.8)); m.castShadow = true; g.add(m); }
+  // a dense block of tall shrubs on a ~0.65 m grid, leaving a sandy strip along the walkway edges
+  const color = sec.colors?.hedge || '#a4d43c';
+  for (let gx = x + 0.9; gx < x + w - 0.6; gx += 0.65) for (let gz = z + 0.9; gz < z + d - 0.6; gz += 0.65) {
+    const jx = Math.sin(gx * 9.1 + gz * 3.7) * 0.15, jz = Math.cos(gx * 4.3 + gz * 8.9) * 0.15;
+    if ((gx - x) > 2.6 && (gx - x) < 3.8 && (gz - z) > 3 && (gz - z) < 5.6) continue; // gap for the palms and bikes
+    g.add(tallShrub(gx + jx, gz + jz, 1.7 + Math.abs(Math.sin(gx * 3 + gz)) * 0.6, color));
+  }
+  g.add(broadLeaf(x + 1.2, z + 1.2, 2.0));
+  for (const b of sec.props?.filter(p => p.type === 'bicycle') || []) {}
   for (const t of sec.trees || [{ x: cx - 0.6, z: cz - 1, h: 7 }, { x: cx + 0.8, z: cz + 0.5, h: 8 }, { x: cx - 0.2, z: cz + 2.2, h: 7.5 }]) g.add(palm(t.x, t.z, t.h, 0.5));
   return tag(g, sec.id);
 }
@@ -379,16 +387,69 @@ function shrub(px, pz, r = 0.8, color = '#5e8a3a') {
   m.position.set(px, r * 0.8, pz); m.scale.y = 0.8; m.castShadow = true; return m;
 }
 
+// Tall upright shrub (the courtyard planting): a few thin stems carrying a narrow column of
+// small lime-green leaves, ~2 m high. Planted close together they read as a soft green block.
+function tallShrub(px, pz, h = 2.0, color = '#a4d43c', seed = px * 7.3 + pz * 3.1) {
+  const g = new THREE.Group();
+  const rnd = (k) => { const v = Math.sin(seed * 12.9898 + k * 78.233) * 43758.5453; return v - Math.floor(v); };
+  const stemMat = mat('#6b5a3a');
+  for (let i = 0; i < 3; i++) {
+    const st = cyl(0.015, 0.025, h * 0.6, stemMat, px + (rnd(i) - 0.5) * 0.25, h * 0.3, pz + (rnd(i + 5) - 0.5) * 0.25, 5);
+    st.rotation.z = (rnd(i + 9) - 0.5) * 0.15; g.add(st);
+  }
+  const leafMat = mat(color, { map: TEX.leaf([1, 2]), roughness: 1 });
+  for (let i = 0; i < 2; i++) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.2 + rnd(i + 20) * 0.08, 7, 7), leafMat);
+    m.scale.set(0.8 + rnd(i + 60) * 0.4, 2.6 + rnd(i + 30) * 0.9, 0.8 + rnd(i + 70) * 0.4);
+    m.rotation.y = rnd(i + 80) * 3;
+    m.position.set(px + (rnd(i + 40) - 0.5) * 0.3, h * 0.62 + i * 0.15, pz + (rnd(i + 50) - 0.5) * 0.3);
+    m.castShadow = true; g.add(m);
+  }
+  return g;
+}
+// Broad-leaf plant: a fan of large paddle leaves (the breadfruit-like shrub in the courtyard).
+function broadLeaf(px, pz, h = 1.8) {
+  const g = new THREE.Group();
+  const leafMat = mat('#4f8f2f', { side: THREE.DoubleSide, roughness: 1 });
+  g.add(cyl(0.03, 0.05, h * 0.5, mat('#6b5a3a'), px, h * 0.25, pz, 5));
+  for (let i = 0; i < 9; i++) {
+    const leaf = new THREE.Mesh(new THREE.PlaneGeometry(0.35, 0.9), leafMat);
+    const a = (i / 9) * Math.PI * 2;
+    leaf.position.set(px, h * 0.5 + 0.3 + (i % 3) * 0.15, pz);
+    leaf.rotation.set(-Math.PI / 2 + 0.9 + (i % 2) * 0.2, 0, 0);
+    leaf.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), a);
+    leaf.translateY(0.45); leaf.castShadow = true; g.add(leaf);
+  }
+  return g;
+}
+// Croton: a low shrub with variegated red/yellow/green leaves (planter boxes, garden beds).
+function croton(px, pz, h = 1.2) {
+  const g = new THREE.Group();
+  const cols = ['#b7522f', '#d9a63a', '#5e8a3a', '#8a3a2a'];
+  g.add(cyl(0.02, 0.03, h * 0.5, mat('#6b5a3a'), px, h * 0.25, pz, 5));
+  for (let i = 0; i < 10; i++) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 6, 5), mat(cols[i % 4], { roughness: 1 }));
+    m.scale.set(0.8, 1.6, 0.5);
+    m.position.set(px + Math.cos(i * 1.3) * 0.22, h * 0.5 + (i % 3) * 0.12, pz + Math.sin(i * 1.3) * 0.22);
+    m.rotation.y = i * 1.3; m.castShadow = true; g.add(m);
+  }
+  return g;
+}
+
 function buildGround(ctx, sec) {
   const g = new THREE.Group();
   const { x, z, w, d } = sec.box;
   const isLawn = sec.id === 'lawn-seaward';
   g.add(box(w, 0.04, d, mat('#ffffff', { map: isLawn ? TEX.grass([w / 3, d / 3]) : TEX.sand([w / 3, d / 3]), roughness: 1 }), x + w / 2, -0.02, z + d / 2));
   const trees = sec.trees || [];
-  for (const t of trees) g.add(t.type === 'shrub' ? shrub(t.x, t.z, t.r || 0.8, t.color) : palm(t.x, t.z, t.h || 7, t.lean ?? 0.18));
+  for (const t of trees) g.add(t.type === 'shrub' ? shrub(t.x, t.z, t.r || 0.8, t.color) : t.type === 'tall-shrub' ? tallShrub(t.x, t.z, t.h || 2, t.color) : t.type === 'croton' ? croton(t.x, t.z) : t.type === 'broadleaf' ? broadLeaf(t.x, t.z) : palm(t.x, t.z, t.h || 7, t.lean ?? 0.18));
   if (isLawn) {
     g.add(box(w, 4, 2, mat('#5e7a3a', { roughness: 1 }), x + w / 2, -2, z + 1));
-    for (let i = 0; i < 16; i++) g.add(shrub(x + 1 + i * (w - 2) / 15, z + 2 + (i % 3) * 0.6, 0.7 + (i % 2) * 0.3, i % 4 === 0 ? '#8fb84a' : '#4e7a34'));
+    for (let i = 0; i < 40; i++) {
+      const sx = x + 1 + i * (w - 2) / 39, sz = z + 2 + (i % 3) * 0.6;
+      g.add(shrub(sx, sz, 0.7 + (i % 2) * 0.3, i % 4 === 0 ? '#8fb84a' : '#4e7a34'));
+      if (i % 3 === 0) { const f = new THREE.Mesh(new THREE.SphereGeometry(0.08, 5, 4), mat('#f2d23c')); f.position.set(sx + 0.3, 1.1, sz - 0.4); g.add(f); }
+    }
   }
   return tag(g, sec.id);
 }
@@ -426,9 +487,9 @@ const PROPS = {
   lounger: () => { const g = new THREE.Group(); g.add(box(0.7, 0.08, 1.9, mat('#f4f4f0'), 0, 0.35, 0)); const b = box(0.7, 0.6, 0.08, mat('#f4f4f0'), 0, 0.6, -0.9); b.rotation.x = 0.5; g.add(b); return g; },
   'rocking-chair': () => { const g = new THREE.Group(); g.add(box(0.6, 0.06, 0.6, mat('#4a2e1a'), 0, 0.45, 0)); g.add(box(0.6, 0.7, 0.06, mat('#4a2e1a'), 0, 0.8, -0.28)); return g; },
   bbq: () => { const g = new THREE.Group(); g.add(box(1.3, 0.9, 0.6, mat('#1e1e1e', { metalness: 0.4 }), 0, 0.45, 0)); g.add(box(1.3, 0.3, 0.6, mat('#b8bcc0', { metalness: 0.7, roughness: 0.3 }), 0, 1.05, 0)); return g; },
-  pot: () => { const g = new THREE.Group(); g.add(cyl(0.35, 0.28, 0.6, mat('#141414', { roughness: 0.3 }), 0, 0.3, 0)); g.add(shrub(0, 0, 0.5, '#4f8a3a').translateY(0.6)); return g; },
+  pot: () => { const g = new THREE.Group(); g.add(cyl(0.35, 0.28, 0.6, mat('#141414', { roughness: 0.3 }), 0, 0.3, 0)); g.add(broadLeaf(0, 0, 1.4).translateY(0.5)); return g; },
   tv: () => box(1.4, 0.5, 0.45, mat('#2a1b10'), 0, 0.25, 0),
-  planter: () => { const g = new THREE.Group(); g.add(box(3, 0.6, 0.8, mat('#e6dfcc'), 0, 0.3, 0)); for (let i = -1; i <= 1; i++) g.add(shrub(i * 0.9, 0, 0.5, i ? '#5e8a3a' : '#b7522f').translateY(0.4)); return g; },
+  planter: () => { const g = new THREE.Group(); g.add(box(3, 0.6, 0.8, mat('#e6dfcc'), 0, 0.3, 0)); g.add(croton(-0.9, 0, 1.3).translateY(0.5)); g.add(tallShrub(0.1, 0.1, 1.6, '#6e9a3a').translateY(0.5)); g.add(croton(1.0, -0.1, 1.1).translateY(0.5)); return g; },
   'ac-unit': () => box(0.8, 0.6, 0.3, mat('#dddddd'), 0, 0.35, 0),
   'gas-bottle': () => cyl(0.18, 0.18, 0.7, mat('#d9d9d9'), 0, 0.35, 0),
   bicycle: () => { const g = new THREE.Group(); [-0.45, 0.45].forEach(x => { const w = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.03, 6, 14), mat('#222')); w.position.set(x, 0.3, 0); w.rotation.y = Math.PI / 2; g.add(w); }); g.add(box(0.9, 0.04, 0.04, mat('#222'), 0, 0.55, 0)); return g; },
