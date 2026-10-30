@@ -1,73 +1,82 @@
 # Floor plan notes
 
 Working notes toward `floorplan/`. Everything here is inferred from photos; nothing is measured.
+Revision 2 (32 photos).
 
 ## What the photos establish about layout
 
-1. The house is one storey, a long rectangular wing, with its long seaward face fully opened by
-   bi-fold louvre doors onto the pavilion (photo 11/16).
-2. Reading the door run from left to right in photo 11 (standing at the pool, facing the house):
-   - **Master bedroom** — far left; opens to a dark grey tiled apron and lawn, outside the
-     cream-tiled pavilion floor.
-   - solid rendered pier
-   - **Living room** — centre; the tall cathedral space with the raised gable (photo 01).
-   - **Kitchen** — behind the living room, landward side, lower ceiling (photos 04, 05).
-   - **Further room(s)** — right of the living room, behind more bi-fold doors. Unknown.
-3. The master bedroom has: an ensuite on its back (landward or end) wall, with a mirror that
-   reflects the sea, so the ensuite must have its own opening toward the seaward side or a
-   window line-of-sight (photo 12); a screened door on the side wall to an adjoining room.
-4. The living room sits one step higher in roof form (gable) than the bedroom wing's hip roof.
-5. Services (AC outdoor units, gas bottles) are on the landward long wall and the bedroom-end
-   wall (photos 01, 13).
-6. The pavilion is roughly the full length of the house. Its pergola half is on the house side;
-   its thatched half covers the pool-side seating.
-7. The pool runs parallel to the house, directly in front of the pavilion's thatched half.
-8. The bure is at the far end of the pool on the seaward side; the pool's spa nook is beside it.
-9. The BBQ is at the pavilion's landward-right corner, on the side away from the bedroom.
+1. **Courtyard house.** A great room faces the sea; bedroom wings run landward from both ends;
+   a far wing closes the square (photo 17 shows walls, doors and roof on three sides of the
+   courtyard). A pergola-covered walkway runs around the courtyard.
+2. **Great room** (photos 18–26): one space under a hip roof. Facing the sea: kitchen galley
+   at the back-left with a flat ceiling; lounge in front of it on the seaward side; dining on
+   the right. Open on the seaward side (pavilion), the right side (verandah, BBQ), and at the
+   back via the kitchen's courtyard door and a hallway beside the fridge.
+3. **Hallway** (photo 26) runs from the great room, next to the fridge, landward to the
+   courtyard walkway, with louvre doors off it.
+4. **Master bedroom** (photos 12, 30, 32) is in the **left wing**, opens east/west along the
+   left side verandah, which runs straight to the sea and joins the pool pavilion at its
+   left corner. Its ensuite is on the back or end wall and has a seaward opening (mirror
+   reflects the sea). A screened door connects to the next room.
+5. **Second bedroom** (photos 26, 31) opens off the **right end** of the great room; it has a
+   short passage past the bed head to a further door.
+6. **Courtyard bedrooms**: doors and windows onto the walkway on the left wing and the far
+   wing (photo 17). Count unknown.
+7. **Pergola is continuous** and one height: pavilion → both side verandahs → courtyard
+   walkway. Floor is one level throughout; no steps.
+8. **Pool** runs parallel to the great room, directly off the pavilion, with a linear drain
+   between. Spa nook at the right end; **bure** beyond that at the right end of the pool.
+9. **BBQ** on the right side verandah just outside the dining doors. Gas bottles at the
+   master-bedroom end (photo 11, left) and against the left wing's outer wall (photo 1).
+10. **Services** (AC outdoor units) on the left wing's outer garden wall (photos 1, 13).
 
 ## Dimension estimates (from photos — all `est.`)
 
 | Element | Estimate | Basis |
 |---|---|---|
-| Pavilion post section | 200 × 200 mm | compared to a 600 mm floor tile |
-| Terrace tile | 600 × 300 mm | typical format, matches people in frame |
-| Pavilion width (house wall to pool coping) | 7–8 m | ~12 tiles deep |
-| Pavilion length | 18–20 m | spans bedroom to beyond living room |
+| Floor tile | 600 × 600 mm | counted against doors (~2.1 m) and a king bed |
+| Pergola post | 200 × 200 mm | vs tile |
+| Pergola rafter spacing | 900 mm | counted along the pavilion |
+| Pool pavilion depth (house to coping) | 5 m | ~8 tiles |
+| Side verandah / walkway width | 3.5 m / 1.8 m | tiles across |
+| Great room | 10 × 8 m | 4 trusses at ~2.4 m; 8-seat table + lounge + galley |
+| Great room ridge height | 5 m | trusses above 2.1 m doors |
+| Kitchen galley | 4.5 × 1.2 m walkway | island length, sink + dishwasher + cabinets |
+| Island | 4 × 1 m | 1.5 sink + dishwasher + 3 cabinet bays |
 | Pool | 12 × 4 m | ~20 × 7 coping tiles |
-| Bure | 3.5 × 3.5 m | four posts, bench length |
+| Bure | 5 × 5 m | bench length, people seated |
 | Bure bench height | 450 mm | seated figures |
-| Living room ceiling ridge | 4.5 m | rafters above pendants |
-| Kitchen ceiling | 2.7 m | standard flat ceiling, downlights |
-| Bi-fold leaf width | 500 mm | counted in door runs |
 | Bedroom | 4.5 × 5 m | king bed with ~1 m each side |
+| Bi-fold leaf | 500 mm | counted in door runs |
 | Lawn shelf height above reef | 3–6 m | photos 09, 02 |
+| Courtyard | 10 × 12 m | palm spacing, hedge block |
 
 ## Unknowns — photos or measurements still needed
 
 Priority order. Each one unblocks a part of the plan.
 
-1. **The rooms right of the living room** — what is behind the right-hand bi-fold doors?
-   Bedrooms? How many? Photos from the pavilion looking in, and from inside.
-2. **Ensuite(s)** — full view, including which wall the door and window are on.
-3. **Landward side of the house** — the back wall end to end. Is there a back door, a laundry,
-   a carport, an entry path? Where do you arrive from?
-4. **Both end walls of the house** — to count rooms and get the wing length.
-5. **The hallway / connecting door** from the master bedroom — where does it go?
-6. **A view from the bure back toward the house** — gives the pool-to-house geometry.
-7. **Roof from a distance** (from the lawn or the water) — confirms the hip/gable arrangement.
-8. **Any paper**: a survey, site plan, builder's drawings, or real-estate listing. Even a rough
-   sketch with paced-out measurements would replace most estimates above.
+1. **The far (landward) wing** — what is in it: more bedrooms, the entry, laundry, storage?
+   Photos along its courtyard walkway and from outside.
+2. **How many bedrooms in total**, and which doors on the courtyard walkway lead to which.
+   A quick walk-through, one photo per door.
+3. **The hallway from the great room** — what the doors off it are (bathroom? laundry?).
+4. **Entry** — how you arrive at the house: path, gate, carport, which wall the front door
+   is in.
+5. **Each ensuite / bathroom** — one photo each, including which wall the door is on.
+6. **The right wing's outer side** (the BBQ verandah side) from the lawn, end to end.
+7. **Roof from a distance** (from the lawn or the water) — confirms the hip arrangement and
+   where the great room's roof meets the wings.
+8. **Any paper**: survey, site plan, builder's drawings, listing. Even paced-out measurements
+   of the pool, the great room and one bedroom would replace most estimates above.
 9. **Orientation**: compass direction of the sea view, or a map pin.
-10. **Pool depth / spa**: is the nook a spa with jets, or a swim-out seat?
-11. **Second structure** — photo 01 shows a raised gable behind the pavilion; confirm it is the
-    living room roof and not a separate building.
+10. Pool depth; whether the nook is a heated spa or a swim-out seat.
 
 ## Plan of attack
 
-- Once items 1–4 arrive: draw a schematic plan (rooms as boxes, correct adjacency) in
-  `floorplan/schematic.svg`.
+- Enough is now known to draw a **schematic plan** of the seaward half (great room, kitchen,
+  master wing, pavilion, pool, bure) — doing that next in `floorplan/schematic.svg`, with
+  the landward half as a dashed outline until items 1–3 arrive.
 - Once any measurements arrive: scale it, add wall thicknesses (render on block: ~200 mm),
   door and window positions.
-- 3D: block model from the plan + roof forms, then detail the pavilion timberwork (it is the
-  visually defining element — posts, stepped rafter tails, pergola grid, thatched hip, pandanus
-  ceiling).
+- 3D: block model from the plan + roof forms, then detail the pergola timberwork (posts,
+  stepped rafter tails, lining), the great room trusses, and the bure.

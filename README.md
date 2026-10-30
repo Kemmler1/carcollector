@@ -25,15 +25,18 @@ fixture and view), precise enough to:
 
 ## Status
 
-- 16 photos received and logged. More to come.
+- 32 photos received and logged. More to come.
+- Plan type established: courtyard house, great room to the sea, bedroom wings landward,
+  continuous pergola. The landward (far) wing and the bedroom count are still unknown.
 - No measurements yet. Every dimension in the docs is an estimate from photos and is marked as such.
-- Floor plan and 3D not started; blocked on photos of the areas listed under "Unknowns" in
-  `docs/floor-plan-notes.md`.
+- Floor plan: schematic of the seaward half is next; the landward half waits on the photos
+  listed under "Unknowns" in `docs/floor-plan-notes.md`. 3D not started.
 
 ## Conventions
 
 - Photos are numbered `NN-description.jpg` in order received. Never renumber.
 - Dimensions: metres. Estimates are written `~3.0 m (est.)`; measured values have no qualifier.
 - Compass directions are provisional until a site plan or map confirms orientation.
-  Working assumption: the pool/bure terrace faces the open sea; the mainland headland is to the
-  left when standing at the pool looking out.
+  Working assumption: the sea is "front". Standing in the great room facing the sea, the master
+  bedroom wing is on the left and the BBQ / bure side is on the right; the mainland headland is
+  to the left.

@@ -282,3 +282,222 @@ Camera at the pool side of the bure, looking out to sea.
 - Unobstructed 180° sea view, coconut palms either side.
 
 Establishes: bure interior layout; the bure is open on all sides.
+
+---
+
+# Batch 2 (photos 17–32)
+
+**Correction to batch 1.** Photos 11/16 were taken from inside the **bure**, not from the
+pavilion. The "thatched hip roof with woven pandanus panels" I attributed to the pavilion in
+batch 1 is the bure's roof. The pavilion itself is a **flat timber pergola the whole way** —
+dark beams, honey board lining, no thatch. The bure is larger than first estimated (~5 × 5 m).
+Entries 11/16 and the reference docs are superseded on this point.
+
+Batch 2 also establishes that the house is a **courtyard house**: the great room on the
+seaward side, bedroom wings running landward on both sides, a walkway under the same pergola
+roof wrapping a planted central courtyard, and a far (landward) wing closing the square.
+
+## 17 — Courtyard walkway and garden
+`17-courtyard-walkway-and-garden.jpg`
+
+Camera at a bi-fold door on the courtyard side of a bedroom wing, looking along the walkway.
+
+- **Walkway**: covered by the same dark-beam / honey-board pergola as the pool pavilion, posts
+  at the corners. Floor: pale grey-cream tiles (lighter than the pavilion grey). ~1.8 m (est.)
+  wide.
+- **Wing wall** (left): off-white render, a run of **tropical paintings** on the outside wall
+  (frangipani on green, bird-of-paradise), a solid dark timber door at the end of the run, a
+  recessed window reveal.
+- **Courtyard garden**: a raised bed of tall clipped shrubs (a hedge block ~1.5 m high, bright
+  lime-green), sandy ground, several coconut palms rising through it, an open area beyond with
+  a chair visible.
+- **Far wing** across the courtyard: rendered walls, grey corrugated roof with ply soffit and
+  exposed rafter tails, a dark timber door, louvre windows, more paintings on the outside wall.
+  The walkway continues around the far side under the pergola.
+- Right: another post and a louvre bi-fold leaf (the camera's doorway).
+
+Establishes: courtyard plan; the walkway is the circulation between bedrooms; the paintings
+run on every courtyard-facing wall.
+
+## 18 — Kitchen pantry and lounge from the side door
+`18-kitchen-pantry-and-lounge-from-side-door.jpg`
+
+Camera just inside a louvre bi-fold on the great room's side wall, beside the kitchen.
+
+- Left: a tall dark-timber pantry bank (vertical boards, full height, two-door) set in a
+  rendered nib; the kitchen run beyond it with hob, oven, LG fridge, louvre window.
+- Ceiling over the kitchen: pale ply with battens, downlights; a thick dark beam marks the edge
+  where the **great room's hip roof** begins — dark-stained trusses with steel plates, ply
+  lining, black ceiling fans, white cylinder pendants.
+- Island bar end-on with a cream water cooler; bar stools.
+- Lounge beyond: **black leather sofas with round timber log legs** (a distinctive local style
+  — thick turned timber posts as legs), blue/grey patterned cushions, a chunky timber coffee
+  table, bi-folds open to the pavilion with bean bags and pool.
+
+Establishes: the great room roof is a hip/pyramid with trusses, not a gable; sofa style.
+
+## 19 / 20 — Dining from the side-verandah doors
+`19-dining-from-side-verandah-doors-a.jpg`, `20-...-b.jpg`
+
+Camera on the **right-hand side verandah**, in the open bi-fold doorway, looking into the
+great room across its width.
+
+- Immediately inside: an **8-seat dark timber dining table** with slatted-back chairs.
+- Beyond it the lounge, then the far bi-folds open to the pool, palms and sea (so the great
+  room is open on the seaward side AND this side).
+- Left: kitchen with island bar and stools, water cooler, louvre window, pantry.
+- Right: more bi-fold leaves folded back, the pavilion, bean bags, pool edge.
+- Ceiling at the doorway: honey boards on dark beams (the verandah pergola) with a deep dark
+  header beam; inside, the hip roof with 2 fans and 8+ pendants.
+- The door threshold is a flush bronze/brass strip in the tile — no step.
+- Door leaves: honey-timber louvre uppers, solid lowers, black steel hinges; some leaves have
+  a **mesh fly-screen** in the lower panel.
+
+Establishes: dining position; that the great room opens on two sides; 8 pendants.
+
+## 21 — Great room from the kitchen corner toward the sea
+`21-great-room-from-kitchen-corner-toward-sea.jpg`
+
+- Lounge at left (two sofas + two single armchairs, log legs), dining table centre, bi-folds
+  to the pool straight ahead, bi-folds to the pavilion at right (rocking chairs out there).
+- A massive dark **header beam** spans the whole opening; the hip roof sits above it.
+- Floor: grey-taupe large tiles.
+
+Establishes: the great room's seaward wall is almost entirely bi-fold doors.
+
+## 22 — Kitchen island toward the lounge and pool
+`22-kitchen-island-toward-lounge-and-pool.jpg`
+
+- Island: ~4 m long (est.), sand stone top with a raised bar ledge on the lounge side, single
+  bowl + half bowl sink, mixer tap, dark vertical-board base.
+- Against the end wall: a low dark timber **TV/media cabinet** with a router, frangipani
+  painting above, carved mask beside.
+- Lounge, pool and sea beyond; palms framing.
+
+## 23 — Kitchen galley, island, sinks, desk
+`23-kitchen-galley-island-sinks-desk.jpg`
+
+- Galley between island and back bench ~1.2 m (est.).
+- Island side: **double stainless sink** (1.5 bowl), mixer, a stainless **dishwasher** under.
+- Back bench: gas hob, under-bench oven, kettle; louvre window over, a pale grey render nib.
+- End of the galley: a **timber desk with drawers and a cane chair** against the end wall,
+  frangipani painting and mask above. A second small flower print. Fire extinguisher on the
+  bar.
+- Ceiling: ply boards, downlights.
+
+Establishes: desk sits at the end of the kitchen galley, not in the lounge.
+
+## 24 — Kitchen from the courtyard door toward the dining
+`24-kitchen-from-courtyard-door-toward-dining.jpg`
+
+Camera at the open bi-fold on the kitchen's landward/courtyard side.
+
+- Right: the fridge in a rendered nib with a dark timber cupboard over, then the open bi-fold
+  with courtyard greenery outside.
+- Island, lounge, dining; beyond the dining the **BBQ** on the right-hand side verandah with
+  trees behind.
+- Pantry bank and fridge nib form a short wall segment; the kitchen is open to the lounge
+  above bench height.
+
+Establishes: the kitchen has its own door to the courtyard side; BBQ is on the right verandah.
+
+## 25 — Great room from the pavilion door, trusses
+`25-great-room-from-pavilion-door-trusses.jpg`
+
+- Full view of the **hip roof**: four dark-stained trusses with black steel king-post plates,
+  ply lining between, 2 black fans on the ridge line, 8 white cylinder pendants in a grid.
+- The roof's lower edge is a continuous dark beam on **square honey-timber posts**; above the
+  kitchen the wall is honey horizontal boards.
+- Sofa facing the camera, bar with 4 stools at right, fridge and pantry; far bi-folds open to
+  the side verandah with dining chairs and trees.
+- Floor: grey-taupe tile, 600 mm (est.), running out through the doors without a step.
+
+Establishes: roof structure for the 3D model.
+
+## 26 — Great room, hallway and second-bedroom door
+`26-great-room-hallway-and-second-bedroom-door.jpg`
+
+Camera at a pavilion bi-fold near the right end of the great room.
+
+- Lounge and bar at left; the fridge; then a **hallway** leading landward from the great room
+  (bright at the far end — it reaches the courtyard walkway), with louvre doors either side.
+- Right: a dark louvre **bi-fold door set into the great room's end wall**, open, showing a
+  room with louvre windows, white curtain and a bed — a **second bedroom** that opens off the
+  great room / right verandah, with its own view of lawn and palms.
+- Two carved masks flank the hallway opening; a timber chest below one.
+- Floor: grey tile continuing out onto the verandah.
+
+Establishes: a hallway from the great room to the courtyard; a bedroom at the right end.
+
+## 27 — Pavilion along the house toward the bure
+`27-pavilion-along-house-toward-bure.jpg`
+
+- The pavilion is a **flat pergola** for its full length: dark beams at ~900 mm centres,
+  honey board lining, dark edge beam, square posts along the pool side.
+- Pool directly beside the pavilion, with a linear drain between; bean bags; the **spa nook**
+  at the far end; the **bure** beyond it with people on its bench; rocking chairs at the far
+  end of the pavilion.
+- Right: the great room's bi-folds, some leaves folded, honey-timber louvres; the rendered
+  pier between door sets is clad in honey timber boards.
+- Floor: grey-taupe tile, matching inside.
+
+Establishes: pavilion roof is flat pergola only (corrects batch 1); bure at the pool's far end.
+
+## 28 — Pavilion toward the pool and bure end
+`28-pavilion-toward-pool-and-bure-end.jpg`
+
+- Infinity edge in the foreground, pool running away to the spa nook and bure; people walking
+  on the bure platform; rocking chairs under the pavilion at right.
+- A bi-fold leaf with a **fly-screen panel** at right.
+- Lawn edge, palms, reef flat at left.
+
+## 29 — Pavilion corner bay, lawn and sea
+`29-pavilion-corner-bay-lawn-and-sea.jpg`
+
+Camera at the left-hand corner of the pavilion.
+
+- The pavilion turns the corner: an open bay to the lawn with sun loungers and bean bags, the
+  pool's infinity edge and the bure beyond, the great room's bi-folds at right, the lounge
+  visible inside.
+- Honey-timber boarded wall at the far right (the end wall of the great room, clad outside in
+  horizontal boards).
+- Pergola beams run through the corner; a short section near the lawn has an open grid.
+
+## 30 — Bedroom side verandah toward the sea
+`30-bedroom-side-verandah-toward-sea.jpg`
+
+Camera on the **left-hand side verandah**, outside the master bedroom, looking toward the sea.
+
+- The verandah runs **perpendicular to the shore** along the bedroom wing's outer wall, under
+  the pergola, dark grey tile, with the lawn on the left and the bedroom doors on the right.
+- The bedroom wing's outer wall is **clad in horizontal honey timber boards**, with dark
+  louvre bi-fold doors (one with a fly-screen panel) and a dark louvre window.
+- The verandah meets the main pavilion at the corner; sun loungers and bean bags at the end.
+- Stepped rafter tails cast the striped shadow onto the lawn.
+
+Establishes: the bedroom wing's outer wall is timber-clad, not render, on the verandah side;
+the side verandah geometry.
+
+## 31 — Second bedroom, heliconia painting and passage
+`31-second-bedroom-heliconia-and-passage.jpg`
+
+- A four-poster (queen/king) with dark square posts, white linen; a **red heliconia on green
+  bamboo** canvas above; black wall reading lights; a bedside table with a tropical-print top.
+- Walls: warm cream render; ceiling a cathedral ply with a dark beam at the corner.
+- Left: a short **passage** past the bed head, tiled, leading to a pale timber door (ensuite
+  or wardrobe) with a louvre window on the passage wall.
+- A timber door frame at the far right.
+
+Establishes: at least two bedrooms have four-posters and the same art style.
+
+## 32 — Bedroom looking out to the verandah and sea
+`32-bedroom-looking-out-to-verandah-and-sea.jpg`
+
+- From inside a bedroom (likely the master): louvre windows at left with a **Panasonic
+  inverter AC remote** on the wall; bi-folds open to the verandah, pergola beams, bean bags,
+  palms and sea straight ahead.
+- Four-poster with white voile tied back; a bird-of-paradise canvas; a **grey upholstered
+  armchair** in the corner; a dark timber towel cabinet.
+- Cathedral ply ceiling with dark trusses.
+
+Establishes: the master's doors face the sea along the verandah axis.
