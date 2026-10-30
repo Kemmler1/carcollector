@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 
 export const TIMBER = '#5a3a24';
 const HONEY = '#c98f4e';
@@ -463,7 +464,7 @@ function cameraMarker(spot, file) {
 // ---------------------------------------------------------------------------
 // Scene object
 // ---------------------------------------------------------------------------
-export function createScene(canvas, viewport) {
+export function createScene(canvas, stage) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -471,7 +472,7 @@ export function createScene(canvas, viewport) {
 
   const labelRenderer = new CSS2DRenderer();
   Object.assign(labelRenderer.domElement.style, { position: 'absolute', top: '0', pointerEvents: 'none' });
-  viewport.appendChild(labelRenderer.domElement);
+  stage.appendChild(labelRenderer.domElement);
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x9fc9e8);
@@ -491,12 +492,48 @@ export function createScene(canvas, viewport) {
   const BUILDERS = { room: buildRoom, zone: buildZone, pergola: buildPergola, porch: buildPorch, pool: buildPool, bure: buildBure, garden: buildGarden, ground: buildGround, water: buildWater };
 
   function resize() {
-    const w = viewport.clientWidth, h = viewport.clientHeight;
+    const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false); labelRenderer.setSize(w, h);
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
   addEventListener('resize', resize);
-  (function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); labelRenderer.render(scene, camera); })();
+  // first-person walkthrough: pointer lock to look, WASD / arrows to move, Shift to run, Q/E for height
+  const walk = { on: false, keys: new Set(), speed: 2.5, eye: 1.6, controls: new PointerLockControls(camera, canvas), onExit: null };
+  walk.controls.addEventListener('unlock', () => { if (walk.on) stopWalk(); });
+  addEventListener('keydown', e => { if (walk.on) walk.keys.add(e.code); });
+  addEventListener('keyup', e => walk.keys.delete(e.code));
+  function startWalk(onExit) {
+    controls.update();
+    walk.on = true; walk.onExit = onExit; controls.enabled = false;
+    camera.fov = 70; camera.updateProjectionMatrix();
+    camera.position.y = walk.eye;
+    walk.controls.lock();
+  }
+  function stopWalk() {
+    walk.on = false; controls.enabled = true;
+    if (walk.controls.isLocked) walk.controls.unlock();
+    camera.fov = 45; camera.updateProjectionMatrix();
+    // keep looking where we were
+    const dir = new THREE.Vector3(); camera.getWorldDirection(dir);
+    controls.target.copy(camera.position).addScaledVector(dir, 8);
+    walk.onExit?.(); walk.onExit = null;
+  }
+  const clock = new THREE.Clock();
+  (function animate() {
+    requestAnimationFrame(animate);
+    const dt = Math.min(clock.getDelta(), 0.1);
+    if (walk.on) {
+      const k = walk.keys, v = walk.speed * (k.has('ShiftLeft') || k.has('ShiftRight') ? 2.5 : 1) * dt;
+      if (k.has('KeyW') || k.has('ArrowUp')) walk.controls.moveForward(v);
+      if (k.has('KeyS') || k.has('ArrowDown')) walk.controls.moveForward(-v);
+      if (k.has('KeyA') || k.has('ArrowLeft')) walk.controls.moveRight(-v);
+      if (k.has('KeyD') || k.has('ArrowRight')) walk.controls.moveRight(v);
+      if (k.has('KeyE')) camera.position.y += v;
+      if (k.has('KeyQ')) camera.position.y -= v;
+      camera.position.y = Math.max(0.4, camera.position.y);
+    } else controls.update();
+    renderer.render(scene, camera); labelRenderer.render(scene, camera);
+  })();
 
   function build(version) {
     modelGroup.clear(); ctx.roofs.length = 0; ctx.labels.length = 0; for (const k in ctx.sections) delete ctx.sections[k];
@@ -558,10 +595,15 @@ export function createScene(canvas, viewport) {
   }
   function resetView() { camera.position.set(-30, 14, -32); controls.target.set(0, 1, 6); }
   function topView() { camera.position.set(0, 70, 8.01); controls.target.set(0, 0, 8); }
+  function setFov(f) { camera.fov = f; camera.updateProjectionMatrix(); }
+  function getView() {
+    const p = camera.position, t = controls.target;
+    return { x: +p.x.toFixed(2), y: +p.y.toFixed(2), z: +p.z.toFixed(2), lookX: +t.x.toFixed(2), lookY: +t.y.toFixed(2), lookZ: +t.z.toFixed(2) };
+  }
   function photoView(spot) {
     camera.position.set(spot.x, spot.y ?? 1.5, spot.z);
     controls.target.set(spot.lookX ?? spot.x, spot.lookY ?? 1.4, spot.lookZ ?? spot.z + 1);
   }
   resize();
-  return { scene, camera, controls, build, buildMarkers, highlight, applyToggles, pick, groundPoint, flyTo, resetView, topView, photoView, resize };
+  return { scene, camera, controls, build, buildMarkers, highlight, applyToggles, pick, groundPoint, flyTo, resetView, topView, photoView, setFov, getView, resize, startWalk, stopWalk, isWalking: () => walk.on };
 }

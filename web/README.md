@@ -38,7 +38,14 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
   Camera spots appear as small orange cameras in the 3D view; click one to see the photo,
   then "Look from this spot" to put the 3D camera there. All of it is saved in the browser
   and "Download v1.json with assignments" gives you the version file to commit.
-- Toggles: wireframe, roofs off (dollhouse view), labels, photo spots. Top view.
+- **Compare** (Photos menu, or `C`): flick through the photos (`←` `→`) next to the 3D view from
+  the photo's camera spot, or **Overlay** (`O`) at 50% to line them up. The 3D camera uses the
+  4:3 frame and ~85° vertical FOV of a phone's 0.5× ultrawide lens. Orbit until it matches and
+  **Save Spot**.
+- **Walk** (`W`): first-person; mouse to look, `W A S D`, `Shift` to run, `Q`/`E` for height, `Esc`.
+- Mac-style menu bar (File / View / Photos / Versions / Help) with keyboard shortcuts under Help.
+  Light and dark follow the system. Photos preload in the background after the model loads.
+- View menu: roofs off (dollhouse view), labels, photo spots, wireframe. Plan view.
 
 ## Version control
 

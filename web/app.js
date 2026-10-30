@@ -14,6 +14,7 @@ const state = {
   selected: null,
   toggles: { wire: false, roofs: true, labels: true, markers: true },
   placing: null, // { file, step: 'pos'|'look', spot }
+  compare: { on: false, index: 0, mode: 'side', opacity: 0.5 },
   onboardIndex: 0,
 };
 function loadJSON(key, fallback) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; } }
@@ -22,7 +23,9 @@ function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;'
 const $ = (id) => document.getElementById(id);
 
 const viewport = $('viewport');
-const view = createScene($('canvas'), viewport);
+const view = createScene($('canvas'), $('stage'));
+const PHOTO_FOV = 85;   // vertical FOV of a 13 mm-equivalent (iPhone 0.5×) lens on a 4:3 frame
+const DEFAULT_FOV = 45;
 
 // ---------------------------------------------------------------------------
 // Versions. "base" is the stored version; "current" is base with the browser's
@@ -58,10 +61,10 @@ function setVersion(id) {
   state.current = applyAssignments(state.base);
   const sel = $('version-select');
   sel.innerHTML = state.versions.map(v => `<option value="${v.version}" ${v.version === state.base.version ? 'selected' : ''}>${v.version}${v._local ? ' (browser only)' : ''}</option>`).join('');
-  $('version-summary').textContent = state.current.summary || '';
+  $('version-label').textContent = state.base.version;
   view.build(state.current);
   view.applyToggles(state.toggles);
-  renderList(); renderGeneralComments();
+  renderList(); renderGeneralComments(); renderVersionsMenu();
   if (state.selected && sectionById(state.selected)) selectSection(state.selected); else closeDetail();
 }
 function refreshCurrent() { state.current = applyAssignments(state.base); view.build(state.current); view.applyToggles(state.toggles); view.highlight(state.selected); refreshAll(); }
@@ -80,7 +83,7 @@ function updateComment(sectionId, id, patch) {
 }
 function renderComments(container, sectionId) {
   const list = commentsFor(sectionId);
-  container.innerHTML = list.length ? '' : '<div class="muted">No notes yet.</div>';
+  container.innerHTML = '';
   for (const c of list) {
     const el = document.createElement('div');
     el.className = 'comment' + (c.done ? ' done' : '');
@@ -146,15 +149,15 @@ function renderDetail(s) {
     <div class="meta">Footprint ~${b.w} × ${b.d} m (est.) at x ${b.x}, z ${b.z}${s.wallHeight ? ` · height ${s.wallHeight} m` : ''}${s.roof ? ` · roof ${s.roof.type}` : ''}</div>
     <h3>Description</h3><p>${esc(s.description || '')}</p>
     ${s.materials ? `<h3>Materials</h3>${list(s.materials)}` : ''}
-    ${s.furniture ? `<h3>Furniture & fittings</h3>${list(s.furniture)}` : ''}
+    ${s.furniture ? `<h3>Furniture</h3>${list(s.furniture)}` : ''}
     ${s.openings?.length ? `<h3>Openings</h3>${list(s.openings.map(o => `${o.side} wall: ${o.type} ${o.from}–${o.to} m`))}` : ''}
     ${s.changes ? `<h3>Changes in this version</h3><p>${esc(s.changes)}</p>` : ''}
     ${notes.length ? `<h3>Photo notes</h3>${list(notes)}` : ''}
     <h3>Photos (${s.photos?.length || 0})</h3>
     <div class="thumbs">${(s.photos || []).map(p => `<img loading="lazy" src="${THUMB_DIR}${p}" data-file="${p}" alt="${esc(p)}" title="${esc(p)}">`).join('')}</div>
-    <h3>Notes — things to change or add</h3>
+    <h3>Notes</h3>
     <div class="comment-list" id="section-comments"></div>
-    <form class="comment-form" id="section-comment-form"><textarea rows="3" placeholder="e.g. Make the pool 2 m longer; add an outdoor shower here"></textarea><button>Add note</button></form>`;
+    <form class="comment-form" id="section-comment-form"><textarea rows="2" placeholder="Add a note"></textarea><button>Add</button></form>`;
   renderComments(body.querySelector('#section-comments'), s.id);
   body.querySelector('#section-comment-form').onsubmit = e => { e.preventDefault(); const ta = e.target.querySelector('textarea'); if (ta.value.trim()) { addComment(s.id, ta.value.trim()); refreshAll(); } };
   body.querySelectorAll('.thumbs img').forEach(img => img.onclick = () => openLightbox(img.dataset.file));
@@ -177,6 +180,7 @@ $('lb-close').onclick = () => lightbox.classList.add('hidden');
 lightbox.querySelector('img').onclick = () => lightbox.classList.add('hidden');
 $('lb-view').onclick = () => { const spot = state.current.photoSpots?.[lightboxFile]; if (spot) { view.photoView(spot); lightbox.classList.add('hidden'); } };
 $('lb-assign').onclick = () => { lightbox.classList.add('hidden'); openOnboarding(state.photos.indexOf(lightboxFile)); };
+$('lb-compare').onclick = () => { lightbox.classList.add('hidden'); enterCompare(state.photos.indexOf(lightboxFile)); };
 
 const modal = $('modal');
 function openModal(title, html) { $('modal-title').textContent = title; $('modal-body').innerHTML = html; modal.classList.remove('hidden'); }
@@ -190,6 +194,7 @@ const canvas = $('canvas');
 let downPos = null;
 canvas.addEventListener('pointerdown', e => { downPos = [e.clientX, e.clientY]; });
 canvas.addEventListener('pointerup', e => {
+  if (view.isWalking()) return;
   if (!downPos || Math.hypot(e.clientX - downPos[0], e.clientY - downPos[1]) > 4) return;
   if (state.placing) return placeStep(e);
   const hit = view.pick(e.clientX, e.clientY);
@@ -234,29 +239,30 @@ function renderOnboarding() {
   const groups = {};
   for (const s of state.current.sections) (groups[s.group || 'Other'] ||= []).push(s);
   $('onboard-body').innerHTML = `
-    <h2>Assign photos</h2>
-    <div class="meta">Photo ${state.onboardIndex + 1} of ${state.photos.length} · ${done} assigned · ${state.photos.filter(f => state.current.photoSpots?.[f]).length} with a camera spot</div>
+    <h2>Photos</h2>
+    <div class="meta">${state.onboardIndex + 1} of ${state.photos.length} · ${done} assigned</div>
     <div class="progress"><div style="width:${(done / state.photos.length) * 100}%"></div></div>
     <img class="ob-photo" src="${THUMB_DIR}${file}" alt="${esc(file)}" title="Click to enlarge">
     <div class="meta">${esc(file)}</div>
-    <h3>1. Which parts of the house does it show?</h3>
+    <h3>Shows</h3>
     <div class="ob-sections">${Object.entries(groups).map(([g, list]) => `<div class="ob-group">${esc(g)}</div>` + list.map(s =>
       `<label class="ob-check"><input type="checkbox" value="${s.id}" ${assigned.has(s.id) ? 'checked' : ''}> ${esc(s.name.replace(' (unconfirmed)', ''))}</label>`).join('')).join('')}</div>
-    <h3>2. What does it tell us? <span class="muted">(materials, fittings, anything the model is missing)</span></h3>
-    <textarea id="ob-note" rows="3" placeholder="e.g. louvre windows have black levers; there is a ceiling fan over the bed">${esc(state.current.photoNotes?.[file] || '')}</textarea>
-    <h3>3. Where was it taken from?</h3>
+    <h3>Notes</h3>
+    <textarea id="ob-note" rows="3" placeholder="What this photo tells us">${esc(state.current.photoNotes?.[file] || '')}</textarea>
+    <h3>Camera</h3>
     <div class="meta">${spot ? `Camera at x ${spot.x}, z ${spot.z}, looking toward x ${spot.lookX ?? '?'}, z ${spot.lookZ ?? '?'}` : 'No camera spot yet.'}</div>
     <div class="actions">
-      <button id="ob-place">${spot ? 'Re-place camera' : 'Place camera'}</button>
-      ${spot ? '<button id="ob-look">Look from here</button>' : ''}
+      <button id="ob-place">Place on Plan</button>
+      <button id="ob-useview">Use Current View</button>
+      ${spot ? '<button id="ob-look">Look</button>' : ''}
+      <button id="ob-compare">Compare</button>
     </div>
     <div class="actions ob-nav">
-      <button id="ob-prev" ${state.onboardIndex === 0 ? 'disabled' : ''}>◀ Previous</button>
-      <button id="ob-next" class="primary">${state.onboardIndex === state.photos.length - 1 ? 'Finish' : 'Save & next ▶'}</button>
-      <button id="ob-skip">Next unassigned</button>
+      <button id="ob-prev" ${state.onboardIndex === 0 ? 'disabled' : ''}>Previous</button>
+      <button id="ob-skip">Next Unassigned</button>
+      <button id="ob-next" class="primary">${state.onboardIndex === state.photos.length - 1 ? 'Done' : 'Next'}</button>
     </div>
-    <div class="actions"><button id="ob-download">Download ${esc(state.base.version)}.json with assignments</button><button id="ob-reset">Clear browser assignments</button></div>
-    <p class="muted">Ticks, notes and camera spots save automatically in this browser. "Download" gives you the version file with everything merged, to commit into <code>web/data/versions/</code>.</p>`;
+    <div class="actions"><button id="ob-download">Download ${esc(state.base.version)}.json</button><button id="ob-reset">Reset</button></div>`;
   const save = () => {
     state.assign.photos[file] = [...$('onboard-body').querySelectorAll('.ob-sections input:checked')].map(i => i.value);
     const note = $('ob-note').value.trim();
@@ -276,10 +282,75 @@ function renderOnboarding() {
     const b = $('place-banner'); b.textContent = `Placing ${file}: click where the camera WAS (top view). Esc to cancel.`; b.classList.remove('hidden');
   };
   if ($('ob-look')) $('ob-look').onclick = () => view.photoView(spot);
+  $('ob-useview').onclick = () => { save(); saveSpot(file, view.getView()); renderOnboarding(); };
+  $('ob-compare').onclick = () => { save(); enterCompare(state.onboardIndex); };
   $('ob-download').onclick = () => { save(); refreshCurrent(); download(`${state.base.version}.json`, JSON.stringify(stripLocal(state.current), null, 2)); };
-  $('ob-reset').onclick = () => { if (confirm('Clear all photo assignments, notes and camera spots saved in this browser? The version file is not touched.')) { state.assign = { photos: {}, spots: {}, notes: {} }; saveJSON(LS_ASSIGN, state.assign); refreshCurrent(); renderOnboarding(); } };
+  $('ob-reset').onclick = () => { if (confirm('Clear the photo assignments, notes and camera spots saved in this browser?')) { state.assign = { photos: {}, spots: {}, notes: {} }; saveJSON(LS_ASSIGN, state.assign); refreshCurrent(); renderOnboarding(); } };
 }
 function stripLocal(v) { const c = { ...v }; delete c._local; return c; }
+
+// ---------------------------------------------------------------------------
+// Compare: flick through photos next to (or over) the 3D view from the same spot
+// ---------------------------------------------------------------------------
+function saveSpot(file, spot) {
+  state.assign.spots[file] = spot; saveJSON(LS_ASSIGN, state.assign);
+  state.current.photoSpots ||= {}; state.current.photoSpots[file] = spot; view.buildMarkers(state.current);
+}
+function enterCompare(index) {
+  const c = state.compare;
+  c.on = true; c.index = Math.max(0, Math.min(state.photos.length - 1, index));
+  $('detail').classList.add('hidden'); $('onboard').classList.add('hidden');
+  viewport.classList.add('compare'); $('compare-bar').classList.remove('hidden');
+  view.setFov(PHOTO_FOV); view.applyToggles({ ...state.toggles, labels: false, markers: false });
+  renderCompare(true); seg('btn-compare');
+}
+function exitCompare() {
+  state.compare.on = false;
+  viewport.classList.remove('compare'); $('compare-bar').classList.add('hidden');
+  $('compare-photo').classList.add('hidden'); $('overlay-photo').classList.add('hidden');
+  view.setFov(DEFAULT_FOV); view.applyToggles(state.toggles); view.resize(); seg('btn-iso');
+}
+function renderCompare(goto) {
+  const c = state.compare, file = state.photos[c.index];
+  const spot = state.current.photoSpots?.[file];
+  $('cmp-title').textContent = `${c.index + 1}/${state.photos.length} · ${file}`;
+  $('compare-photo').classList.toggle('hidden', c.mode !== 'side');
+  $('overlay-photo').classList.toggle('hidden', c.mode !== 'overlay');
+  $('cmp-opacity-wrap').style.visibility = c.mode === 'overlay' ? 'visible' : 'hidden';
+  $('cmp-mode-side').classList.toggle('active', c.mode === 'side');
+  $('cmp-mode-overlay').classList.toggle('active', c.mode === 'overlay');
+  $('compare-photo').querySelector('img').src = PHOTO_DIR + file;
+  $('overlay-photo').src = PHOTO_DIR + file; $('overlay-photo').style.opacity = c.opacity;
+  $('cmp-goto').disabled = !spot;
+  if (goto && spot) view.photoView(spot);
+  view.resize();
+}
+$('btn-compare').onclick = () => enterCompare(state.compare.index);
+$('btn-walk').onclick = () => {
+  if (view.isWalking()) return view.stopWalk();
+  if (state.compare.on) exitCompare();
+  // start at the current camera if it is near the ground, else at the pool pavilion
+  const p = view.camera.position; if (p.y > 6) { p.set(0, 1.6, -2.5); view.controls.target.set(0, 1.5, -10); }
+  $('walk-banner').classList.remove('hidden'); document.querySelectorAll('[data-click=btn-walk]').forEach(b => b.classList.add('active'));
+  seg('btn-walk');
+  view.startWalk(() => { $('walk-banner').classList.add('hidden'); seg('btn-iso'); document.querySelectorAll('[data-click=btn-walk]').forEach(b => b.classList.remove('active')); });
+};
+$('cmp-close').onclick = exitCompare;
+$('cmp-prev').onclick = () => { state.compare.index = (state.compare.index + state.photos.length - 1) % state.photos.length; renderCompare(true); };
+$('cmp-next').onclick = () => { state.compare.index = (state.compare.index + 1) % state.photos.length; renderCompare(true); };
+$('cmp-mode-side').onclick = () => { state.compare.mode = 'side'; renderCompare(false); };
+$('cmp-mode-overlay').onclick = () => { state.compare.mode = 'overlay'; renderCompare(false); };
+$('cmp-opacity').oninput = e => { state.compare.opacity = e.target.value / 100; $('cmp-opacity-val').textContent = e.target.value + '%'; $('overlay-photo').style.opacity = state.compare.opacity; };
+$('cmp-goto').onclick = () => renderCompare(true);
+$('cmp-save').onclick = () => { saveSpot(state.photos[state.compare.index], view.getView()); $('cmp-save').textContent = 'Saved'; setTimeout(() => $('cmp-save').textContent = 'Save Spot', 1200); renderCompare(false); };
+$('cmp-assign').onclick = () => { const i = state.compare.index; exitCompare(); openOnboarding(i); };
+addEventListener('keydown', e => {
+  if (!state.compare.on || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowLeft') $('cmp-prev').click();
+  if (e.key === 'ArrowRight') $('cmp-next').click();
+  if (e.key === 'o') $('cmp-mode-overlay').click();
+  if (e.key === 's') $('cmp-mode-side').click();
+});
 
 // ---------------------------------------------------------------------------
 // Export — one bundle for an image-generation model
@@ -344,9 +415,9 @@ function nextVersionId() { return 'v' + (Math.max(...state.versions.map(v => ver
 $('btn-export').onclick = async () => {
   const text = await buildExport();
   openModal(`Export — ${state.current.version}`, `
-    <div class="note">Copy this whole document into ChatGPT (or save it and attach it). It contains the master description, every section, all open notes, photo filenames with camera positions, and the JSON schema to reply with. Attach the photos it names from <code>photos/raw/</code> for the views you want generated.</div>
+    <div class="note">Paste into ChatGPT with the photos it names attached. It replies with a JSON block you import as the next version.</div>
     <textarea id="export-text"></textarea>
-    <div class="actions"><button class="primary" id="copy-export">Copy to clipboard</button><button id="dl-export">Download .md</button><span class="muted" id="export-size"></span></div>`);
+    <div class="actions"><button class="primary" id="copy-export">Copy</button><button id="dl-export">Download</button><span class="muted" id="export-size"></span></div>`);
   $('export-text').value = text;
   $('export-size').textContent = `${(text.length / 1024).toFixed(0)} KB`;
   $('copy-export').onclick = () => { navigator.clipboard.writeText(text); $('copy-export').textContent = 'Copied'; };
@@ -359,7 +430,7 @@ function download(name, text) { const a = document.createElement('a'); a.href = 
 // ---------------------------------------------------------------------------
 $('btn-import').onclick = () => {
   openModal('Import a new version', `
-    <div class="note">Paste the JSON that came back (the block under <b>RETURN JSON</b>, or the whole reply — the first JSON object in it is used). Changed sections are merged over <b>${state.current.version}</b>; everything else carries over. The result is saved in this browser and offered as a file to commit into <code>web/data/versions/</code>.</div>
+    <div class="note">Paste the reply. Its JSON becomes the next version, based on <b>${state.current.version}</b>.</div>
     <textarea id="import-text" placeholder='{"version":"v2","basedOn":"v1","summary":"…","sections":[…]}'></textarea>
     <div class="actions"><button class="primary" id="do-import">Import</button><span class="muted" id="import-msg"></span></div>`);
   $('do-import').onclick = () => {
@@ -423,18 +494,66 @@ function showDiff(v) {
 // ---------------------------------------------------------------------------
 $('version-select').onchange = e => setVersion(e.target.value);
 for (const k of ['wire', 'roofs', 'labels', 'markers']) $('toggle-' + k).onchange = e => { state.toggles[k] = e.target.checked; view.applyToggles(state.toggles); };
-$('btn-top').onclick = view.topView;
-$('btn-iso').onclick = view.resetView;
+$('btn-top').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); view.topView(); seg('btn-top'); };
+$('btn-iso').onclick = () => { if (view.isWalking()) view.stopWalk(); if (state.compare.on) exitCompare(); view.resetView(); seg('btn-iso'); };
+function seg(id) { document.querySelectorAll('#view-seg button').forEach(b => b.classList.toggle('active', b.dataset.click === id)); }
 addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
   modal.classList.add('hidden'); lightbox.classList.add('hidden');
+  if (state.compare.on && modal.classList.contains('hidden')) exitCompare();
   if (state.placing) { state.placing = null; $('place-banner').classList.add('hidden'); $('onboard').classList.remove('hidden'); renderOnboarding(); }
 });
 
-window.__house = { view, state, selectSection, setVersion, openOnboarding };
+// ---------------------------------------------------------------------------
+// Mac-style menu bar: menu items trigger the (hidden) controls by id
+// ---------------------------------------------------------------------------
+document.querySelectorAll('[data-click]').forEach(el => el.addEventListener('click', () => { closeMenus(); $(el.dataset.click).click(); }));
+document.querySelectorAll('[data-toggle]').forEach(el => el.addEventListener('click', () => { const t = $(el.dataset.toggle); t.checked = !t.checked; t.dispatchEvent(new Event('change')); syncMenuChecks(); }));
+function syncMenuChecks() { document.querySelectorAll('[data-toggle]').forEach(el => el.classList.toggle('checked', $(el.dataset.toggle).checked)); }
+syncMenuChecks();
+document.querySelectorAll('.menu-title').forEach(t => {
+  t.addEventListener('click', e => { const open = t.parentElement.classList.contains('open'); closeMenus(); if (!open) t.parentElement.classList.add('open'); e.stopPropagation(); });
+  t.addEventListener('mouseenter', () => { if (document.querySelector('.menu.open')) { closeMenus(); t.parentElement.classList.add('open'); } });
+});
+function closeMenus() { document.querySelectorAll('.menu.open').forEach(m => m.classList.remove('open')); }
+addEventListener('click', closeMenus);
+function renderVersionsMenu() {
+  const m = $('versions-menu'); m.querySelectorAll('.ver').forEach(e => e.remove());
+  for (const v of state.versions) { const b = document.createElement('button'); b.className = 'ver' + (v.version === state.base.version ? ' checked' : ''); b.textContent = `${v.version}${v._local ? ' (browser only)' : ''}`; b.onclick = () => { closeMenus(); setVersion(v.version); }; m.appendChild(b); }
+}
+$('btn-download').onclick = () => download(`${state.base.version}.json`, JSON.stringify(stripLocal(state.current), null, 2));
+$('btn-help').onclick = () => openModal('Keyboard shortcuts', `<div class="shortcuts">
+  <div><kbd>R</kbd> Reset view</div><div><kbd>T</kbd> Top / plan view</div><div><kbd>W</kbd> Walk through (then WASD, Shift, Q/E, Esc)</div>
+  <div><kbd>C</kbd> Compare photos</div><div><kbd>A</kbd> Assign photos</div><div><kbd>←</kbd> <kbd>→</kbd> Previous / next photo in Compare</div>
+  <div><kbd>O</kbd> / <kbd>S</kbd> Overlay / side-by-side in Compare</div><div><kbd>⌘E</kbd> Export</div><div><kbd>⌘I</kbd> Import version</div><div><kbd>Esc</kbd> Close / exit mode</div></div>`);
+addEventListener('keydown', e => {
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || view.isWalking()) return;
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'e') { e.preventDefault(); $('btn-export').click(); }
+  else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'i') { e.preventDefault(); $('btn-import').click(); }
+  else if (e.metaKey || e.ctrlKey || e.altKey) return;
+  else if (e.key === 'r') $('btn-iso').click(); else if (e.key === 't') $('btn-top').click(); else if (e.key === 'w') $('btn-walk').click();
+  else if (e.key === 'c' && !state.compare.on) $('btn-compare').click(); else if (e.key === 'a') $('btn-onboard').click();
+});
+
+window.__house = { view, state, selectSection, setVersion, openOnboarding, enterCompare };
+
+// Warm the browser cache with every photo in the background, thumbnails first, a few at a
+// time, so flicking through Compare is instant. Never blocks the UI.
+function preloadPhotos() {
+  const queue = [...state.photos.map(f => THUMB_DIR + f), ...state.photos.map(f => PHOTO_DIR + f)];
+  let active = 0;
+  const next = () => {
+    while (active < 3 && queue.length) {
+      const img = new Image(); active++;
+      img.onload = img.onerror = () => { active--; next(); };
+      img.src = queue.shift();
+    }
+  };
+  ('requestIdleCallback' in window ? requestIdleCallback : setTimeout)(next);
+}
 
 (async function boot() {
   view.resetView();
-  try { await loadVersions(); setVersion(state.versions.at(-1).version); }
-  catch (e) { $('hint').textContent = 'Could not load data/versions — serve this folder over HTTP (see web/README.md). ' + e.message; console.error(e); }
+  try { await loadVersions(); setVersion(state.versions.at(-1).version); preloadPhotos(); }
+  catch (e) { $('hint').textContent = 'Serve the repository over HTTP to load the model. ' + e.message; console.error(e); }
 })();

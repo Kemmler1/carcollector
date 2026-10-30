@@ -455,7 +455,7 @@
     },
     {
       "id": "left-wing-room-a",
-      "name": "Left wing room A (unconfirmed)",
+      "name": "Triple bedroom, left (mirror, unconfirmed)",
       "kind": "room",
       "group": "Left wing",
       "confirmed": false,
@@ -475,7 +475,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "A door and louvre windows onto the courtyard walkway, with canvases on the wall outside. Not seen inside.",
+      "description": "Not seen inside. By the house's symmetry this is the mirror of the triple bedroom in the right wing: three single beds, wardrobe, screened door and louvre window onto the courtyard walkway. Confirm with a photo.",
       "photos": [
         "17-courtyard-walkway-and-garden.jpg"
       ],
@@ -505,9 +505,24 @@
       ],
       "props": [
         {
-          "type": "bed",
+          "type": "single-bed",
+          "x": 1.0,
+          "z": 3.6
+        },
+        {
+          "type": "single-bed",
           "x": 2.5,
-          "z": 3.0
+          "z": 3.6
+        },
+        {
+          "type": "single-bed",
+          "x": 4.0,
+          "z": 3.6
+        },
+        {
+          "type": "wardrobe",
+          "x": 4.1,
+          "z": 0.6
         }
       ]
     },
@@ -533,7 +548,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Not seen inside.",
+      "description": "Not seen inside. Mirror of right wing room B. Candidates: a bathroom shared by the triple rooms, a laundry, or a fourth bedroom.",
       "photos": [],
       "openings": [
         {
@@ -691,7 +706,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Three single beds in a row, blue bedside tables, red heliconia canvas, black reading lights, wall AC, a louvre window, pale timber wardrobe. Entered through a screened door from the courtyard walkway. Which wing it sits in is a guess.",
+      "description": "Three single beds in a row, blue bedside tables, red heliconia canvas, black reading lights, wall AC, a louvre window, pale timber wardrobe. Entered through a screened door from the courtyard walkway. Placed in the right wing; the left wing almost certainly has its mirror.",
       "photos": [
         "34-triple-bedroom-three-singles-heliconia.jpg"
       ],
@@ -764,7 +779,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Not seen inside. Louvre windows to the side path (photo 37).",
+      "description": "Not seen inside. Louvre windows to the side path (photo 37). Mirror of left wing room B.",
       "photos": [
         "37-side-path-along-wing-to-pool-side.jpg"
       ],
@@ -2105,9 +2120,9 @@
       "lookZ": -6
     },
     "28-pavilion-toward-pool-and-bure-end.jpg": {
-      "x": -4,
+      "x": -3.5,
       "y": 1.5,
-      "z": -3,
+      "z": -2.4,
       "lookX": 8,
       "lookY": 1,
       "lookZ": -9

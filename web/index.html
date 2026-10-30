@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>House Mock-up</title>
+<title>House</title>
 <link rel="stylesheet" href="style.css">
 <script type="importmap">
 { "imports": {
@@ -13,43 +13,89 @@
 </script>
 </head>
 <body>
-<header id="topbar">
-  <strong>House mock-up</strong>
-  <label>Version
+<header id="titlebar">
+  <nav id="menubar">
+    <span class="app-name">House</span>
+    <div class="menu"><button class="menu-title">File</button><div class="menu-items">
+      <button data-click="btn-export">Export for ChatGPT…<kbd>⌘E</kbd></button>
+      <button data-click="btn-import">Import Version…<kbd>⌘I</kbd></button>
+      <div class="menu-sep"></div>
+      <button data-click="btn-download">Download Current Version JSON</button>
+    </div></div>
+    <div class="menu"><button class="menu-title">View</button><div class="menu-items">
+      <button data-click="btn-iso">Reset View<kbd>R</kbd></button>
+      <button data-click="btn-top">Top View<kbd>T</kbd></button>
+      <button data-click="btn-walk">Walk Through<kbd>W</kbd></button>
+      <div class="menu-sep"></div>
+      <button data-toggle="toggle-roofs">Roofs</button>
+      <button data-toggle="toggle-labels">Labels</button>
+      <button data-toggle="toggle-markers">Photo Spots</button>
+      <button data-toggle="toggle-wire">Wireframe</button>
+    </div></div>
+    <div class="menu"><button class="menu-title">Photos</button><div class="menu-items">
+      <button data-click="btn-compare">Compare Photos with Model…<kbd>C</kbd></button>
+      <button data-click="btn-onboard">Assign Photos…<kbd>A</kbd></button>
+    </div></div>
+    <div class="menu"><button class="menu-title">Versions</button><div class="menu-items" id="versions-menu">
+      <button data-click="btn-diff">Diff vs Previous…</button>
+      <div class="menu-sep"></div>
+    </div></div>
+    <div class="menu"><button class="menu-title">Help</button><div class="menu-items">
+      <button data-click="btn-help">Keyboard Shortcuts</button>
+      <a href="../README.md" target="_blank">Project README</a>
+    </div></div>
+  </nav>
+  <div id="toolbar">
+    <span id="version-label"></span>
+    <span class="spacer"></span>
+    <div class="segmented" id="view-seg">
+      <button data-click="btn-iso" class="active">3D</button><button data-click="btn-top">Plan</button><button data-click="btn-walk">Walk</button><button data-click="btn-compare">Compare</button>
+    </div>
+    <button data-click="btn-export" class="primary">Export</button>
+  </div>
+  <div id="hidden-controls">
     <select id="version-select"></select>
-  </label>
-  <span id="version-summary" class="muted"></span>
-  <span class="spacer"></span>
-  <label><input type="checkbox" id="toggle-wire"> Wireframe</label>
-  <label><input type="checkbox" id="toggle-roofs" checked> Roofs</label>
-  <label><input type="checkbox" id="toggle-labels" checked> Labels</label>
-  <label><input type="checkbox" id="toggle-markers" checked> Photo spots</label>
-  <button id="btn-top">Top view</button>
-  <button id="btn-iso">Reset view</button>
-  <button id="btn-onboard">Assign photos</button>
-  <button id="btn-diff">Diff vs previous</button>
-  <button id="btn-import">Import version</button>
-  <button id="btn-export" class="primary">Export for ChatGPT</button>
+    <input type="checkbox" id="toggle-wire"><input type="checkbox" id="toggle-roofs" checked><input type="checkbox" id="toggle-labels" checked><input type="checkbox" id="toggle-markers" checked>
+    <button id="btn-top"></button><button id="btn-iso"></button><button id="btn-walk">Walk through</button><button id="btn-compare"></button><button id="btn-onboard"></button>
+    <button id="btn-diff"></button><button id="btn-import"></button><button id="btn-export"></button><button id="btn-download"></button><button id="btn-help"></button>
+  </div>
 </header>
 
 <main>
   <aside id="sidebar">
-    <input id="filter" type="search" placeholder="Filter sections…">
+    <input id="filter" type="search" placeholder="Search">
     <div id="section-list"></div>
     <div id="general-comments">
-      <h3>Whole-house notes</h3>
+      <h3>Notes</h3>
       <div id="general-comment-list" class="comment-list"></div>
       <form id="general-comment-form" class="comment-form">
-        <textarea rows="2" placeholder="Something to change or add anywhere…"></textarea>
+        <textarea rows="2" placeholder="Add a note"></textarea>
         <button>Add</button>
       </form>
     </div>
   </aside>
 
   <div id="viewport">
-    <canvas id="canvas"></canvas>
-    <div id="hint" class="muted">Drag to orbit · scroll to zoom · right-drag to pan · click a part to open it · click a camera to see that photo</div>
+    <div id="compare-bar" class="hidden">
+      <button id="cmp-prev" title="Previous photo (←)">◀</button>
+      <span id="cmp-title"></span>
+      <button id="cmp-next" title="Next photo (→)">▶</button>
+      <span class="sep"></span>
+      <button id="cmp-mode-side" class="seg active">Side by side</button><button id="cmp-mode-overlay" class="seg">Overlay</button>
+      <label id="cmp-opacity-wrap"><input type="range" id="cmp-opacity" min="0" max="100" value="50"> <span id="cmp-opacity-val">50%</span></label>
+      <span class="sep"></span>
+      <button id="cmp-goto">Go to Spot</button>
+      <button id="cmp-save" class="primary">Save Spot</button>
+      <button id="cmp-assign">Assign…</button>
+      <button id="cmp-close">Done</button>
+    </div>
+    <div id="panes">
+      <div id="compare-photo" class="hidden"><img alt=""></div>
+      <div id="stage-wrap"><div id="stage"><canvas id="canvas"></canvas><img id="overlay-photo" class="hidden" alt=""></div></div>
+    </div>
+    <div id="hint" class="muted"></div>
     <div id="place-banner" class="hidden"></div>
+    <div id="walk-banner" class="hidden">W A S D · Shift · Q E · Esc</div>
   </div>
 
   <aside id="detail" class="hidden">
@@ -73,7 +119,7 @@
 <div id="lightbox" class="hidden">
   <img alt="">
   <div class="caption"></div>
-  <div class="lb-actions"><button id="lb-view">Look from this spot in 3D</button><button id="lb-assign">Assign this photo</button><button id="lb-close">Close</button></div>
+  <div class="lb-actions"><button id="lb-view">Look from this spot in 3D</button><button id="lb-compare">Compare with 3D</button><button id="lb-assign">Assign this photo</button><button id="lb-close">Close</button></div>
 </div>
 
 <script type="module" src="app.js"></script>
