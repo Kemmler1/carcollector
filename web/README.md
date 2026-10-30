@@ -56,6 +56,13 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
   zoom, shift-drag to pan. Every edit rebuilds the 3D model and is kept in the browser as a
   working copy of the version (the Plan segment shows a dot); File → Download Current Version
   JSON writes it out to commit, File → Revert Plan Edits throws it away.
+- **Moving a photo's camera** (Compare mode): a small plan inset sits bottom-right of the 3D
+  view. Drag ● (the camera) or ○ (what it looks at); the 3D view follows live and the spot saves
+  as you release. Orbiting the 3D half also moves the spot (saves when you stop). Scroll on the
+  inset to zoom it, drag empty space to pan it. **Publish changes** writes all your spots, photo
+  notes, assignments and plan edits to `web/data/review/<version>-review.json` on GitHub so
+  they can be reviewed and folded into the model; it asks once for a GitHub fine-grained token
+  with Contents: write, kept in the browser only.
 - **Walk** (`W`): first-person; mouse to look, `W A S D`, `Shift` to run, `Q`/`E` for height, `Esc`.
 - Mac-style menu bar (File / View / Photos / Versions / Help) with keyboard shortcuts under Help.
   Light and dark follow the system. Photos preload in the background after the model loads.

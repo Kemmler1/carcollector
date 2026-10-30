@@ -317,7 +317,7 @@ function enterCompare(index) {
 function exitCompare() {
   state.compare.on = false;
   viewport.classList.remove('compare'); $('compare-bar').classList.add('hidden');
-  $('compare-photo').classList.add('hidden'); $('overlay-photo').classList.add('hidden');
+  $('compare-photo').classList.add('hidden'); $('overlay-photo').classList.add('hidden'); $('spot-inset').classList.add('hidden');
   view.setFov(DEFAULT_FOV); view.applyToggles(state.toggles); view.resize(); seg('btn-iso');
 }
 function renderCompare(goto) {
@@ -337,8 +337,96 @@ function renderCompare(goto) {
   $('cmp-shows').classList.toggle('none', !shows.length);
   const note = $('cmp-note'); note.value = state.current.photoNotes?.[file] || ''; note.dataset.file = file; $('cmp-note-state').textContent = '';
   if (goto && spot) view.photoView(spot);
+  $('spot-inset').classList.remove('hidden'); centreInsetOn(spot);
   view.resize();
 }
+// ---------------------------------------------------------------------------
+// Camera-spot inset: a mini plan where the photo's camera (●) and look-at (○) can be dragged.
+// The 3D view follows live; the spot auto-saves (browser) and is flagged for publishing.
+// ---------------------------------------------------------------------------
+const inset = { scale: 6, cx: 0, cz: 8, drag: null };
+const NSVG = 'http://www.w3.org/2000/svg';
+function insetToScreen(x, z) { return [150 + (x - inset.cx) * inset.scale, 150 + (z - inset.cz) * inset.scale]; }
+function insetToWorld(px, py) { return { x: (px - 150) / inset.scale + inset.cx, z: (py - 150) / inset.scale + inset.cz }; }
+function renderInset() {
+  const svg = $('spot-svg'); svg.replaceChildren();
+  const el = (tag, attrs, parent = svg) => { const e = document.createElementNS(NSVG, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); parent.appendChild(e); return e; };
+  for (const sec of state.current.sections) {
+    if (sec.kind === 'water' || sec.kind === 'ground') continue;
+    const [x, y] = insetToScreen(sec.box.x, sec.box.z);
+    el('rect', { x, y, width: sec.box.w * inset.scale, height: sec.box.d * inset.scale, fill: sec.kind === 'room' ? '#fff' : sec.kind === 'pool' ? '#2f55e0' : sec.kind === 'garden' ? '#d7ecb0' : '#eee4cc', stroke: sec.kind === 'room' ? '#333' : '#999', 'stroke-width': sec.kind === 'room' ? 1 : .5, opacity: .9 });
+  }
+  const file = state.photos[state.compare.index];
+  const spot = state.current.photoSpots?.[file]; if (!spot) { el('text', { x: 150, y: 150, 'text-anchor': 'middle', 'font-size': 11, fill: '#6e6e73' }).textContent = 'No spot yet — Save Spot first'; return; }
+  const [cx, cy] = insetToScreen(spot.x, spot.z), [lx, ly] = insetToScreen(spot.lookX ?? spot.x, spot.lookZ ?? spot.z + 1);
+  const ang = Math.atan2(ly - cy, lx - cx), fov = 0.9; // half-FOV wedge, approximate
+  el('path', { d: `M${cx} ${cy} L${cx + Math.cos(ang - fov) * 60} ${cy + Math.sin(ang - fov) * 60} A60 60 0 0 1 ${cx + Math.cos(ang + fov) * 60} ${cy + Math.sin(ang + fov) * 60} Z`, fill: 'rgba(10,132,255,.18)' });
+  el('line', { x1: cx, y1: cy, x2: lx, y2: ly, stroke: '#0a84ff', 'stroke-width': 1.5 });
+  el('circle', { cx: lx, cy: ly, r: 7, fill: '#fff', stroke: '#0a84ff', 'stroke-width': 2, class: 'look', 'data-h': 'look' });
+  el('circle', { cx, cy, r: 8, fill: '#0a84ff', stroke: '#fff', 'stroke-width': 2, class: 'cam', 'data-h': 'cam' });
+  el('text', { x: cx + 11, y: cy + 4, 'font-size': 10, fill: '#1d1d1f', 'font-weight': 600 }).textContent = `${spot.x}, ${spot.z}`;
+}
+$('spot-svg').addEventListener('pointerdown', e => {
+  const h = e.target.dataset?.h; const r = e.currentTarget.getBoundingClientRect();
+  if (h) { inset.drag = { h }; e.currentTarget.setPointerCapture(e.pointerId); }
+  else inset.drag = { h: 'pan', sx: e.clientX, sy: e.clientY, cx: inset.cx, cz: inset.cz };
+  e.stopPropagation();
+});
+$('spot-svg').addEventListener('pointermove', e => {
+  if (!inset.drag) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if (inset.drag.h === 'pan') { inset.cx = inset.drag.cx - (e.clientX - inset.drag.sx) / inset.scale; inset.cz = inset.drag.cz - (e.clientY - inset.drag.sy) / inset.scale; renderInset(); return; }
+  const w = insetToWorld((e.clientX - r.left) * 300 / r.width, (e.clientY - r.top) * 300 / r.height);
+  const file = state.photos[state.compare.index]; const spot = { ...(state.current.photoSpots?.[file] || { y: 1.5, lookY: 1.4 }) };
+  if (inset.drag.h === 'cam') { spot.x = +w.x.toFixed(2); spot.z = +w.z.toFixed(2); } else { spot.lookX = +w.x.toFixed(2); spot.lookZ = +w.z.toFixed(2); }
+  state.current.photoSpots[file] = spot; view.photoView(spot); renderInset();
+});
+$('spot-svg').addEventListener('pointerup', e => {
+  if (!inset.drag) return; const was = inset.drag; inset.drag = null;
+  if (was.h === 'pan') return;
+  const file = state.photos[state.compare.index]; saveSpot(file, state.current.photoSpots[file]); markDirty();
+});
+$('spot-svg').addEventListener('wheel', e => { e.preventDefault(); e.stopPropagation(); inset.scale = Math.min(30, Math.max(2, inset.scale * Math.exp(-e.deltaY * 0.002))); renderInset(); }, { passive: false });
+function centreInsetOn(spot) { if (spot) { inset.cx = spot.x; inset.cz = spot.z; } renderInset(); }
+
+// Orbiting the 3D half also moves the spot: when the camera stops, the spot follows and saves.
+let orbitTimer = null;
+view.controls.addEventListener('end', () => {
+  if (!state.compare.on || view.isWalking()) return;
+  clearTimeout(orbitTimer);
+  orbitTimer = setTimeout(() => { const file = state.photos[state.compare.index]; saveSpot(file, view.getView()); markDirty(); renderInset(); }, 250);
+});
+
+// Publish: write the browser-side changes into the repo (data/review/spots.json) via GitHub's API,
+// with a note the maintainer can review. Needs a token saved once in this browser.
+const LS_GH = 'house.github';
+function markDirty() { state.dirty = true; $('cmp-publish').classList.add('dirty'); $('cmp-publish').textContent = 'Publish changes •'; }
+$('cmp-publish').onclick = async () => {
+  const gh = loadJSON(LS_GH, {});
+  if (!gh.token) {
+    openModal('Publish changes', `<div class="note">Publishing writes your camera spots, photo notes and assignments to <code>web/data/review/${state.base.version}-review.json</code> on GitHub, so the changes can be reviewed and folded into the model. It needs a GitHub token with <b>Contents: write</b> on this repo (Settings → Developer settings → Fine-grained tokens). It is kept only in this browser.</div>
+      <label>Token <input type="text" id="gh-token" placeholder="github_pat_…" style="width:100%"></label>
+      <label>Repository <input type="text" id="gh-repo" value="${esc(gh.repo || 'Kemmler1/carcollector')}" style="width:100%"></label>
+      <div class="actions"><button class="primary" id="gh-save">Save and publish</button></div>`);
+    $('gh-save').onclick = () => { saveJSON(LS_GH, { token: $('gh-token').value.trim(), repo: $('gh-repo').value.trim() }); modal.classList.add('hidden'); $('cmp-publish').click(); };
+    return;
+  }
+  const btn = $('cmp-publish'); btn.disabled = true; btn.textContent = 'Publishing…';
+  try {
+    const path = `web/data/review/${state.base.version}-review.json`;
+    const body = { version: state.base.version, published: new Date().toISOString(), note: prompt('One line on what you changed (optional):', '') || '',
+      spots: state.assign.spots, notes: state.assign.notes, photos: state.assign.photos, planEdits: state.working[state.base.version] ? state.current.sections : undefined };
+    const api = `https://api.github.com/repos/${gh.repo}/contents/${path}`;
+    const headers = { Authorization: `Bearer ${gh.token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' };
+    const existing = await fetch(api, { headers }).then(r => r.ok ? r.json() : null).catch(() => null);
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(body, null, 2))));
+    const res = await fetch(api, { method: 'PUT', headers, body: JSON.stringify({ message: `Review: camera spots and notes from the app (${Object.keys(body.spots).length} spots, ${Object.keys(body.notes).length} notes)`, content, sha: existing?.sha }) });
+    if (!res.ok) throw new Error((await res.json()).message || res.status);
+    state.dirty = false; btn.classList.remove('dirty'); btn.textContent = 'Published ✓'; setTimeout(() => btn.textContent = 'Publish changes', 2000);
+  } catch (e) { btn.textContent = 'Publish failed'; alert('Publish failed: ' + e.message + (String(e.message).includes('Bad credentials') ? '\n\nRe-enter the token: File → Revert… no — clear it with localStorage.removeItem("house.github") in the console.' : '')); }
+  btn.disabled = false;
+};
+
 // Per-photo comment (what it shows / where it was taken from), saved with the assignments and exported.
 function savePhotoNote(file, text) {
   text = text.trim();
@@ -371,7 +459,7 @@ $('cmp-mode-side').onclick = () => { state.compare.mode = 'side'; renderCompare(
 $('cmp-mode-overlay').onclick = () => { state.compare.mode = 'overlay'; renderCompare(false); };
 $('cmp-opacity').oninput = e => { state.compare.opacity = e.target.value / 100; $('cmp-opacity-val').textContent = e.target.value + '%'; $('overlay-photo').style.opacity = state.compare.opacity; };
 $('cmp-goto').onclick = () => renderCompare(true);
-$('cmp-save').onclick = () => { saveSpot(state.photos[state.compare.index], view.getView()); $('cmp-save').textContent = 'Saved'; setTimeout(() => $('cmp-save').textContent = 'Save Spot', 1200); renderCompare(false); };
+$('cmp-save').onclick = () => { saveSpot(state.photos[state.compare.index], view.getView()); markDirty(); renderInset(); $('cmp-save').textContent = 'Saved'; setTimeout(() => $('cmp-save').textContent = 'Save Spot', 1200); renderCompare(false); };
 $('cmp-assign').onclick = () => { const i = state.compare.index; exitCompare(); openOnboarding(i); };
 addEventListener('keydown', e => {
   if (!state.compare.on || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
