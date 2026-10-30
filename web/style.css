@@ -195,14 +195,15 @@ main { flex: 1; display: flex; min-height: 0; }
 #view-seg button.edited::after { content: " •"; color: var(--accent); }
 .export-tree pre { background: var(--panel-2); border: .5px solid var(--line); border-radius: 8px; padding: 10px 12px; font: 11.5px/1.5 var(--mono); overflow: auto; margin: 0 0 4px; }
 
-/* camera-spot inset (Compare mode) */
-#spot-inset { position: absolute; right: 10px; bottom: 10px; width: 160px; height: 160px; opacity: .85; transition: width .15s, height .15s; background: rgba(246,246,248,.92); backdrop-filter: blur(12px); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
-@media (prefers-color-scheme: dark) { #spot-inset { background: rgba(40,40,42,.9); } }
-#spot-svg { width: 100%; height: 100%; display: block; touch-action: none; }
-#spot-inset:hover, #spot-inset.big { opacity: 1; }
-#spot-inset.big { width: 340px; height: 340px; }
-#spot-help { position: absolute; left: 8px; bottom: 4px; font-size: 9px; color: var(--muted); pointer-events: none; }
-#spot-size { position: absolute; right: 4px; top: 4px; padding: 0 5px; font-size: 11px; line-height: 16px; opacity: .7; }
+/* camera-spot panel (Compare mode): its own column to the right of the panes */
+#spot-inset { width: 240px; flex: none; display: flex; flex-direction: column; background: var(--panel); backdrop-filter: blur(24px); border-left: 1px solid var(--line); }
+#spot-svg { width: 240px; height: 240px; display: block; touch-action: none; background: #f4f1ea; border-bottom: 1px solid var(--line); }
+@media (prefers-color-scheme: dark) { #spot-svg { background: #e9e5dc; } }
+#spot-help { padding: 8px 10px; font-size: 11px; color: var(--muted); line-height: 1.4; }
+#spot-svg .cam { cursor: grab; } #spot-svg .look { cursor: grab; }
+#spot-svg .cam:active, #spot-svg .look:active { cursor: grabbing; }
+#cmp-publish.dirty { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 900px) { #spot-inset { width: auto; } #spot-svg { width: 100%; height: 200px; } }
 #spot-svg .cam { cursor: grab; } #spot-svg .look { cursor: grab; }
 #spot-svg .cam:active, #spot-svg .look:active { cursor: grabbing; }
 #cmp-publish.dirty { border-color: var(--accent); color: var(--accent); }
