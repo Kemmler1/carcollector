@@ -23,7 +23,7 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
   its notes.
 - **Notes** are the change requests: per section, plus "whole-house" notes. Mark them done
   or delete them. They are stored in the browser (localStorage) per version.
-- **Export for ChatGPT** builds one Markdown document: instructions, every open note, the
+- **Export Package** (File menu, ⌘E) downloads one ZIP with everything: `README.md` (the brief — instructions, every open note, the
   master description from `docs/house-reference.md`, every section in detail with photo
   filenames, the coordinate system, the JSON schema to reply with, and the current model
   JSON. Copy it (or download it) and attach the named photos from `photos/raw/`.

@@ -374,7 +374,7 @@ async function buildExport() {
   L.push(`# House mock-up — export of ${v.version} (${new Date().toISOString().slice(0, 10)})`, '');
   L.push('## How to use this document', '',
     'This is a complete description of a real beachfront house plus a list of requested changes. The goal is to produce (a) images of the house as it would look WITH the requested changes applied, and (b) an updated JSON model for the next version.', '',
-    '1. Read the master description and the per-section details.',
+    '1. Read the master description and the per-section details. `floorplan/floorplan.svg` is the plan (metres, sea at the top); `renders/` shows the current 3D model; `photos/by-part/<id>/` holds the real photos of each part, and `photos/INDEX.md` says where each was taken from.',
     '2. Apply every item under **Requested changes**. Open items are requests; items marked [done] are already reflected.',
     '3. For images: keep every material, colour and proportion that is not changed. The `photos` listed per section are the ground truth for what exists today; each photo also has a camera position in the coordinate system below and, where given, a note on what it shows.',
     '4. When you return changes, reply with ONE JSON object in the exact schema given at the end, under a heading `## RETURN JSON`, so it can be imported as the next version.', '');
@@ -422,16 +422,121 @@ async function buildExport() {
   return L.join('\n');
 }
 function nextVersionId() { return 'v' + (Math.max(...state.versions.map(v => versionNum(v.version))) + 1); }
+const RENDER_VIEWS = [
+  ['from-the-sea', { x: -8, y: 3, z: -30, lookX: 0, lookY: 2, lookZ: 5 }],
+  ['pool-pavilion-toward-bure', { x: -10, y: 1.6, z: -2, lookX: 10, lookY: 1.5, lookZ: -7 }],
+  ['great-room-toward-sea', { x: -3.5, y: 1.6, z: 7.5, lookX: 2, lookY: 1.6, lookZ: -4 }],
+  ['courtyard-from-entry', { x: 0, y: 1.6, z: 24, lookX: 0, lookY: 1.8, lookZ: 8 }],
+  ['entry-porch', { x: 0, y: 1.6, z: 34, lookX: 0, lookY: 2.2, lookZ: 25 }],
+  ['aerial', { x: -30, y: 24, z: -28, lookX: 0, lookY: 1, lookZ: 8 }],
+];
+// Minimal ZIP writer (store only — the payload is JPEGs, which don't compress). Fast, no deps.
+const CRC_TABLE = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(u8) { let c = 0xffffffff; for (let i = 0; i < u8.length; i++) c = CRC_TABLE[(c ^ u8[i]) & 0xff] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; }
+function makeZip() {
+  const enc = new TextEncoder(); const parts = []; const central = []; let offset = 0;
+  const dosTime = () => { const d = new Date(); return [((d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1)) & 0xffff, (((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate()) & 0xffff]; };
+  const u16 = (v) => [v & 0xff, (v >> 8) & 0xff], u32 = (v) => [v & 0xff, (v >> 8) & 0xff, (v >> 16) & 0xff, (v >>> 24) & 0xff];
+  return {
+    file(name, data) {
+      const bytes = typeof data === 'string' ? enc.encode(data) : data instanceof Uint8Array ? data : new Uint8Array(data);
+      const n = enc.encode(name); const crc = crc32(bytes); const [t, d] = dosTime();
+      const local = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x800), ...u16(0), ...u16(t), ...u16(d), ...u32(crc), ...u32(bytes.length), ...u32(bytes.length), ...u16(n.length), ...u16(0), ...n]);
+      central.push(new Uint8Array([0x50, 0x4b, 1, 2, ...u16(20), ...u16(20), ...u16(0x800), ...u16(0), ...u16(t), ...u16(d), ...u32(crc), ...u32(bytes.length), ...u32(bytes.length), ...u16(n.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(offset), ...n]));
+      parts.push(local, bytes); offset += local.length + bytes.length;
+    },
+    blob() {
+      const cdSize = central.reduce((a, c) => a + c.length, 0);
+      const end = new Uint8Array([0x50, 0x4b, 5, 6, ...u16(0), ...u16(0), ...u16(central.length), ...u16(central.length), ...u32(cdSize), ...u32(offset), ...u16(0)]);
+      return new Blob([...parts, ...central, end], { type: 'application/zip' });
+    },
+  };
+}
+const b64ToU8 = (b64) => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+
+async function buildPackage(onProgress) {
+  const zip = makeZip();
+  const v = state.current;
+  const brief = await buildExport();
+  zip.file('README.md', brief);
+  zip.file(`model/${v.version}.json`, JSON.stringify(stripLocal(v), null, 2));
+  zip.file('model/notes.json', JSON.stringify(state.comments[state.base.version] || {}, null, 2));
+  for (const f of ['house-reference.md', 'photo-log.md', 'floor-plan-notes.md']) {
+    try { zip.file('docs/' + f, await (await fetch('../docs/' + f)).text()); } catch {}
+  }
+  // floor plan
+  onProgress('Drawing the floor plan…');
+  const wasPlan = state.planOn; if (!wasPlan) { plan.render(); }
+  const svgText = plan.toSVG();
+  zip.file('floorplan/floorplan.svg', svgText);
+  try { zip.file('floorplan/floorplan.png', b64ToU8(await svgToPng(svgText, 2400))); } catch (e) { console.warn('plan png failed', e); }
+  // 3D renders
+  onProgress('Rendering 3D views…');
+  const savedCam = view.getView(); const savedToggles = { ...state.toggles };
+  view.applyToggles({ ...state.toggles, labels: false, markers: false });
+  for (const [name, spot] of RENDER_VIEWS) { view.photoView(spot); zip.file(`renders/${name}.jpg`, b64ToU8(view.snapshot().split(',')[1])); }
+  view.applyToggles({ ...state.toggles, labels: false, markers: false, roofs: false }); view.topView();
+  zip.file('renders/plan-roofs-off.jpg', b64ToU8(view.snapshot(1600, 1600).split(',')[1]));
+  view.applyToggles(savedToggles); view.photoView(savedCam); view.setFov(state.compare.on ? PHOTO_FOV : DEFAULT_FOV);
+  // photos, filed under every part they show
+  const photoIndex = ['# Photos by part', '', 'Each photo is copied into the folder of every part it shows. `photos/all/` has every photo once.', ''];
+  const blobs = {}; let fetched = 0;
+  await Promise.all(state.photos.map(async f => {
+    try { blobs[f] = new Uint8Array(await (await fetch(PHOTO_DIR + f)).arrayBuffer()); zip.file('photos/all/' + f, blobs[f]); } catch {}
+    onProgress(`Packing photos… ${++fetched}/${state.photos.length}`);
+  }));
+  for (const s of v.sections) {
+    if (!s.photos?.length) continue;
+    photoIndex.push(`## ${s.name}  \`${s.id}\``);
+    for (const f of s.photos) {
+      if (blobs[f]) zip.file(`photos/by-part/${s.id}/${f}`, blobs[f]);
+      const sp = v.photoSpots?.[f]; const note = v.photoNotes?.[f];
+      photoIndex.push(`- ${f}${sp ? ` — camera at (${sp.x}, ${sp.z}) looking toward (${sp.lookX ?? '?'}, ${sp.lookZ ?? '?'})` : ''}${note ? ` — ${note}` : ''}`);
+    }
+    photoIndex.push('');
+  }
+  const unassigned = state.photos.filter(f => !sectionsForPhoto(f).length);
+  if (unassigned.length) photoIndex.push('## Not assigned to a part', '', ...unassigned.map(f => `- ${f}`), '');
+  zip.file('photos/INDEX.md', photoIndex.join('\n'));
+  onProgress('Writing…');
+  return zip.blob();
+}
+function svgToPng(svgText, width) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(new Blob([svgText], { type: 'image/svg+xml' }));
+    img.onload = () => {
+      const c = document.createElement('canvas'); c.width = width; c.height = Math.round(width * img.height / img.width);
+      const g = c.getContext('2d'); g.fillStyle = '#f4f1ea'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url); resolve(c.toDataURL('image/png').split(',')[1]);
+    };
+    img.onerror = reject; img.src = url;
+  });
+}
 $('btn-export').onclick = async () => {
-  const text = await buildExport();
   openModal(`Export — ${state.current.version}`, `
-    <div class="note">Paste into ChatGPT with the photos it names attached. It replies with a JSON block you import as the next version.</div>
-    <textarea id="export-text"></textarea>
-    <div class="actions"><button class="primary" id="copy-export">Copy</button><button id="dl-export">Download</button><span class="muted" id="export-size"></span></div>`);
-  $('export-text').value = text;
-  $('export-size').textContent = `${(text.length / 1024).toFixed(0)} KB`;
-  $('copy-export').onclick = () => { navigator.clipboard.writeText(text); $('copy-export').textContent = 'Copied'; };
-  $('dl-export').onclick = () => download(`house-export-${state.current.version}.md`, text);
+    <div class="note">One package with everything: the brief for the image model (README.md), the model JSON, notes, the floor plan (SVG + PNG), 3D renders, the reference docs, and every original photo filed under each part it shows.</div>
+    <div class="export-tree"><pre>README.md                 brief: instructions, requested changes, every part in detail, photo camera positions, JSON schema to reply with
+model/${state.current.version}.json             the model (edited layout included)
+model/notes.json          your notes
+floorplan/floorplan.svg   editable vector plan, metres
+floorplan/floorplan.png   same, raster
+renders/*.jpg             3D views: from the sea, pavilion, great room, courtyard, entry, aerial, plan with roofs off
+docs/*.md                 house reference, photo log, floor-plan notes
+photos/all/               all ${state.photos.length} originals
+photos/by-part/&lt;part&gt;/   the same photos, copied under every part they show
+photos/INDEX.md           photo → parts, camera positions, notes</pre></div>
+    <div class="actions"><button class="primary" id="dl-package">Download Package (.zip)</button><button id="copy-brief">Copy Brief Only</button><span class="muted" id="export-status"></span></div>`);
+  $('copy-brief').onclick = async () => { navigator.clipboard.writeText(await buildExport()); $('copy-brief').textContent = 'Copied'; };
+  $('dl-package').onclick = async () => {
+    const btn = $('dl-package'); btn.disabled = true;
+    try {
+      const blob = await buildPackage(msg => $('export-status').textContent = msg);
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `house-${state.current.version}-${new Date().toISOString().slice(0, 10)}.zip`; a.click();
+      $('export-status').textContent = `Done — ${(blob.size / 1048576).toFixed(1)} MB`;
+    } catch (e) { $('export-status').textContent = 'Failed: ' + e.message; console.error(e); }
+    btn.disabled = false;
+  };
 };
 function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' })); a.download = name; a.click(); }
 

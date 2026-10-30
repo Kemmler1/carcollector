@@ -665,6 +665,14 @@ export function createScene(canvas, stage) {
     camera.position.set(spot.x, spot.y ?? 1.5, spot.z);
     controls.target.set(spot.lookX ?? spot.x, spot.lookY ?? 1.4, spot.lookZ ?? spot.z + 1);
   }
+  function snapshot(w = 1600, h = 1000, quality = 0.88) { // render at a fixed size and return a JPEG data URL
+    const prev = { w: canvas.width, h: canvas.height, aspect: camera.aspect };
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+    renderer.render(scene, camera);
+    const url = canvas.toDataURL('image/jpeg', quality);
+    renderer.setSize(prev.w, prev.h, false); camera.aspect = prev.aspect; camera.updateProjectionMatrix();
+    return url;
+  }
   resize();
-  return { scene, camera, controls, build, buildMarkers, highlight, applyToggles, pick, groundPoint, flyTo, resetView, topView, photoView, setFov, getView, resize, startWalk, stopWalk, isWalking: () => walk.on };
+  return { snapshot, scene, camera, controls, build, buildMarkers, highlight, applyToggles, pick, groundPoint, flyTo, resetView, topView, photoView, setFov, getView, resize, startWalk, stopWalk, isWalking: () => walk.on };
 }

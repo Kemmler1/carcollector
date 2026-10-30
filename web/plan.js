@@ -256,6 +256,23 @@ export function createPlan(container, { getVersion, onChange, onSelect }) {
 
   // ------------------------------------------------------------- public API
   return {
+    toSVG() { // standalone SVG of the plan, fit to the model, handles removed
+      const sel = state.selected; state.selected = null; state.selProp = null; state.selOpening = null; render();
+      const secs = sections().filter(s => s.kind !== 'water' && s.kind !== 'ground');
+      const minX = Math.min(...secs.map(s => s.box.x)) - 3, maxX = Math.max(...secs.map(s => s.box.x + s.box.w)) + 3;
+      const minZ = Math.min(...secs.map(s => s.box.z)) - 3, maxZ = Math.max(...secs.map(s => s.box.z + s.box.d)) + 3;
+      const clone = world.cloneNode(true); clone.removeAttribute('transform');
+      const out = `<svg xmlns="${NS}" viewBox="${minX} ${minZ} ${maxX - minX} ${maxZ - minZ}" width="${(maxX - minX) * 40}" height="${(maxZ - minZ) * 40}" font-family="-apple-system, Helvetica, Arial, sans-serif">
+  <title>Floor plan — metres, sea at the top, x across, z landward</title>
+  <defs>${defs.innerHTML}</defs>
+  <rect x="${minX}" y="${minZ}" width="${maxX - minX}" height="${maxZ - minZ}" fill="#f4f1ea"/>
+  ${clone.innerHTML}
+  <g font-size="0.6" fill="#6e6e73">${Array.from({ length: Math.floor((maxX - minX) / 5) + 1 }, (_, i) => { const x = Math.ceil(minX / 5) * 5 + i * 5; return x < maxX ? `<text x="${x}" y="${maxZ - 0.6}" text-anchor="middle">${x} m</text>` : ''; }).join('')}
+  ${Array.from({ length: Math.floor((maxZ - minZ) / 5) + 1 }, (_, i) => { const z = Math.ceil(minZ / 5) * 5 + i * 5; return z < maxZ ? `<text x="${minX + 0.4}" y="${z + 0.2}">${z}</text>` : ''; }).join('')}</g>
+</svg>`;
+      state.selected = sel; render();
+      return out;
+    },
     render, fit, select, undo,
     setSnap(v) { state.snap = v; }, setSnapOn(b) { state.snapOn = b; },
     setGrid(b) { state.showGrid = b; gridRect.style.display = b ? '' : 'none'; },
