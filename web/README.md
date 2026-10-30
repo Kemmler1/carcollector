@@ -41,7 +41,11 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
 - **Compare** (Photos menu, or `C`): flick through the photos (`←` `→`) next to the 3D view from
   the photo's camera spot, or **Overlay** (`O`) at 50% to line them up. The 3D camera uses the
   4:3 frame and ~85° vertical FOV of a phone's 0.5× ultrawide lens. Orbit until it matches and
-  **Save Spot**.
+  **Save Spot**. The bar also shows which parts the photo is assigned to and has a **comment
+  box** for the photo ("taken from the doorway into this room, looking at the bed"); comments
+  save as you type, show in the part's panel under Photo notes, and go into the export under
+  **Photo comments** with the photo's current assignment and camera spot, so the next pass can
+  move the spot (replies may return corrected `photoSpots`) and re-assign the photo.
 - **Plan** (`P`): 2D floor-plan editor, sea at the top, metres. Click a room or area to select
   it; drag to move, corner/edge handles to resize, or type x / z / w / d in the bar. Drag doors
   and windows along their wall, drag their end handles to resize, change their type in the bar;

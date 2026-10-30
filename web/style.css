@@ -135,6 +135,11 @@ main { flex: 1; display: flex; min-height: 0; }
 #compare-bar .seg + .seg { border-radius: 0 6px 6px 0; border-left: none; }
 #compare-bar .seg.active { background: var(--accent); color: #fff; border-color: transparent; }
 #cmp-opacity-wrap { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+#cmp-note-row { flex-basis: 100%; display: flex; align-items: center; gap: 8px; padding-top: 2px; }
+#cmp-shows { color: var(--muted); white-space: nowrap; max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+#cmp-shows.none { color: var(--warn, #d08a1d); }
+#cmp-note { flex: 1; min-height: 26px; max-height: 90px; resize: vertical; font: inherit; font-size: 12px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--line-strong); background: var(--field, rgba(127,127,127,.12)); color: var(--text); }
+#cmp-note-state { color: var(--muted); min-width: 44px; text-align: right; }
 #cmp-opacity { width: 120px; accent-color: var(--accent); }
 #viewport.compare #hint { display: none; }
 

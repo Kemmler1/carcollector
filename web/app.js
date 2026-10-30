@@ -331,9 +331,28 @@ function renderCompare(goto) {
   $('compare-photo').querySelector('img').src = PHOTO_DIR + file;
   $('overlay-photo').src = PHOTO_DIR + file; $('overlay-photo').style.opacity = c.opacity;
   $('cmp-goto').disabled = !spot;
+  const shows = sectionsForPhoto(file).map(id => state.current.sections.find(s => s.id === id)?.name || id);
+  $('cmp-shows').textContent = shows.length ? 'Shows: ' + shows.join(', ') : 'Not assigned to a part yet';
+  $('cmp-shows').classList.toggle('none', !shows.length);
+  const note = $('cmp-note'); note.value = state.current.photoNotes?.[file] || ''; note.dataset.file = file; $('cmp-note-state').textContent = '';
   if (goto && spot) view.photoView(spot);
   view.resize();
 }
+// Per-photo comment (what it shows / where it was taken from), saved with the assignments and exported.
+function savePhotoNote(file, text) {
+  text = text.trim();
+  if (text) state.assign.notes[file] = text; else delete state.assign.notes[file];
+  saveJSON(LS_ASSIGN, state.assign);
+  state.current.photoNotes ||= {}; if (text) state.current.photoNotes[file] = text; else delete state.current.photoNotes[file];
+  if (state.selected) renderDetail(sectionById(state.selected));
+}
+let noteTimer = null;
+$('cmp-note').oninput = e => {
+  const file = e.target.dataset.file; if (!file) return;
+  $('cmp-note-state').textContent = '…'; clearTimeout(noteTimer);
+  noteTimer = setTimeout(() => { savePhotoNote(file, e.target.value); $('cmp-note-state').textContent = 'Saved'; }, 400);
+};
+$('cmp-note').onblur = e => { const file = e.target.dataset.file; if (file) { clearTimeout(noteTimer); savePhotoNote(file, e.target.value); $('cmp-note-state').textContent = e.target.value.trim() ? 'Saved' : ''; } };
 $('btn-compare').onclick = () => enterCompare(state.compare.index);
 $('btn-walk').onclick = () => {
   if (view.isWalking()) return view.stopWalk();
@@ -383,6 +402,16 @@ async function buildExport() {
   if (gen.length) { L.push('### Whole house'); gen.forEach(c => L.push(`- ${c.text}`)); L.push(''); }
   for (const s of v.sections) { const cs = open(s.id); if (cs.length) { L.push(`### ${s.name} (\`${s.id}\`)`); cs.forEach(c => L.push(`- ${c.text}`)); L.push(''); } }
   if (!gen.length && !v.sections.some(s => open(s.id).length)) L.push('_No open change requests. Reproduce the house as described._', '');
+  const noted = state.photos.filter(f => v.photoNotes?.[f]);
+  if (noted.length) {
+    L.push('## Photo comments', '', 'The owner\'s comments on individual photos: what each one really shows and where it was taken from. Where a comment contradicts the photo\'s current part assignment or camera position below, the comment is right: move the camera spot (return it under `photoSpots`), list the photo under the right section\'s `photos`, and correct the model to match what the photo shows.', '');
+    for (const f of noted) {
+      const sp = v.photoSpots?.[f]; const shows = sectionsForPhoto(f);
+      L.push(`- **${f}** — ${v.photoNotes[f]}`);
+      L.push(`  - currently: ${shows.length ? 'assigned to ' + shows.map(id => `\`${id}\``).join(', ') : 'not assigned to a part'}${sp ? `; camera at (${sp.x}, ${sp.z}) looking toward (${sp.lookX ?? '?'}, ${sp.lookZ ?? '?'})` : '; no camera spot'}`);
+    }
+    L.push('');
+  }
   L.push('## Master description (from docs/house-reference.md)', '', reference, '');
   L.push('## Sections in detail', '');
   for (const s of v.sections) {
@@ -416,8 +445,10 @@ async function buildExport() {
         openings: [{ side: 'sea', type: 'bifold|door|screen|louvre|window', from: 0.5, to: 4.5 }],
         props: [{ type: 'sofa|armchair|coffee-table|dining-table|chair|island|bar-stool|bed|single-bed|wardrobe|chest|bean-bag|lounger|rocking-chair|bbq|pot|planter|desk|fridge|pantry|tv', x: 1, z: 1, rot: 0 }],
         changes: 'What changed in this section and why' }],
+      photoSpots: { 'photo-file.jpg': { x: 0, y: 1.6, z: 0, lookX: 0, lookY: 1.4, lookZ: -5 } },
       imagePrompts: [{ view: 'e.g. pool pavilion looking to the bure', prompt: 'the full prompt you used' }]
-    }, null, 2), '```', '');
+    }, null, 2), '```', '',
+    '`photoSpots` is optional: include only the photos whose camera position you corrected (see Photo comments).', '');
   L.push('## Current model JSON (for reference)', '', '```json', JSON.stringify(stripLocal(v), null, 2), '```');
   return L.join('\n');
 }
@@ -579,7 +610,7 @@ function mergeVersion(base, incoming) {
     else { if (!inc.box || !inc.kind || !inc.name) throw new Error(`new section "${inc.id}" needs name, kind and box`); sections.push({ confirmed: true, photos: [], group: 'New', ...inc }); }
   }
   return { version: incoming.version || nextVersionId(), basedOn: base.version, created: new Date().toISOString().slice(0, 10), summary: incoming.summary || '', units: base.units, axes: base.axes,
-    photoSpots: base.photoSpots, photoNotes: base.photoNotes, imagePrompts: incoming.imagePrompts || [], sections };
+    photoSpots: { ...(base.photoSpots || {}), ...(incoming.photoSpots || {}) }, photoNotes: base.photoNotes, imagePrompts: incoming.imagePrompts || [], sections };
 }
 
 // ---------------------------------------------------------------------------
