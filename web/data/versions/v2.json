@@ -18,12 +18,12 @@
  },
  "photoSpots": {
   "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg": {
-   "x": 13,
+   "x": 12,
    "y": 1.6,
-   "z": 4,
-   "lookX": 6.5,
+   "z": -3,
+   "lookX": 8,
    "lookY": 1.4,
-   "lookZ": 7
+   "lookZ": 10
   },
   "02-pavilion-edge-bedroom-doors-lawn-sea.jpg": {
    "x": -7.5,
@@ -44,7 +44,7 @@
   "04-kitchen-rear-wall.jpg": {
    "x": -2.5,
    "y": 1.6,
-   "z": 5,
+   "z": 4.3,
    "lookX": -2.5,
    "lookY": 1.4,
    "lookZ": 8
@@ -84,7 +84,7 @@
   "09-lawn-edge-to-sea-and-bay.jpg": {
    "x": -6,
    "y": 1.6,
-   "z": -16,
+   "z": -18.5,
    "lookX": -15,
    "lookY": 1.4,
    "lookZ": -40
@@ -122,20 +122,20 @@
    "lookZ": 6
   },
   "14-pavilion-interior-toward-pool-and-bure.jpg": {
-   "x": 0,
+   "x": -4.5,
    "y": 1.6,
-   "z": -0.6,
+   "z": -1,
    "lookX": 12,
    "lookY": 1.4,
-   "lookZ": -8
+   "lookZ": -7
   },
   "15-bure-interior-roof-and-daybed.jpg": {
-   "x": 13,
+   "x": 14,
    "y": 1.6,
-   "z": -6.5,
-   "lookX": 15,
-   "lookY": 2.6,
-   "lookZ": -9
+   "z": -4.8,
+   "lookX": 14,
+   "lookY": 2.2,
+   "lookZ": -10
   },
   "16-pavilion-wide-roof-pool-bure-b.jpg": {
    "x": 3.5,
@@ -154,9 +154,9 @@
    "lookZ": 9
   },
   "18-kitchen-pantry-and-lounge-from-side-door.jpg": {
-   "x": -5.2,
+   "x": -4.6,
    "y": 1.6,
-   "z": 6.8,
+   "z": 6.6,
    "lookX": 1,
    "lookY": 1.4,
    "lookZ": 4
@@ -178,9 +178,9 @@
    "lookZ": 2.5
   },
   "21-great-room-from-kitchen-corner-toward-sea.jpg": {
-   "x": -4.5,
+   "x": -4.0,
    "y": 1.6,
-   "z": 5,
+   "z": 4.6,
    "lookX": 2,
    "lookY": 1.4,
    "lookZ": -4
@@ -244,10 +244,10 @@
   "29-pavilion-corner-bay-lawn-and-sea.jpg": {
    "x": -9,
    "y": 1.6,
-   "z": -3,
-   "lookX": -20,
+   "z": -2.5,
+   "lookX": 8,
    "lookY": 1.4,
-   "lookZ": -20
+   "lookZ": -3.5
   },
   "30-bedroom-side-verandah-toward-sea.jpg": {
    "x": -7.2,
@@ -284,10 +284,10 @@
   "34-triple-bedroom-three-singles-heliconia.jpg": {
    "x": 5.5,
    "y": 1.6,
-   "z": 17,
-   "lookX": 9,
+   "z": 16.5,
+   "lookX": 8,
    "lookY": 1.4,
-   "lookZ": 20
+   "lookZ": 21
   },
   "35-courtyard-from-walkway-corner-solar-hw.jpg": {
    "x": -4.3,
@@ -306,36 +306,36 @@
    "lookZ": 6
   },
   "37-side-path-along-wing-to-pool-side.jpg": {
-   "x": -11,
+   "x": 11,
    "y": 1.6,
    "z": 26,
-   "lookX": -10.5,
+   "lookX": 10.5,
    "lookY": 1.4,
    "lookZ": 0
   },
   "38-entry-porch-front-on.jpg": {
    "x": 0,
    "y": 1.6,
-   "z": 36,
+   "z": 33,
    "lookX": 0,
-   "lookY": 1.4,
+   "lookY": 2.0,
    "lookZ": 25
   },
   "39-entry-porch-angled-left-wing.jpg": {
-   "x": -1,
+   "x": 1.5,
    "y": 1.6,
-   "z": 27,
-   "lookX": -9,
+   "z": 31,
+   "lookX": -8,
    "lookY": 1.4,
-   "lookZ": 23
+   "lookZ": 24
   },
   "40-entry-porch-angled-right-wing.jpg": {
-   "x": 1,
+   "x": -1.5,
    "y": 1.6,
-   "z": 27,
-   "lookX": 9,
+   "z": 31,
+   "lookX": 8,
    "lookY": 1.4,
-   "lookZ": 23
+   "lookZ": 24
   },
   "41-landward-wing-end-room-planter.jpg": {
    "x": -8,
@@ -450,12 +450,12 @@
    "lookZ": -3
   },
   "57-listing-kitchen-galley-toward-hallway-end-b.jpg": {
-   "x": -4.8,
+   "x": -4.3,
    "y": 1.6,
-   "z": 6.5,
+   "z": 6.4,
    "lookX": 1,
    "lookY": 1.4,
-   "lookZ": 7
+   "lookZ": 6.9
   },
   "58-listing-right-verandah-bbq-and-bedroom-2.jpg": {
    "x": 7,
@@ -562,17 +562,17 @@
    "lookZ": -35
   },
   "43-listing-aerial-from-landward-right.jpg": {
-   "x": 45,
-   "y": 35,
-   "z": 45,
+   "x": 30,
+   "y": 20,
+   "z": 28,
    "lookX": 0,
    "lookY": 0,
    "lookZ": 8
   },
   "44-listing-aerial-from-reef-flat.jpg": {
-   "x": 10,
-   "y": 30,
-   "z": -70,
+   "x": 8,
+   "y": 22,
+   "z": -55,
    "lookX": 0,
    "lookY": 0,
    "lookZ": 5
