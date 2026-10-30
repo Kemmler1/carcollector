@@ -143,7 +143,7 @@ function wallWithOpenings(len, H, openings, wallMat, id) {
       g.add(box(w, 0.18, 0.26, mat(TIMBER), cx, head + 0.09, 0));
       g.add(box(0.06, head, 0.3, mat('#3b2a1c'), from + 0.03, head / 2, 0));
       g.add(box(0.06, head, 0.3, mat('#3b2a1c'), to - 0.03, head / 2, 0));
-      const leaves = Math.min(4, Math.max(2, Math.round(w / 1.2)));
+      const leaves = o.open === 'full' ? 0 : Math.min(4, Math.max(2, Math.round(w / 1.2)));
       for (let i = 0; i < leaves; i++) {
         g.add(box(0.05, head - 0.05, 0.5, louvreMat, from + 0.12 + i * 0.07, head / 2, 0.3 + (i % 2) * 0.02));
         g.add(box(0.05, head - 0.05, 0.5, louvreMat, to - 0.12 - i * 0.07, head / 2, 0.3 + (i % 2) * 0.02));
@@ -206,6 +206,13 @@ function buildRoom(ctx, sec) {
   }
   addRoof(ctx, g, sec, cx, cz, H);
   addProps(g, sec);
+  if (sec.floorLevel) {
+    g.position.y = sec.floorLevel; // sunken room: whole room drops; walls extend down to the outside floor
+    for (const o of sec.openings || []) if (o.type === 'bifold' || o.type === 'door') { // a step down at every doorway
+      const f = o.side === 'sea' ? [x + (o.from + o.to) / 2, z - 0.2, o.to - o.from, 0.4] : o.side === 'land' ? [x + w - (o.from + o.to) / 2, z + d + 0.2, o.to - o.from, 0.4] : o.side === 'left' ? [x - 0.2, z + d - (o.from + o.to) / 2, 0.4, o.to - o.from] : [x + w + 0.2, z + (o.from + o.to) / 2, 0.4, o.to - o.from];
+      g.add(box(f[2], -sec.floorLevel / 2, f[3], mat(sec.colors?.floor || '#8d8578'), f[0], -sec.floorLevel / 4, f[1]));
+    }
+  }
   return tag(g, sec.id);
 }
 
@@ -261,10 +268,11 @@ function buildPergola(ctx, sec) {
   const post = (px, pz) => g.add(box(0.22, H, 0.22, timber, px, H / 2, pz));
   if (sec.hole) {
     const h = sec.hole;
-    pergolaOver(ctx, g, sec, x, z, w, h.z - z, H, 'sea');
-    pergolaOver(ctx, g, sec, x, h.z + h.d, w, z + d - (h.z + h.d), H, 'land');
-    pergolaOver(ctx, g, sec, x, h.z, h.x - x, h.d, H, 'left');
-    pergolaOver(ctx, g, sec, h.x + h.w, h.z, x + w - (h.x + h.w), h.d, H, 'right');
+    const sides = new Set(sec.ringSides || ['sea', 'land', 'left', 'right']);
+    if (sides.has('sea')) pergolaOver(ctx, g, sec, x, z, w, h.z - z, H, 'sea');
+    if (sides.has('land')) pergolaOver(ctx, g, sec, x, h.z + h.d, w, z + d - (h.z + h.d), H, 'land');
+    if (sides.has('left')) pergolaOver(ctx, g, sec, x, h.z, h.x - x, h.d, H, 'left');
+    if (sides.has('right')) pergolaOver(ctx, g, sec, h.x + h.w, h.z, x + w - (h.x + h.w), h.d, H, 'right');
     for (const [px, pz] of [[h.x, h.z], [h.x + h.w, h.z], [h.x, h.z + h.d], [h.x + h.w, h.z + h.d], [h.x, h.z + h.d / 2], [h.x + h.w, h.z + h.d / 2]]) post(px, pz);
   } else {
     const alongX = w >= d;

@@ -61,6 +61,7 @@ export function createPlan(container, { getVersion, onChange, onSelect }) {
       const b = s.box; const g = el('g', { 'data-section': s.id, class: 'plan-section kind-' + s.kind + (s.id === state.selected ? ' selected' : '') }, s.kind === 'ground' || s.kind === 'water' ? layers.ground : layers.sections);
       el('rect', { x: b.x, y: b.z, width: b.w, height: b.d, fill: KIND_FILL[s.kind] || '#eee', stroke: s.kind === 'room' ? '#1d1d1f' : s.kind === 'zone' ? '#0a84ff' : '#6e6e73', 'stroke-width': s.kind === 'room' ? 0.2 : 0.05, 'stroke-dasharray': s.kind === 'zone' ? '0.3 0.2' : s.confirmed === false ? '0.5 0.3' : '', 'vector-effect': 'non-scaling-stroke' }, g);
       if (s.hole) el('rect', { x: s.hole.x, y: s.hole.z, width: s.hole.w, height: s.hole.d, fill: '#d7ecb0', stroke: 'none' }, g);
+      if (s.floorLevel) el('text', { x: b.x + 0.3, y: b.z + b.d - 0.3, 'font-size': 0.35, fill: '#6e6e73', class: 'plan-text', 'pointer-events': 'none' }, g).textContent = `▼ ${s.floorLevel} m`;
       if (s.kind === 'pool' && s.spa) el('rect', { x: s.spa.x, y: s.spa.z, width: s.spa.w, height: s.spa.d, fill: '#2f55e0', stroke: '#e6dfcc', 'stroke-width': 0.08 }, g);
       const t = el('text', { x: b.x + b.w / 2, y: b.z + b.d / 2, 'font-size': Math.min(0.7, b.w / 8), 'text-anchor': 'middle', 'dominant-baseline': 'middle', class: 'plan-text', fill: s.kind === 'pool' ? '#fff' : '#1d1d1f', 'pointer-events': 'none' }, g);
       t.textContent = s.name.replace(' (unconfirmed)', '').replace(' (mirror, unconfirmed)', '');

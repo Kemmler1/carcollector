@@ -2,9 +2,9 @@
   "version": "v2",
   "basedOn": "v1",
   "created": "2026-10-30",
-  "summary": "v2 replanned from the listing, then checked against the 5.5-minute walkthrough video (docs/video-walkthrough.md): entry opens straight onto the walkway, no hallway, bathroom 3 added, both triple rooms and both ensuites confirmed, 50 video keyframes assigned.",
+  "summary": "v2 replanned from the listing, then checked against the 5.5-minute walkthrough video (docs/video-walkthrough.md): entry opens straight onto the walkway, no hallway, bathroom 3 added, both triple rooms and both ensuites confirmed, 50 video keyframes assigned. Owner corrections: walkway pergola is three-sided (no landward strip); bedrooms W and E are sunken ~0.3 m with bi-folds that fold fully open and bi-fold openings off the room centreline.",
   "units": "metres",
-  "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room.",
+  "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room. Bedroom W is on the x-negative side (the headland/bay side), bedroom E on the x-positive side (pool/bure/BBQ side).",
   "source": {
     "listing": "https://www.bayleys.co.nz/listings/residential/south-pacific-islands/fiji/5-musket-cove-malolo-island-5000383",
     "listingFacts": {
@@ -1158,12 +1158,12 @@
         "timber": "#5a3a24",
         "lining": "#c98f4e"
       },
-      "description": "Covered walkway round all four sides of the courtyard under the same dark-beam / honey-board pergola, continuous with the side verandahs' roof, ~1.8 m wide, open beam grid at the corners. Pale grey-cream tile. The great room's hallway and kitchen door open onto its seaward strip; the entry door onto its landward strip; bedroom doors, louvre windows and a run of tropical canvases (bird-of-paradise, frangipani, banana) on every courtyard-facing wall. Bicycles kept in the garden.",
+      "description": "Covered walkway round all four sides of the courtyard under the same dark-beam / honey-board pergola, continuous with the side verandahs' roof, ~1.8 m wide, open beam grid at the corners. Pale grey-cream tile. The great room's hallway and kitchen door open onto its seaward strip; the entry door onto its landward strip; bedroom doors, louvre windows and a run of tropical canvases (bird-of-paradise, frangipani, banana) on every courtyard-facing wall. Bicycles kept in the garden. The pergola does NOT continue along the landward side: the ring is three-sided (sea side plus both long sides); the landward wing's own eaves cover that edge.",
       "hole": {
         "x": -3.2,
         "z": 9.8,
         "w": 6.4,
-        "d": 9.9
+        "d": 11.7
       },
       "photos": [
         "17-courtyard-walkway-and-garden.jpg",
@@ -1184,6 +1184,11 @@
         "099-v200s-walkway-seaward-corner-bifold-into-great-room.jpg",
         "105-v243s-kitchen-side-door-to-walkway.jpg",
         "106-v250s-walkway-seaward-side-canvases.jpg"
+      ],
+      "ringSides": [
+        "sea",
+        "left",
+        "right"
       ]
     },
     {
@@ -1259,7 +1264,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Seaward room of the left wing, directly behind the left verandah: its bi-folds face the sea and close the verandah's end, so from the bed you look straight down the verandah to the pavilion and the water (photo 32). Cathedral ply ceiling on dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster with dark square posts and white voile, white linen; green canvas; black reading lights; black chest with a giant clam; grey armchair. Full-height louvres on the outer (lawn) wall; screened honey-timber door on the courtyard wall near the back; door at the back-outer corner to the ensuite (daylight beyond). Photo 33 is this room; photo 12 is its mirror image, bedroom 2.",
+      "description": "Seaward room of the left wing, directly behind the left verandah: its bi-folds face the sea and close the verandah's end, so from the bed you look straight down the verandah to the pavilion and the water (photo 32). Cathedral ply ceiling on dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster with dark square posts and white voile, white linen; green canvas; black reading lights; black chest with a giant clam; grey armchair. Full-height louvres on the outer (lawn) wall; screened honey-timber door on the courtyard wall near the back; door at the back-outer corner to the ensuite (daylight beyond). Photo 33 is this room; photo 12 is its mirror image, bedroom 2. The room is SUNKEN about 0.3 m below the verandah with a step down inside the bi-folds. The louvre bi-fold shutters fold fully back against the piers so the whole seaward wall opens. The bed is centred in the room; the bi-fold opening is offset toward the outer wall, so the doors are off the bed's axis.",
       "materials": [
         "Pale sage render",
         "Light grey tile",
@@ -1269,8 +1274,9 @@
         {
           "side": "sea",
           "type": "bifold",
-          "from": 0.4,
-          "to": 4.1
+          "from": 0.3,
+          "to": 3.3,
+          "open": "full"
         },
         {
           "side": "left",
@@ -1327,7 +1333,9 @@
         "z": 8,
         "w": 4.5,
         "d": 13.5
-      }
+      },
+      "floorLevel": -0.3,
+      "changes": "Sunken floor, bi-folds fully opening, bi-fold opening offset from the room centre (owner, after the walkthrough)."
     },
     {
       "id": "master-ensuite",
@@ -1481,13 +1489,14 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Seaward room of the right wing, the mirror of the master: its bi-folds face the sea and close the end of the BBQ verandah (photos 1 and 58 show the bed through them from the verandah). Cathedral ply ceiling, dark trusses, fan, Panasonic wall AC on the outer wall. King four-poster with white voile and white linen, frangipani canvas, black reading lights. Full-height louvres on the outer (lawn) wall; screened door to the courtyard walkway near the back; door at the back-outer corner to the ensuite. Photo 12 is this room.",
+      "description": "Seaward room of the right wing, the mirror of the master: its bi-folds face the sea and close the end of the BBQ verandah (photos 1 and 58 show the bed through them from the verandah). Cathedral ply ceiling, dark trusses, fan, Panasonic wall AC on the outer wall. King four-poster with white voile and white linen, frangipani canvas, black reading lights. Full-height louvres on the outer (lawn) wall; screened door to the courtyard walkway near the back; door at the back-outer corner to the ensuite. Photo 12 is this room. The room is SUNKEN about 0.3 m below the verandah with a step down inside the bi-folds. The louvre bi-fold shutters fold fully back against the piers so the whole seaward wall opens. The bed is centred in the room; the bi-fold opening is offset toward the outer wall, so the doors are off the bed's axis.",
       "openings": [
         {
           "side": "sea",
           "type": "bifold",
-          "from": 0.4,
-          "to": 4.1
+          "from": 1.2000000000000002,
+          "to": 4.2,
+          "open": "full"
         },
         {
           "side": "right",
@@ -1537,7 +1546,9 @@
         "z": 8,
         "w": 4.5,
         "d": 13.5
-      }
+      },
+      "floorLevel": -0.3,
+      "changes": "Sunken floor, bi-folds fully opening, bi-fold opening offset from the room centre (owner, after the walkthrough)."
     },
     {
       "id": "bedroom-2-ensuite",
