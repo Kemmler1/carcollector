@@ -2,8 +2,9 @@
 import { createScene } from './scene.js?v=__BUILD__';
 import { createPlan, PROP_TYPES, OPENING_TYPES } from './plan.js?v=__BUILD__';
 
-const PHOTO_DIR = '../photos/raw/';
 const THUMB_DIR = '../photos/thumbs/';
+// video keyframes are named NNN-vSSSs-… and live in photos/video/; everything else in photos/raw/
+const photoUrl = (f) => (/^\d{3}-v\d{3}s-/.test(f) ? '../photos/video/' : '../photos/raw/') + f;
 const LS_VERSIONS = 'house.versions';       // versions imported in the browser, keyed by version id
 const LS_COMMENTS = 'house.comments';       // { [versionId]: { [sectionId|'general']: Comment[] } }
 const LS_ASSIGN = 'house.assignments';
@@ -178,7 +179,7 @@ const lightbox = $('lightbox');
 let lightboxFile = null;
 function openLightbox(file) {
   lightboxFile = file;
-  lightbox.querySelector('img').src = PHOTO_DIR + file;
+  lightbox.querySelector('img').src = photoUrl(file);
   const secs = sectionsForPhoto(file).map(id => sectionById(id)?.name).filter(Boolean);
   lightbox.querySelector('.caption').textContent = `${file}${secs.length ? ' · ' + secs.join(', ') : ' · not assigned to a section yet'}`;
   $('lb-view').disabled = !state.current.photoSpots?.[file];
@@ -328,8 +329,8 @@ function renderCompare(goto) {
   $('cmp-opacity-wrap').style.visibility = c.mode === 'overlay' ? 'visible' : 'hidden';
   $('cmp-mode-side').classList.toggle('active', c.mode === 'side');
   $('cmp-mode-overlay').classList.toggle('active', c.mode === 'overlay');
-  $('compare-photo').querySelector('img').src = PHOTO_DIR + file;
-  $('overlay-photo').src = PHOTO_DIR + file; $('overlay-photo').style.opacity = c.opacity;
+  $('compare-photo').querySelector('img').src = photoUrl(file);
+  $('overlay-photo').src = photoUrl(file); $('overlay-photo').style.opacity = c.opacity;
   $('cmp-goto').disabled = !spot;
   const shows = sectionsForPhoto(file).map(id => state.current.sections.find(s => s.id === id)?.name || id);
   $('cmp-shows').textContent = shows.length ? 'Shows: ' + shows.join(', ') : 'Not assigned to a part yet';
@@ -513,7 +514,7 @@ async function buildPackage(onProgress) {
   const photoIndex = ['# Photos by part', '', 'Each photo is copied into the folder of every part it shows. `photos/all/` has every photo once.', ''];
   const blobs = {}; let fetched = 0;
   await Promise.all(state.photos.map(async f => {
-    try { blobs[f] = new Uint8Array(await (await fetch(PHOTO_DIR + f)).arrayBuffer()); zip.file('photos/all/' + f, blobs[f]); } catch {}
+    try { blobs[f] = new Uint8Array(await (await fetch(photoUrl(f))).arrayBuffer()); zip.file('photos/all/' + f, blobs[f]); } catch {}
     onProgress(`Packing photos… ${++fetched}/${state.photos.length}`);
   }));
   for (const s of v.sections) {
@@ -742,7 +743,7 @@ window.__house = { view, plan, state, selectSection, setVersion, openOnboarding,
 // Warm the browser cache with every photo in the background, thumbnails first, a few at a
 // time, so flicking through Compare is instant. Never blocks the UI.
 function preloadPhotos() {
-  const queue = [...state.photos.map(f => THUMB_DIR + f), ...state.photos.map(f => PHOTO_DIR + f)];
+  const queue = [...state.photos.map(f => THUMB_DIR + f), ...state.photos.map(f => photoUrl(f))];
   let active = 0;
   const next = () => {
     while (active < 3 && queue.length) {

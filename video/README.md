@@ -29,7 +29,8 @@ curl -L -o video/IMG_5398.MOV https://github.com/Kemmler1/carcollector/releases/
 
 ## Pull frames
 
-Not done yet. One frame per second as JPEGs, numbered, for a frame-by-frame pass:
+Done: 330 frames at 1 fps were reviewed and 50 keyframes kept as `photos/video/071…120`.
+The route and findings are in `docs/video-walkthrough.md`. To redo: One frame per second as JPEGs, numbered, for a frame-by-frame pass:
 
 ```sh
 mkdir -p video/frames

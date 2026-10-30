@@ -719,3 +719,11 @@ on the wall at right, garden at left, far wing ahead with a door and grey roof.
 ## 69 — Listing: right verandah end to the lawn
 `69-listing-right-verandah-end-to-lawn.jpg` — at bedroom 2's door looking out over the right
 lawn: pergola posts, lawn sloping to the palms.
+
+
+---
+
+# Photos 71–120 — walkthrough video keyframes
+
+Fifty frames from `IMG_5398.MOV` (see `docs/video-walkthrough.md` for the full route and what each
+settles). Filenames carry the second: `NNN-vSSSs-name.jpg`. They live in `photos/video/`.
