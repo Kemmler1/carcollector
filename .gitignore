@@ -2,3 +2,9 @@
 Thumbs.db
 *.blend1
 *.bak
+
+# raw walkthrough video: attached to a GitHub Release, see video/README.md
+*.MOV
+*.mov
+*.mp4
+video/frames/
