@@ -91,7 +91,11 @@ function pyramidRoofGeometry(w, d, h, overhang = 0.8) {
 
 function addRoof(ctx, group, sec, cx, cz, baseY) {
   if (!sec.roof || sec.roof.type === 'none' || sec.roof.type === 'flat') return;
-  const { w, d } = sec.box;
+  if (sec.roof.under) return; // this room sits under another section's roof (roofBox)
+  // roofBox: one roof spanning several rooms (a whole wing), drawn by the first room in it
+  const rb = sec.roofBox || sec.box;
+  const { w, d } = rb;
+  if (sec.roofBox) { cx = rb.x + rb.w / 2; cz = rb.z + rb.d / 2; }
   const h = sec.roof.height || 1.6;
   const type = sec.roof.type;
   const geo = type === 'gable' ? gableRoofGeometry(w, d, h) : type === 'thatch' ? pyramidRoofGeometry(w, d, h) : hipRoofGeometry(w, d, h);
@@ -228,6 +232,8 @@ function pergolaOver(ctx, g, sec, x, z, w, d, H, tailSide) {
   const lining = mat('#ffffff', { map: TEX.boards([w / 0.6, d / 0.6]), side: THREE.DoubleSide, roughness: 0.8 });
   const slab = box(w, 0.05, d, lining, x + w / 2, H + 0.3, z + d / 2);
   g.add(slab); ctx.roofs.push(slab);
+  const membrane = box(w, 0.03, d, mat('#e9e8e2', { roughness: 0.95 }), x + w / 2, H + 0.34, z + d / 2); // white flat roof seen in the aerials
+  g.add(membrane); ctx.roofs.push(membrane);
   const alongX = w >= d; // rafters span the short dimension
   const span = alongX ? d : w, run = alongX ? w : d;
   const n = Math.max(1, Math.round(run / 0.9));

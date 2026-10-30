@@ -57,6 +57,13 @@ Or publish with GitHub Pages (Settings → Pages → branch `main`, folder `/ (r
   Light and dark follow the system. Photos preload in the background after the model loads.
 - View menu: roofs off (dollhouse view), labels, photo spots, wireframe. Plan view.
 
+Opening positions: `from`/`to` are metres along the wall from its start, which is the left end
+for the `sea` wall, the right end for `land`, the landward end for `left` and the seaward end
+for `right`.
+
+`v2.json` is the current model (replanned from the listing's aerials); `v1.json` is kept so
+"Diff vs previous" shows what moved.
+
 ## Version control
 
 Browser-saved versions are only on that machine. To make a version permanent, drop the
@@ -75,6 +82,8 @@ and deploys the repository root. The app is then at `https://<user>.github.io/ca
 `pergola`, `porch`, `pool`, `bure`, `garden`, `ground`, `water`), a `box` footprint
 `{x, z, w, d}` in metres, optional `wallHeight`, `roof {type, height}`, `colors`,
 `openSides` (for rooms: `sea`, `land`, `left`, `right` become post-and-beam openings),
+`roofBox` (one roof drawn over several rooms, e.g. a whole wing; the other rooms under it set
+`roof.under` to that section's id and draw no roof of their own),
 `openings` (doors and windows along a wall side, metres from that wall's start),
 `props` (furniture placed relative to the box), `trees`, `description`, `materials`,
 `furniture`, `photos`, and `confirmed` (false = not photographed

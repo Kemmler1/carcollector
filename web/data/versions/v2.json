@@ -1,0 +1,2515 @@
+{
+ "version": "v2",
+ "basedOn": "v1",
+ "created": "2026-10-30",
+ "summary": "Replanned from the Bayleys listing (29 more photos, two of them aerials) and a re-read of the site photos. The pergola is now one continuous flat roof that wraps the great room on three sides (pool pavilion plus two 4.5 m side verandahs along its flanks) and continues as the ring walkway round the courtyard, matching the white roof in the aerials. The master bedroom and bedroom 2 sit behind the two side verandahs and open seaward onto them (mirror-image rooms: photos 33 and 12), so the wings are offset outboard of the great room, not alongside it; the outer verandahs no longer run the length of the wings. Pool shortened to 4.5 m off the pavilion with the spa at the bure end; bure moved beyond the pool's right end. Bedroom 3 (heliconia) and the triple room placed in the wings' landward halves; landward wing holds the entry, a probable caretaker's flat and the third bathroom/laundry. Photo assignments corrected (1, 12, 24, 31, 33) and all 70 camera spots re-placed. Still estimates: no measurements.",
+ "units": "metres",
+ "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room.",
+ "source": {
+  "listing": "https://www.bayleys.co.nz/listings/residential/south-pacific-islands/fiji/5-musket-cove-malolo-island-5000383",
+  "listingFacts": {
+   "bedrooms": 4,
+   "bathrooms": 3,
+   "livingAreas": 1,
+   "pool": true,
+   "landSqm": 5455,
+   "extras": "self-contained caretaker's accommodation; 'expansive decking'"
+  }
+ },
+ "photoSpots": {
+  "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg": {
+   "x": 13,
+   "y": 1.6,
+   "z": 4,
+   "lookX": 6.5,
+   "lookY": 1.4,
+   "lookZ": 7
+  },
+  "02-pavilion-edge-bedroom-doors-lawn-sea.jpg": {
+   "x": -7.5,
+   "y": 1.6,
+   "z": -1,
+   "lookX": -7.5,
+   "lookY": 1.4,
+   "lookZ": 9
+  },
+  "03-pavilion-looking-to-point-and-pool-corner.jpg": {
+   "x": -7,
+   "y": 1.6,
+   "z": -2.5,
+   "lookX": -20,
+   "lookY": 1.4,
+   "lookZ": -20
+  },
+  "04-kitchen-rear-wall.jpg": {
+   "x": -2.5,
+   "y": 1.6,
+   "z": 5,
+   "lookX": -2.5,
+   "lookY": 1.4,
+   "lookZ": 8
+  },
+  "05-living-room-toward-kitchen-island.jpg": {
+   "x": -2,
+   "y": 1.6,
+   "z": 0.8,
+   "lookX": -1,
+   "lookY": 1.4,
+   "lookZ": 7
+  },
+  "06-pool-infinity-edge-toward-mainland.jpg": {
+   "x": 10,
+   "y": 1.6,
+   "z": -5.5,
+   "lookX": -5,
+   "lookY": 1.4,
+   "lookZ": -8.5
+  },
+  "07-bure-bench-view-east-a.jpg": {
+   "x": 14,
+   "y": 1.6,
+   "z": -6,
+   "lookX": 20,
+   "lookY": 1.4,
+   "lookZ": -20
+  },
+  "08-bure-bench-view-east-b.jpg": {
+   "x": 14,
+   "y": 1.6,
+   "z": -6,
+   "lookX": 14,
+   "lookY": 1.4,
+   "lookZ": -22
+  },
+  "09-lawn-edge-to-sea-and-bay.jpg": {
+   "x": -6,
+   "y": 1.6,
+   "z": -16,
+   "lookX": -15,
+   "lookY": 1.4,
+   "lookZ": -40
+  },
+  "10-pavilion-side-bbq-and-lawn.jpg": {
+   "x": 11,
+   "y": 1.6,
+   "z": 3,
+   "lookX": 8,
+   "lookY": 1.4,
+   "lookZ": -12
+  },
+  "11-pavilion-wide-roof-pool-bure-a.jpg": {
+   "x": 3,
+   "y": 1.6,
+   "z": -0.8,
+   "lookX": 9,
+   "lookY": 1.4,
+   "lookZ": -8
+  },
+  "12-master-bedroom.jpg": {
+   "x": 7.5,
+   "y": 1.6,
+   "z": 8.3,
+   "lookX": 7.5,
+   "lookY": 1.4,
+   "lookZ": 13
+  },
+  "13-house-side-wall-ac-unit.jpg": {
+   "x": -11,
+   "y": 1.6,
+   "z": 20,
+   "lookX": -10.5,
+   "lookY": 1.4,
+   "lookZ": 6
+  },
+  "14-pavilion-interior-toward-pool-and-bure.jpg": {
+   "x": 0,
+   "y": 1.6,
+   "z": -0.6,
+   "lookX": 12,
+   "lookY": 1.4,
+   "lookZ": -8
+  },
+  "15-bure-interior-roof-and-daybed.jpg": {
+   "x": 13,
+   "y": 1.6,
+   "z": -6.5,
+   "lookX": 15,
+   "lookY": 2.6,
+   "lookZ": -9
+  },
+  "16-pavilion-wide-roof-pool-bure-b.jpg": {
+   "x": 3.5,
+   "y": 1.6,
+   "z": -0.8,
+   "lookX": 9,
+   "lookY": 1.4,
+   "lookZ": -8
+  },
+  "17-courtyard-walkway-and-garden.jpg": {
+   "x": -4.8,
+   "y": 1.6,
+   "z": 18,
+   "lookX": -3,
+   "lookY": 1.4,
+   "lookZ": 9
+  },
+  "18-kitchen-pantry-and-lounge-from-side-door.jpg": {
+   "x": -5.2,
+   "y": 1.6,
+   "z": 6.8,
+   "lookX": 1,
+   "lookY": 1.4,
+   "lookZ": 4
+  },
+  "19-dining-from-side-verandah-doors-a.jpg": {
+   "x": 6.5,
+   "y": 1.6,
+   "z": 2.5,
+   "lookX": 2,
+   "lookY": 1.4,
+   "lookZ": 3
+  },
+  "20-dining-from-side-verandah-doors-b.jpg": {
+   "x": 6.8,
+   "y": 1.6,
+   "z": 3.5,
+   "lookX": 2,
+   "lookY": 1.4,
+   "lookZ": 2.5
+  },
+  "21-great-room-from-kitchen-corner-toward-sea.jpg": {
+   "x": -4.5,
+   "y": 1.6,
+   "z": 5,
+   "lookX": 2,
+   "lookY": 1.4,
+   "lookZ": -4
+  },
+  "22-kitchen-island-toward-lounge-and-pool.jpg": {
+   "x": -2.5,
+   "y": 1.6,
+   "z": 4.6,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": -5
+  },
+  "23-kitchen-galley-island-sinks-desk.jpg": {
+   "x": -4.5,
+   "y": 1.6,
+   "z": 7,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": 7
+  },
+  "24-kitchen-from-courtyard-door-toward-dining.jpg": {
+   "x": 0.2,
+   "y": 1.6,
+   "z": 7.8,
+   "lookX": 3.5,
+   "lookY": 1.4,
+   "lookZ": 1
+  },
+  "25-great-room-from-pavilion-door-trusses.jpg": {
+   "x": 0,
+   "y": 1.6,
+   "z": -0.3,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": 8
+  },
+  "26-great-room-hallway-and-second-bedroom-door.jpg": {
+   "x": -2,
+   "y": 1.6,
+   "z": 1.5,
+   "lookX": 3,
+   "lookY": 1.4,
+   "lookZ": 8
+  },
+  "27-pavilion-along-house-toward-bure.jpg": {
+   "x": -6,
+   "y": 1.6,
+   "z": -2,
+   "lookX": 12,
+   "lookY": 1.4,
+   "lookZ": -4
+  },
+  "28-pavilion-toward-pool-and-bure-end.jpg": {
+   "x": -1,
+   "y": 1.6,
+   "z": -1.5,
+   "lookX": 12,
+   "lookY": 1.4,
+   "lookZ": -7
+  },
+  "29-pavilion-corner-bay-lawn-and-sea.jpg": {
+   "x": -9,
+   "y": 1.6,
+   "z": -3,
+   "lookX": -20,
+   "lookY": 1.4,
+   "lookZ": -20
+  },
+  "30-bedroom-side-verandah-toward-sea.jpg": {
+   "x": -7.2,
+   "y": 1.6,
+   "z": 7.6,
+   "lookX": -7.5,
+   "lookY": 1.4,
+   "lookZ": -10
+  },
+  "31-second-bedroom-heliconia-and-passage.jpg": {
+   "x": -6,
+   "y": 1.6,
+   "z": 17,
+   "lookX": -8.5,
+   "lookY": 1.4,
+   "lookZ": 20.5
+  },
+  "32-bedroom-looking-out-to-verandah-and-sea.jpg": {
+   "x": -6.5,
+   "y": 1.6,
+   "z": 10.5,
+   "lookX": -7.5,
+   "lookY": 1.4,
+   "lookZ": -5
+  },
+  "33-master-bedroom-full-from-verandah-door.jpg": {
+   "x": -7.5,
+   "y": 1.6,
+   "z": 8.3,
+   "lookX": -7.5,
+   "lookY": 1.4,
+   "lookZ": 13
+  },
+  "34-triple-bedroom-three-singles-heliconia.jpg": {
+   "x": 5.5,
+   "y": 1.6,
+   "z": 17,
+   "lookX": 9,
+   "lookY": 1.4,
+   "lookZ": 20
+  },
+  "35-courtyard-from-walkway-corner-solar-hw.jpg": {
+   "x": -4.3,
+   "y": 1.6,
+   "z": 9.2,
+   "lookX": 3,
+   "lookY": 1.4,
+   "lookZ": 23
+  },
+  "36-courtyard-from-entry-door-looking-seaward.jpg": {
+   "x": 0,
+   "y": 1.6,
+   "z": 21.7,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": 6
+  },
+  "37-side-path-along-wing-to-pool-side.jpg": {
+   "x": -11,
+   "y": 1.6,
+   "z": 26,
+   "lookX": -10.5,
+   "lookY": 1.4,
+   "lookZ": 0
+  },
+  "38-entry-porch-front-on.jpg": {
+   "x": 0,
+   "y": 1.6,
+   "z": 36,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": 25
+  },
+  "39-entry-porch-angled-left-wing.jpg": {
+   "x": -1,
+   "y": 1.6,
+   "z": 27,
+   "lookX": -9,
+   "lookY": 1.4,
+   "lookZ": 23
+  },
+  "40-entry-porch-angled-right-wing.jpg": {
+   "x": 1,
+   "y": 1.6,
+   "z": 27,
+   "lookX": 9,
+   "lookY": 1.4,
+   "lookZ": 23
+  },
+  "41-landward-wing-end-room-planter.jpg": {
+   "x": -8,
+   "y": 1.6,
+   "z": 33,
+   "lookX": -7,
+   "lookY": 1.4,
+   "lookZ": 25
+  },
+  "42-listing-pool-from-spa-end-toward-mainland.jpg": {
+   "x": 10,
+   "y": 1.6,
+   "z": -5.5,
+   "lookX": -4,
+   "lookY": 1.4,
+   "lookZ": -9
+  },
+  "45-listing-bay-and-mainland-hills-from-lawn.jpg": {
+   "x": -8,
+   "y": 1.6,
+   "z": -15,
+   "lookX": -30,
+   "lookY": 1.4,
+   "lookZ": -40
+  },
+  "46-listing-great-room-toward-kitchen-bar.jpg": {
+   "x": -1,
+   "y": 1.6,
+   "z": 0.5,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": 7.5
+  },
+  "47-listing-great-room-from-dining-toward-sea.jpg": {
+   "x": 3.5,
+   "y": 1.6,
+   "z": 4,
+   "lookX": -2,
+   "lookY": 1.4,
+   "lookZ": -6
+  },
+  "48-listing-bedroom-four-poster-bird-of-paradise.jpg": {
+   "x": -5.2,
+   "y": 1.6,
+   "z": 18,
+   "lookX": -9,
+   "lookY": 1.4,
+   "lookZ": 20
+  },
+  "49-listing-twin-bedroom-corner-louvres.jpg": {
+   "x": 6,
+   "y": 1.6,
+   "z": 16.5,
+   "lookX": 9,
+   "lookY": 1.4,
+   "lookZ": 21
+  },
+  "50-listing-courtyard-walkway-toward-hallway-and-sea.jpg": {
+   "x": 4.2,
+   "y": 1.6,
+   "z": 20,
+   "lookX": 2.5,
+   "lookY": 1.4,
+   "lookZ": 5
+  },
+  "51-listing-lounge-toward-sea-and-pool.jpg": {
+   "x": -2,
+   "y": 1.6,
+   "z": 3.5,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": -8
+  },
+  "52-listing-left-verandah-toward-master-bedroom.jpg": {
+   "x": -7.5,
+   "y": 1.6,
+   "z": 1.5,
+   "lookX": -7.5,
+   "lookY": 1.4,
+   "lookZ": 10
+  },
+  "53-listing-kitchen-galley-toward-hallway-end-a.jpg": {
+   "x": -4.5,
+   "y": 1.6,
+   "z": 6.5,
+   "lookX": 1,
+   "lookY": 1.4,
+   "lookZ": 6.8
+  },
+  "54-listing-lounge-trusses-toward-sea.jpg": {
+   "x": -3.5,
+   "y": 1.6,
+   "z": 3.5,
+   "lookX": 0,
+   "lookY": 2.2,
+   "lookZ": -6
+  },
+  "55-listing-great-room-from-kitchen-bar-toward-sea.jpg": {
+   "x": -2.5,
+   "y": 1.6,
+   "z": 6,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": -6
+  },
+  "56-listing-great-room-from-hallway-end-toward-sea.jpg": {
+   "x": 0.5,
+   "y": 1.6,
+   "z": 6.5,
+   "lookX": -3,
+   "lookY": 1.4,
+   "lookZ": -3
+  },
+  "57-listing-kitchen-galley-toward-hallway-end-b.jpg": {
+   "x": -4.8,
+   "y": 1.6,
+   "z": 6.5,
+   "lookX": 1,
+   "lookY": 1.4,
+   "lookZ": 7
+  },
+  "58-listing-right-verandah-bbq-and-bedroom-2.jpg": {
+   "x": 7,
+   "y": 1.6,
+   "z": 2,
+   "lookX": 7.5,
+   "lookY": 1.4,
+   "lookZ": 10
+  },
+  "59-listing-bure-bench-and-reef-view.jpg": {
+   "x": 12,
+   "y": 1.6,
+   "z": -7,
+   "lookX": 18,
+   "lookY": 1.4,
+   "lookZ": -14
+  },
+  "60-listing-sunloungers-palms-and-lagoon.jpg": {
+   "x": 4,
+   "y": 1.6,
+   "z": -10,
+   "lookX": 0,
+   "lookY": 1.4,
+   "lookZ": -25
+  },
+  "61-listing-lawn-edge-palms-and-bay-a.jpg": {
+   "x": 2,
+   "y": 1.6,
+   "z": -14,
+   "lookX": -5,
+   "lookY": 1.4,
+   "lookZ": -35
+  },
+  "62-listing-seaward-palms-and-reef-flat.jpg": {
+   "x": -8,
+   "y": 1.6,
+   "z": -17,
+   "lookX": -18,
+   "lookY": 1.4,
+   "lookZ": -30
+  },
+  "63-listing-bay-and-mainland-through-scrub.jpg": {
+   "x": -14,
+   "y": 1.6,
+   "z": -12,
+   "lookX": -35,
+   "lookY": 1.4,
+   "lookZ": -25
+  },
+  "64-listing-right-side-lawn-and-hedge.jpg": {
+   "x": 14,
+   "y": 1.6,
+   "z": 2,
+   "lookX": 26,
+   "lookY": 1.4,
+   "lookZ": 10
+  },
+  "65-listing-pavilion-toward-bure-and-pool-end.jpg": {
+   "x": -0.5,
+   "y": 1.6,
+   "z": -1.5,
+   "lookX": 14,
+   "lookY": 1.4,
+   "lookZ": -6
+  },
+  "66-listing-view-from-bure-to-reef.jpg": {
+   "x": 13.5,
+   "y": 1.6,
+   "z": -6,
+   "lookX": 14,
+   "lookY": 1.4,
+   "lookZ": -25
+  },
+  "67-listing-courtyard-from-walkway-corner.jpg": {
+   "x": -4.3,
+   "y": 1.6,
+   "z": 9.3,
+   "lookX": 3,
+   "lookY": 1.4,
+   "lookZ": 21
+  },
+  "68-listing-courtyard-walkway-along-wing-paintings.jpg": {
+   "x": -4.2,
+   "y": 1.6,
+   "z": 10.5,
+   "lookX": -3,
+   "lookY": 1.4,
+   "lookZ": 22
+  },
+  "69-listing-right-verandah-end-to-lawn.jpg": {
+   "x": 7,
+   "y": 1.6,
+   "z": 6.5,
+   "lookX": 16,
+   "lookY": 1.4,
+   "lookZ": 9
+  },
+  "70-listing-lawn-edge-palms-and-bay-b.jpg": {
+   "x": -3,
+   "y": 1.6,
+   "z": -15,
+   "lookX": -15,
+   "lookY": 1.4,
+   "lookZ": -35
+  },
+  "43-listing-aerial-from-landward-right.jpg": {
+   "x": 45,
+   "y": 35,
+   "z": 45,
+   "lookX": 0,
+   "lookY": 0,
+   "lookZ": 8
+  },
+  "44-listing-aerial-from-reef-flat.jpg": {
+   "x": 10,
+   "y": 30,
+   "z": -70,
+   "lookX": 0,
+   "lookY": 0,
+   "lookZ": 5
+  }
+ },
+ "sections": [
+  {
+   "id": "great-room",
+   "name": "Great room",
+   "kind": "room",
+   "group": "Living",
+   "confirmed": true,
+   "box": {
+    "x": -5,
+    "z": 0,
+    "w": 10,
+    "d": 8
+   },
+   "wallHeight": 3.4,
+   "roof": {
+    "type": "hip",
+    "height": 3.2
+   },
+   "colors": {
+    "wall": "#ece6d6",
+    "floor": "#8d8578",
+    "roof": "#9ea4a9"
+   },
+   "description": "One tall space under a compact hip roof that sits in the middle of the big flat pergola roof (clear in the aerial photos 43 and 44). Four dark-stained hardwood trusses with black steel king-post plates, pale ply lining, black ceiling fans, white cylinder pendants on a grid. It opens on three sides through louvre bi-fold doors: seaward onto the pool pavilion, right onto the BBQ verandah (dining end), and left onto the left verandah (lounge end). The kitchen galley sits in the landward-left corner under a flat ceiling with its own side door to the left verandah and a courtyard door at the back; the hallway to the courtyard walkway is beside the fridge, landward-right. Floor is grey-taupe stone-look porcelain, 600 mm, running outside without a step.",
+   "materials": [
+    "Dark chocolate-stained hardwood trusses and header beam",
+    "Pale ply ceiling lining",
+    "Honey timber posts and boarded wall above the kitchen",
+    "Grey-taupe 600 mm porcelain tile",
+    "Honey-timber louvre bi-fold doors, black steel hinges, brass threshold strips"
+   ],
+   "furniture": [
+    "Two black leather sofas and two armchairs on thick round timber log legs, blue-grey patterned cushions",
+    "Chunky timber coffee table",
+    "8-seat dark timber dining table with slatted chairs",
+    "Low dark TV cabinet",
+    "Frangipani canvases; two carved Pacific masks flanking the hallway"
+   ],
+   "openSides": [
+    "sea",
+    "left",
+    "right"
+   ],
+   "openings": [
+    {
+     "side": "sea",
+     "type": "bifold",
+     "from": 0.3,
+     "to": 9.7
+    },
+    {
+     "side": "right",
+     "type": "bifold",
+     "from": 0.3,
+     "to": 7.7
+    },
+    {
+     "side": "left",
+     "type": "bifold",
+     "from": 3.8,
+     "to": 7.7
+    },
+    {
+     "side": "left",
+     "type": "bifold",
+     "from": 0.6,
+     "to": 1.8
+    },
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 6,
+     "to": 9,
+     "sill": 1.0,
+     "head": 2.0
+    },
+    {
+     "side": "land",
+     "type": "bifold",
+     "from": 4.2,
+     "to": 5.4
+    },
+    {
+     "side": "land",
+     "type": "door",
+     "from": 1.2,
+     "to": 3.0
+    }
+   ],
+   "props": [
+    {
+     "type": "sofa",
+     "x": 2.8,
+     "z": 1.0
+    },
+    {
+     "type": "sofa",
+     "x": 2.8,
+     "z": 3.4,
+     "rot": 180
+    },
+    {
+     "type": "coffee-table",
+     "x": 2.8,
+     "z": 2.2
+    },
+    {
+     "type": "armchair",
+     "x": 1.1,
+     "z": 2.2,
+     "rot": 90
+    },
+    {
+     "type": "armchair",
+     "x": 4.5,
+     "z": 2.2,
+     "rot": -90
+    },
+    {
+     "type": "tv",
+     "x": 0.3,
+     "z": 5.0,
+     "rot": 90
+    },
+    {
+     "type": "dining-table",
+     "x": 8,
+     "z": 2.4
+    },
+    {
+     "type": "chair",
+     "x": 7.2,
+     "z": 1.6,
+     "rot": 180
+    },
+    {
+     "type": "chair",
+     "x": 8,
+     "z": 1.6,
+     "rot": 180
+    },
+    {
+     "type": "chair",
+     "x": 8.8,
+     "z": 1.6,
+     "rot": 180
+    },
+    {
+     "type": "chair",
+     "x": 7.2,
+     "z": 3.2
+    },
+    {
+     "type": "chair",
+     "x": 8,
+     "z": 3.2
+    },
+    {
+     "type": "chair",
+     "x": 8.8,
+     "z": 3.2
+    },
+    {
+     "type": "chair",
+     "x": 6.6,
+     "z": 2.4,
+     "rot": -90
+    },
+    {
+     "type": "chair",
+     "x": 9.4,
+     "z": 2.4,
+     "rot": 90
+    },
+    {
+     "type": "mask",
+     "x": 1.6,
+     "z": 7.9
+    },
+    {
+     "type": "mask",
+     "x": 3.6,
+     "z": 7.9
+    }
+   ],
+   "photos": [
+    "05-living-room-toward-kitchen-island.jpg",
+    "18-kitchen-pantry-and-lounge-from-side-door.jpg",
+    "19-dining-from-side-verandah-doors-a.jpg",
+    "20-dining-from-side-verandah-doors-b.jpg",
+    "21-great-room-from-kitchen-corner-toward-sea.jpg",
+    "25-great-room-from-pavilion-door-trusses.jpg",
+    "26-great-room-hallway-and-second-bedroom-door.jpg",
+    "46-listing-great-room-toward-kitchen-bar.jpg",
+    "47-listing-great-room-from-dining-toward-sea.jpg",
+    "51-listing-lounge-toward-sea-and-pool.jpg",
+    "54-listing-lounge-trusses-toward-sea.jpg",
+    "55-listing-great-room-from-kitchen-bar-toward-sea.jpg",
+    "56-listing-great-room-from-hallway-end-toward-sea.jpg"
+   ]
+  },
+  {
+   "id": "lounge",
+   "name": "Lounge",
+   "kind": "zone",
+   "group": "Living",
+   "confirmed": true,
+   "box": {
+    "x": -5,
+    "z": 0,
+    "w": 6,
+    "d": 4.5
+   },
+   "colors": {
+    "floor": "#7d766a"
+   },
+   "description": "Seaward half of the great room, in front of the kitchen island. Sofas face the pool.",
+   "photos": [
+    "05-living-room-toward-kitchen-island.jpg",
+    "21-great-room-from-kitchen-corner-toward-sea.jpg",
+    "22-kitchen-island-toward-lounge-and-pool.jpg",
+    "51-listing-lounge-toward-sea-and-pool.jpg",
+    "54-listing-lounge-trusses-toward-sea.jpg",
+    "55-listing-great-room-from-kitchen-bar-toward-sea.jpg"
+   ]
+  },
+  {
+   "id": "dining",
+   "name": "Dining",
+   "kind": "zone",
+   "group": "Living",
+   "confirmed": true,
+   "box": {
+    "x": 1,
+    "z": 0,
+    "w": 4,
+    "d": 5.5
+   },
+   "colors": {
+    "floor": "#7d766a"
+   },
+   "description": "Right side of the great room, just inside the right verandah doors. The BBQ sits outside those doors.",
+   "photos": [
+    "19-dining-from-side-verandah-doors-a.jpg",
+    "20-dining-from-side-verandah-doors-b.jpg",
+    "46-listing-great-room-toward-kitchen-bar.jpg",
+    "47-listing-great-room-from-dining-toward-sea.jpg"
+   ]
+  },
+  {
+   "id": "kitchen",
+   "name": "Kitchen",
+   "kind": "zone",
+   "group": "Living",
+   "confirmed": true,
+   "box": {
+    "x": -5,
+    "z": 4.5,
+    "w": 4.5,
+    "d": 3.5
+   },
+   "colors": {
+    "floor": "#857d70"
+   },
+   "description": "Galley bay at the landward-left of the great room under a flat ply ceiling with downlights, open to the lounge above bench height. Island ~4 m with a raised bar ledge, 1.5-bowl stainless sink, dishwasher, four dark bar stools. Back bench: gas hob, under-bench oven, cream render splashback, four-panel louvre window above. Tall dark pantry bank and LG fridge in rendered nibs. A desk with cane chair at the end of the galley. Own bi-fold door to the courtyard side.",
+   "materials": [
+    "Dark-stained vertical-board cabinets with long stainless pulls",
+    "Sand/beige stone benchtops",
+    "Cream render splashback",
+    "Pale ply ceiling, dark battens"
+   ],
+   "props": [
+    {
+     "type": "island",
+     "x": 2.3,
+     "z": 0.9
+    },
+    {
+     "type": "bar-stool",
+     "x": 1.0,
+     "z": 0.2
+    },
+    {
+     "type": "bar-stool",
+     "x": 1.8,
+     "z": 0.2
+    },
+    {
+     "type": "bar-stool",
+     "x": 2.6,
+     "z": 0.2
+    },
+    {
+     "type": "bar-stool",
+     "x": 3.4,
+     "z": 0.2
+    },
+    {
+     "type": "bench",
+     "x": 2.3,
+     "z": 3.1
+    },
+    {
+     "type": "benchtop",
+     "x": 2.3,
+     "z": 3.1
+    },
+    {
+     "type": "fridge",
+     "x": 4.1,
+     "z": 3.0
+    },
+    {
+     "type": "pantry",
+     "x": 0.6,
+     "z": 3.1
+    },
+    {
+     "type": "desk",
+     "x": 0.5,
+     "z": 1.8,
+     "rot": 90
+    }
+   ],
+   "photos": [
+    "04-kitchen-rear-wall.jpg",
+    "22-kitchen-island-toward-lounge-and-pool.jpg",
+    "23-kitchen-galley-island-sinks-desk.jpg",
+    "24-kitchen-from-courtyard-door-toward-dining.jpg",
+    "46-listing-great-room-toward-kitchen-bar.jpg",
+    "53-listing-kitchen-galley-toward-hallway-end-a.jpg",
+    "55-listing-great-room-from-kitchen-bar-toward-sea.jpg",
+    "57-listing-kitchen-galley-toward-hallway-end-b.jpg"
+   ]
+  },
+  {
+   "id": "hallway",
+   "name": "Hallway",
+   "kind": "zone",
+   "group": "Living",
+   "confirmed": true,
+   "box": {
+    "x": 2,
+    "z": 6.4,
+    "w": 1.8,
+    "d": 1.6
+   },
+   "colors": {
+    "floor": "#9a958b"
+   },
+   "description": "Short passage from the great room, beside the fridge, landward through the back wall onto the courtyard walkway. From the walkway (photo 50) you look straight through it to the dining table and the sea.",
+   "photos": [
+    "26-great-room-hallway-and-second-bedroom-door.jpg",
+    "50-listing-courtyard-walkway-toward-hallway-and-sea.jpg"
+   ]
+  },
+  {
+   "id": "pool-pavilion",
+   "name": "Pool pavilion",
+   "kind": "pergola",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": -9.5,
+    "z": -4.5,
+    "w": 19,
+    "d": 4.5
+   },
+   "wallHeight": 3.2,
+   "colors": {
+    "floor": "#8d8578",
+    "timber": "#5a3a24",
+    "lining": "#c98f4e"
+   },
+   "description": "Flat timber pergola across the whole seaward face, from the left verandah's corner to the right verandah's corner, ~4.5 m deep: dark square posts ~200 mm, heavy dark beams, rafters at ~900 mm with a three-step notched tail, honey board lining above. It is the seaward side of one continuous flat roof (white membrane in the aerials) that wraps the great room on three sides and carries on round the courtyard. Grey-taupe tile continuous with inside; a stainless linear drain along the pool edge. Bean bags along the pool; two carved rocking chairs and a low chest table in front of the lounge; a few bays at the left corner open to the sky.",
+   "props": [
+    {
+     "type": "bean-bag",
+     "x": 10.2,
+     "z": 0.6
+    },
+    {
+     "type": "bean-bag",
+     "x": 11.6,
+     "z": 0.6
+    },
+    {
+     "type": "bean-bag",
+     "x": 13.0,
+     "z": 0.6
+    },
+    {
+     "type": "bean-bag",
+     "x": 14.4,
+     "z": 0.6
+    },
+    {
+     "type": "bean-bag",
+     "x": 15.8,
+     "z": 0.6
+    },
+    {
+     "type": "rocking-chair",
+     "x": 5.0,
+     "z": 1.6,
+     "rot": 180
+    },
+    {
+     "type": "rocking-chair",
+     "x": 6.6,
+     "z": 1.6,
+     "rot": 180
+    },
+    {
+     "type": "coffee-table",
+     "x": 5.8,
+     "z": 0.6
+    },
+    {
+     "type": "bean-bag",
+     "x": 7.6,
+     "z": 0.5
+    },
+    {
+     "type": "pot",
+     "x": 0.6,
+     "z": 3.9
+    },
+    {
+     "type": "pot",
+     "x": 18.4,
+     "z": 0.6
+    }
+   ],
+   "photos": [
+    "14-pavilion-interior-toward-pool-and-bure.jpg",
+    "27-pavilion-along-house-toward-bure.jpg",
+    "28-pavilion-toward-pool-and-bure-end.jpg",
+    "29-pavilion-corner-bay-lawn-and-sea.jpg",
+    "03-pavilion-looking-to-point-and-pool-corner.jpg",
+    "11-pavilion-wide-roof-pool-bure-a.jpg",
+    "16-pavilion-wide-roof-pool-bure-b.jpg",
+    "65-listing-pavilion-toward-bure-and-pool-end.jpg",
+    "10-pavilion-side-bbq-and-lawn.jpg"
+   ]
+  },
+  {
+   "id": "left-verandah",
+   "name": "Left verandah",
+   "kind": "pergola",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": -9.5,
+    "z": 0,
+    "w": 4.5,
+    "d": 8
+   },
+   "wallHeight": 3.2,
+   "colors": {
+    "floor": "#6f6b66",
+    "timber": "#5a3a24",
+    "lining": "#c98f4e"
+   },
+   "description": "Side verandah along the great room's LEFT flank, under the same flat pergola, ~4.5 m wide, from the pavilion landward to the master bedroom's seaward bi-folds, which close its end. The great room's lounge bi-folds and the kitchen's side door open onto it; the lawn is open on the outer side. Grey-taupe tile. (Photos 2, 30, 32 and 52 look along it; the camera in photo 1 is probably on the other side, see right verandah.)",
+   "props": [
+    {
+     "type": "pot",
+     "x": 0.6,
+     "z": 7.4
+    }
+   ],
+   "photos": [
+    "02-pavilion-edge-bedroom-doors-lawn-sea.jpg",
+    "30-bedroom-side-verandah-toward-sea.jpg",
+    "32-bedroom-looking-out-to-verandah-and-sea.jpg",
+    "52-listing-left-verandah-toward-master-bedroom.jpg",
+    "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg"
+   ]
+  },
+  {
+   "id": "right-verandah",
+   "name": "Right verandah (BBQ)",
+   "kind": "pergola",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": 5,
+    "z": 0,
+    "w": 4.5,
+    "d": 8
+   },
+   "wallHeight": 3.2,
+   "colors": {
+    "floor": "#8d8578",
+    "timber": "#5a3a24",
+    "lining": "#c98f4e"
+   },
+   "description": "Side verandah along the great room's RIGHT flank, mirror of the left one: the dining bi-folds open onto it, the stainless hooded BBQ and black glazed pots stand at its landward end, and bedroom 2's seaward bi-folds close the end (photos 1 and 58). Open to the sloping lawn and the tree line on the outer side. A low timber chest table and two chairs.",
+   "props": [
+    {
+     "type": "bbq",
+     "x": 3.6,
+     "z": 6.4
+    },
+    {
+     "type": "pot",
+     "x": 4.0,
+     "z": 1.0
+    },
+    {
+     "type": "pot",
+     "x": 4.0,
+     "z": 5.0
+    },
+    {
+     "type": "coffee-table",
+     "x": 1.8,
+     "z": 5.6
+    },
+    {
+     "type": "gas-bottle",
+     "x": 4.3,
+     "z": 7.6
+    }
+   ],
+   "photos": [
+    "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg",
+    "10-pavilion-side-bbq-and-lawn.jpg",
+    "58-listing-right-verandah-bbq-and-bedroom-2.jpg",
+    "69-listing-right-verandah-end-to-lawn.jpg",
+    "19-dining-from-side-verandah-doors-a.jpg",
+    "20-dining-from-side-verandah-doors-b.jpg"
+   ]
+  },
+  {
+   "id": "courtyard-walkway",
+   "name": "Courtyard walkway",
+   "kind": "pergola",
+   "group": "Courtyard",
+   "confirmed": true,
+   "box": {
+    "x": -5,
+    "z": 8,
+    "w": 10,
+    "d": 13.5
+   },
+   "wallHeight": 2.9,
+   "colors": {
+    "floor": "#c9c8c0",
+    "timber": "#5a3a24",
+    "lining": "#c98f4e"
+   },
+   "description": "Covered walkway round all four sides of the courtyard under the same dark-beam / honey-board pergola, continuous with the side verandahs' roof, ~1.8 m wide, open beam grid at the corners. Pale grey-cream tile. The great room's hallway and kitchen door open onto its seaward strip; the entry door onto its landward strip; bedroom doors, louvre windows and a run of tropical canvases (bird-of-paradise, frangipani, banana) on every courtyard-facing wall. Bicycles kept in the garden.",
+   "hole": {
+    "x": -3.2,
+    "z": 9.8,
+    "w": 6.4,
+    "d": 9.9
+   },
+   "photos": [
+    "17-courtyard-walkway-and-garden.jpg",
+    "35-courtyard-from-walkway-corner-solar-hw.jpg",
+    "36-courtyard-from-entry-door-looking-seaward.jpg",
+    "50-listing-courtyard-walkway-toward-hallway-and-sea.jpg",
+    "67-listing-courtyard-from-walkway-corner.jpg",
+    "68-listing-courtyard-walkway-along-wing-paintings.jpg"
+   ]
+  },
+  {
+   "id": "courtyard-garden",
+   "name": "Courtyard garden",
+   "kind": "garden",
+   "group": "Courtyard",
+   "confirmed": true,
+   "box": {
+    "x": -3.2,
+    "z": 9.8,
+    "w": 6.4,
+    "d": 9.9
+   },
+   "colors": {
+    "ground": "#d8c9a6",
+    "hedge": "#a4d43c",
+    "palm": "#4f8a3a"
+   },
+   "description": "Open to the sky, sandy ground. Planted almost solid with tall upright shrubs about 2 m high — slender multi-stemmed plants with narrow, serrated, lime-green leaves (Polyscias-type), set about 0.6 m apart so they read as one soft green mass from the walkway. One broad-leaved shrub with large paddle leaves near the corner. Three slim coconut palms rise through the planting well above the roofs. Bicycles are parked in a gap in the middle. The walls around it carry a run of bright tropical canvases (bird-of-paradise, frangipani, banana) between the louvre windows.",
+   "trees": [
+    {
+     "x": -1.0,
+     "z": 12.5,
+     "h": 8
+    },
+    {
+     "x": 0.9,
+     "z": 14,
+     "h": 9
+    },
+    {
+     "x": -0.2,
+     "z": 16.5,
+     "h": 8.5
+    },
+    {
+     "x": 1.4,
+     "z": 11.5,
+     "h": 7.5
+    }
+   ],
+   "photos": [
+    "17-courtyard-walkway-and-garden.jpg",
+    "35-courtyard-from-walkway-corner-solar-hw.jpg",
+    "36-courtyard-from-entry-door-looking-seaward.jpg",
+    "67-listing-courtyard-from-walkway-corner.jpg",
+    "68-listing-courtyard-walkway-along-wing-paintings.jpg"
+   ]
+  },
+  {
+   "id": "master-bedroom",
+   "name": "Master bedroom",
+   "kind": "room",
+   "group": "Left wing",
+   "confirmed": true,
+   "box": {
+    "x": -9.5,
+    "z": 8,
+    "w": 4.5,
+    "d": 5.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.9
+   },
+   "colors": {
+    "wall": "#e9e3d3",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Seaward room of the left wing, directly behind the left verandah: its bi-folds face the sea and close the verandah's end, so from the bed you look straight down the verandah to the pavilion and the water (photo 32). Cathedral ply ceiling on dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster with dark square posts and white voile, white linen; green canvas; black reading lights; black chest with a giant clam; grey armchair. Full-height louvres on the outer (lawn) wall; screened honey-timber door on the courtyard wall near the back; door at the back-outer corner to the ensuite (daylight beyond). Photo 33 is this room; photo 12 is its mirror image, bedroom 2.",
+   "materials": [
+    "Pale sage render",
+    "Light grey tile",
+    "Dark louvre windows with black levers"
+   ],
+   "openings": [
+    {
+     "side": "sea",
+     "type": "bifold",
+     "from": 0.4,
+     "to": 4.1
+    },
+    {
+     "side": "left",
+     "type": "louvre",
+     "from": 1.0,
+     "to": 4.5,
+     "sill": 0.3,
+     "head": 2.1
+    },
+    {
+     "side": "right",
+     "type": "screen",
+     "from": 4.2,
+     "to": 5.1
+    },
+    {
+     "side": "land",
+     "type": "door",
+     "from": 3.0,
+     "to": 3.9
+    }
+   ],
+   "props": [
+    {
+     "type": "bed",
+     "x": 2.25,
+     "z": 3.4
+    },
+    {
+     "type": "chest",
+     "x": 3.8,
+     "z": 0.7
+    },
+    {
+     "type": "armchair",
+     "x": 0.6,
+     "z": 1.2,
+     "rot": 90
+    }
+   ],
+   "photos": [
+    "33-master-bedroom-full-from-verandah-door.jpg",
+    "32-bedroom-looking-out-to-verandah-and-sea.jpg",
+    "30-bedroom-side-verandah-toward-sea.jpg",
+    "52-listing-left-verandah-toward-master-bedroom.jpg"
+   ],
+   "roofBox": {
+    "x": -9.5,
+    "z": 8,
+    "w": 4.5,
+    "d": 13.5
+   }
+  },
+  {
+   "id": "master-ensuite",
+   "name": "Master ensuite",
+   "kind": "room",
+   "group": "Left wing",
+   "confirmed": false,
+   "box": {
+    "x": -9.5,
+    "z": 13.5,
+    "w": 4.5,
+    "d": 2.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.4,
+    "under": "master-bedroom"
+   },
+   "colors": {
+    "wall": "#e9e3d3",
+    "floor": "#f1f1ee",
+    "roof": "#9ea4a9"
+   },
+   "description": "Behind the master bedroom, entered from the door at the bedroom's back-outer corner (photo 33 shows daylight through it). White large-format tile and a mirror glimpsed in photo 12's twin. Layout not photographed.",
+   "openings": [
+    {
+     "side": "sea",
+     "type": "door",
+     "from": 0.4,
+     "to": 1.3
+    },
+    {
+     "side": "left",
+     "type": "louvre",
+     "from": 0.5,
+     "to": 1.5,
+     "sill": 1.2,
+     "head": 2.0
+    }
+   ],
+   "photos": [
+    "33-master-bedroom-full-from-verandah-door.jpg"
+   ]
+  },
+  {
+   "id": "bedroom-3",
+   "name": "Bedroom 3 (heliconia)",
+   "kind": "room",
+   "group": "Left wing",
+   "confirmed": true,
+   "box": {
+    "x": -9.5,
+    "z": 16,
+    "w": 4.5,
+    "d": 5.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.6,
+    "under": "master-bedroom"
+   },
+   "colors": {
+    "wall": "#e9e3d3",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Courtyard bedroom in the left wing, landward of the master's ensuite; position in the wing is inferred, not measured. Dark four-poster without voile, red heliconia canvas over the bed head, black reading lights, tropical-print bedside table, cream render, cathedral ply ceiling. A short tiled passage past the bed head leads to a pale timber door (bathroom or the far wing). Bi-folds onto the courtyard walkway (photo 17 is taken from such a door); louvres to the outside. The listing's photo 48 (bird-of-paradise canvas, same bed) is probably this room.",
+   "materials": [
+    "Cream render",
+    "Grey-taupe tile",
+    "Dark timber louvres"
+   ],
+   "furniture": [
+    "Dark four-poster king bed, no voile",
+    "Red heliconia canvas",
+    "Tropical-print bedside cabinet"
+   ],
+   "openings": [
+    {
+     "side": "right",
+     "type": "bifold",
+     "from": 1.0,
+     "to": 3.4
+    },
+    {
+     "side": "left",
+     "type": "louvre",
+     "from": 1.5,
+     "to": 4.5,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "land",
+     "type": "door",
+     "from": 3.0,
+     "to": 3.9
+    }
+   ],
+   "props": [
+    {
+     "type": "bed",
+     "x": 2.25,
+     "z": 3.2
+    },
+    {
+     "type": "chest",
+     "x": 0.7,
+     "z": 4.9
+    }
+   ],
+   "photos": [
+    "31-second-bedroom-heliconia-and-passage.jpg",
+    "48-listing-bedroom-four-poster-bird-of-paradise.jpg",
+    "17-courtyard-walkway-and-garden.jpg"
+   ]
+  },
+  {
+   "id": "bedroom-2",
+   "name": "Bedroom 2",
+   "kind": "room",
+   "group": "Right wing",
+   "confirmed": true,
+   "box": {
+    "x": 5,
+    "z": 8,
+    "w": 4.5,
+    "d": 5.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.9
+   },
+   "colors": {
+    "wall": "#efe7d2",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Seaward room of the right wing, the mirror of the master: its bi-folds face the sea and close the end of the BBQ verandah (photos 1 and 58 show the bed through them from the verandah). Cathedral ply ceiling, dark trusses, fan, Panasonic wall AC on the outer wall. King four-poster with white voile and white linen, frangipani canvas, black reading lights. Full-height louvres on the outer (lawn) wall; screened door to the courtyard walkway near the back; door at the back-outer corner to the ensuite. Photo 12 is this room.",
+   "openings": [
+    {
+     "side": "sea",
+     "type": "bifold",
+     "from": 0.4,
+     "to": 4.1
+    },
+    {
+     "side": "right",
+     "type": "louvre",
+     "from": 1.0,
+     "to": 4.5,
+     "sill": 0.3,
+     "head": 2.1
+    },
+    {
+     "side": "left",
+     "type": "screen",
+     "from": 0.4,
+     "to": 1.3
+    },
+    {
+     "side": "land",
+     "type": "door",
+     "from": 0.4,
+     "to": 1.3
+    }
+   ],
+   "props": [
+    {
+     "type": "bed",
+     "x": 2.25,
+     "z": 3.4
+    },
+    {
+     "type": "chest",
+     "x": 0.7,
+     "z": 0.7
+    }
+   ],
+   "photos": [
+    "12-master-bedroom.jpg",
+    "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg",
+    "58-listing-right-verandah-bbq-and-bedroom-2.jpg",
+    "69-listing-right-verandah-end-to-lawn.jpg"
+   ],
+   "roofBox": {
+    "x": 5,
+    "z": 8,
+    "w": 4.5,
+    "d": 13.5
+   }
+  },
+  {
+   "id": "bedroom-2-ensuite",
+   "name": "Bedroom 2 ensuite",
+   "kind": "room",
+   "group": "Right wing",
+   "confirmed": false,
+   "box": {
+    "x": 5,
+    "z": 13.5,
+    "w": 4.5,
+    "d": 2.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.4,
+    "under": "bedroom-2"
+   },
+   "colors": {
+    "wall": "#efe7d2",
+    "floor": "#f1f1ee",
+    "roof": "#9ea4a9"
+   },
+   "description": "Behind bedroom 2, entered from the door at its back-outer corner (photo 12 shows the lit passage). The listing counts two ensuites; this is the second. Layout not photographed.",
+   "openings": [
+    {
+     "side": "sea",
+     "type": "door",
+     "from": 3.2,
+     "to": 4.1
+    },
+    {
+     "side": "right",
+     "type": "louvre",
+     "from": 0.5,
+     "to": 1.5,
+     "sill": 1.2,
+     "head": 2.0
+    }
+   ],
+   "photos": [
+    "12-master-bedroom.jpg"
+   ]
+  },
+  {
+   "id": "triple-room",
+   "name": "Bedroom 4 (triple)",
+   "kind": "room",
+   "group": "Right wing",
+   "confirmed": true,
+   "box": {
+    "x": 5,
+    "z": 16,
+    "w": 4.5,
+    "d": 5.5
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.6,
+    "under": "bedroom-2"
+   },
+   "colors": {
+    "wall": "#efe7d2",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Corner bedroom at the landward end of the right wing (position inferred). Three single beds with white linen (two in the older listing photo 49), louvre windows on two walls, red heliconia / bird-of-paradise canvas, wall AC, cathedral ply ceiling with dark trusses and a black fan, cane armchair, pale timber door. Bi-folds onto the courtyard walkway.",
+   "openings": [
+    {
+     "side": "left",
+     "type": "bifold",
+     "from": 2.1,
+     "to": 4.5
+    },
+    {
+     "side": "right",
+     "type": "louvre",
+     "from": 1.0,
+     "to": 3.0,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 0.8,
+     "to": 2.6,
+     "sill": 0.9,
+     "head": 2.1
+    }
+   ],
+   "props": [
+    {
+     "type": "single-bed",
+     "x": 1.0,
+     "z": 3.6
+    },
+    {
+     "type": "single-bed",
+     "x": 2.5,
+     "z": 3.6
+    },
+    {
+     "type": "single-bed",
+     "x": 4.0,
+     "z": 3.6
+    },
+    {
+     "type": "wardrobe",
+     "x": 0.9,
+     "z": 0.6
+    }
+   ],
+   "photos": [
+    "34-triple-bedroom-three-singles-heliconia.jpg",
+    "49-listing-twin-bedroom-corner-louvres.jpg"
+   ]
+  },
+  {
+   "id": "far-left-room",
+   "name": "Caretaker's flat (likely)",
+   "kind": "room",
+   "group": "Landward wing",
+   "confirmed": false,
+   "box": {
+    "x": -9.5,
+    "z": 21.5,
+    "w": 7,
+    "d": 4
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "gable",
+    "height": 1.8
+   },
+   "colors": {
+    "wall": "#ece6d6",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Left end of the landward wing, under the raised gable seen in photos 39 and 41, with a big rendered planter on the forecourt side. The listing lists a self-contained caretaker's accommodation; this end room, which has its own outside planter and windows and no door seen from the courtyard side, is the best candidate. Not photographed inside.",
+   "openings": [
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 1.0,
+     "to": 2.6,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 4.2,
+     "to": 5.0,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "left",
+     "type": "louvre",
+     "from": 1.0,
+     "to": 2.8,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "sea",
+     "type": "door",
+     "from": 5.2,
+     "to": 6.1
+    }
+   ],
+   "props": [
+    {
+     "type": "bed",
+     "x": 2.0,
+     "z": 2.0,
+     "rot": 90
+    }
+   ],
+   "photos": [
+    "39-entry-porch-angled-left-wing.jpg",
+    "41-landward-wing-end-room-planter.jpg",
+    "35-courtyard-from-walkway-corner-solar-hw.jpg",
+    "67-listing-courtyard-from-walkway-corner.jpg"
+   ]
+  },
+  {
+   "id": "entry-hall",
+   "name": "Entry",
+   "kind": "room",
+   "group": "Landward wing",
+   "confirmed": true,
+   "box": {
+    "x": -2.5,
+    "z": 21.5,
+    "w": 5,
+    "d": 4
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.4
+   },
+   "colors": {
+    "wall": "#ece6d6",
+    "floor": "#9a958b",
+    "roof": "#9ea4a9"
+   },
+   "description": "Through the landward wing on the courtyard's axis: double timber doors with woven mesh screen panels and long stainless pulls under the porch, a short vestibule, then straight out under the walkway's pergola with the courtyard garden and the back of the great room ahead (photo 36).",
+   "openings": [
+    {
+     "side": "land",
+     "type": "door",
+     "from": 1.6,
+     "to": 3.4
+    },
+    {
+     "side": "sea",
+     "type": "door",
+     "from": 1.9,
+     "to": 3.1
+    }
+   ],
+   "photos": [
+    "36-courtyard-from-entry-door-looking-seaward.jpg",
+    "38-entry-porch-front-on.jpg"
+   ]
+  },
+  {
+   "id": "far-right-room",
+   "name": "Bathroom 3, laundry and store (unconfirmed)",
+   "kind": "room",
+   "group": "Landward wing",
+   "confirmed": false,
+   "box": {
+    "x": 2.5,
+    "z": 21.5,
+    "w": 7,
+    "d": 4
+   },
+   "wallHeight": 2.7,
+   "roof": {
+    "type": "hip",
+    "height": 1.6
+   },
+   "colors": {
+    "wall": "#ece6d6",
+    "floor": "#8f8a82",
+    "roof": "#9ea4a9"
+   },
+   "description": "Right end of the landward wing. The listing counts three bathrooms (two are ensuites), so the third bathroom, with the laundry and a store, most likely sits here under the solar hot-water panel seen on this roof in photo 35. Louvre windows and planters on the forecourt side (photo 40); a door onto the courtyard walkway.",
+   "openings": [
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 1.2,
+     "to": 2.0,
+     "sill": 1.2,
+     "head": 2.0
+    },
+    {
+     "side": "land",
+     "type": "louvre",
+     "from": 3.5,
+     "to": 5.1,
+     "sill": 0.9,
+     "head": 2.1
+    },
+    {
+     "side": "sea",
+     "type": "door",
+     "from": 0.9,
+     "to": 1.8
+    }
+   ],
+   "props": [
+    {
+     "type": "solar-hw",
+     "x": 3.5,
+     "z": 2.0,
+     "y": 3.3
+    }
+   ],
+   "photos": [
+    "40-entry-porch-angled-right-wing.jpg",
+    "35-courtyard-from-walkway-corner-solar-hw.jpg"
+   ]
+  },
+  {
+   "id": "entry-porch",
+   "name": "Entry porch",
+   "kind": "porch",
+   "group": "Landward wing",
+   "confirmed": true,
+   "box": {
+    "x": -2.5,
+    "z": 25.5,
+    "w": 5,
+    "d": 4
+   },
+   "wallHeight": 3.4,
+   "roof": {
+    "type": "gable",
+    "height": 1.6
+   },
+   "colors": {
+    "floor": "#8d8578",
+    "roof": "#9ea4a9",
+    "timber": "#5a3a24"
+   },
+   "description": "Free-standing gable of dark hardwood: two king-post trusses with black steel plates, honey board lining, grey metal roof, on four square posts standing on rendered plinths ~1 m high. Three steps up to double timber screen doors with long stainless pulls. Rendered planter boxes with crotons along the façade either side.",
+   "photos": [
+    "38-entry-porch-front-on.jpg",
+    "39-entry-porch-angled-left-wing.jpg",
+    "40-entry-porch-angled-right-wing.jpg"
+   ]
+  },
+  {
+   "id": "pool-terrace",
+   "name": "Pool terrace",
+   "kind": "zone",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": -3.5,
+    "z": -11.3,
+    "w": 16.5,
+    "d": 6.8
+   },
+   "colors": {
+    "floor": "#d9cfb8"
+   },
+   "description": "Cream stone-look pavers round the pool, lighter than the house tile: a narrow strip between the pavilion's drain and the coping, and a wider strip on the seaward side with the white sun loungers (photo 60) before the lawn drops away.",
+   "props": [
+    {
+     "type": "lounger",
+     "x": 6.0,
+     "z": 0.8
+    },
+    {
+     "type": "lounger",
+     "x": 7.2,
+     "z": 0.8
+    },
+    {
+     "type": "lounger",
+     "x": 0.8,
+     "z": 4.8
+    },
+    {
+     "type": "bean-bag",
+     "x": 1.0,
+     "z": 3.6
+    }
+   ],
+   "photos": [
+    "06-pool-infinity-edge-toward-mainland.jpg",
+    "42-listing-pool-from-spa-end-toward-mainland.jpg",
+    "60-listing-sunloungers-palms-and-lagoon.jpg"
+   ]
+  },
+  {
+   "id": "pool",
+   "name": "Pool",
+   "kind": "pool",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": -1.5,
+    "z": -9.3,
+    "w": 12,
+    "d": 4.5
+   },
+   "colors": {
+    "water": "#1f3fc4",
+    "coping": "#e6dfcc"
+   },
+   "description": "Long rectangle directly off the pavilion, centred on the dining half of the house and running toward the bure: royal-blue glass mosaic throughout including the weir, infinity / wet edge on the seaward long side, pale stone coping. The listing's older aerials show it pale turquoise before the recent renovation. Square swim-out / spa nook cut into the pavilion side at the right (bure) end; a small tiled step at the left end; bronze skimmer lid in the paving.",
+   "depth": 1.5,
+   "spa": {
+    "x": 8.3,
+    "z": -7.0,
+    "w": 2.2,
+    "d": 2.2
+   },
+   "photos": [
+    "06-pool-infinity-edge-toward-mainland.jpg",
+    "11-pavilion-wide-roof-pool-bure-a.jpg",
+    "16-pavilion-wide-roof-pool-bure-b.jpg",
+    "28-pavilion-toward-pool-and-bure-end.jpg",
+    "42-listing-pool-from-spa-end-toward-mainland.jpg",
+    "60-listing-sunloungers-palms-and-lagoon.jpg",
+    "65-listing-pavilion-toward-bure-and-pool-end.jpg"
+   ]
+  },
+  {
+   "id": "bure",
+   "name": "Bure",
+   "kind": "bure",
+   "group": "Outdoor",
+   "confirmed": true,
+   "box": {
+    "x": 11.5,
+    "z": -10,
+    "w": 5,
+    "d": 5
+   },
+   "wallHeight": 2.4,
+   "roof": {
+    "type": "thatch",
+    "height": 2.4
+   },
+   "colors": {
+    "floor": "#d9cfb8",
+    "roof": "#a08a5c",
+    "timber": "#8a6a48",
+    "bench": "#eee9dc"
+   },
+   "description": "Square, open on all sides, beyond the right end of the pool and a step lower than the terrace, on a rendered platform (photos 59 and 65). Round natural de-barked posts, square dark ridge beam, a grid of dark rafters and purlins infilled with woven pandanus panels (diamond weave) as the visible ceiling; natural palm thatch outside with a ragged eave fringe. Rendered masonry L-shaped bench with grey tile top along the seaward and right edges; raised rendered daybed platform with a dark brown cushion; cream tile floor. Not yet built in the listing's aerial photos.",
+   "photos": [
+    "11-pavilion-wide-roof-pool-bure-a.jpg",
+    "16-pavilion-wide-roof-pool-bure-b.jpg",
+    "15-bure-interior-roof-and-daybed.jpg",
+    "07-bure-bench-view-east-a.jpg",
+    "08-bure-bench-view-east-b.jpg",
+    "59-listing-bure-bench-and-reef-view.jpg",
+    "66-listing-view-from-bure-to-reef.jpg",
+    "65-listing-pavilion-toward-bure-and-pool-end.jpg",
+    "14-pavilion-interior-toward-pool-and-bure.jpg"
+   ]
+  },
+  {
+   "id": "lawn-seaward",
+   "name": "Seaward lawn and bank",
+   "kind": "ground",
+   "group": "Site",
+   "confirmed": true,
+   "box": {
+    "x": -30,
+    "z": -22,
+    "w": 60,
+    "d": 17.5
+   },
+   "colors": {
+    "ground": "#b9a874"
+   },
+   "description": "Flat shelf of coarse dry tropical grass ending in a vegetated bank (beach hibiscus, scrub, coconut palms) dropping ~3–6 m to the reef flat. No beach directly below. Yellow-flowered shrub hedge on the edge.",
+   "trees": [
+    {
+     "x": -24,
+     "z": -21.5,
+     "h": 6.0,
+     "lean": 0.12
+    },
+    {
+     "x": -18,
+     "z": -20.0,
+     "h": 7.2,
+     "lean": 0.17
+    },
+    {
+     "x": -13,
+     "z": -18.5,
+     "h": 8.4,
+     "lean": 0.22
+    },
+    {
+     "x": -8,
+     "z": -21.5,
+     "h": 9.6,
+     "lean": 0.12
+    },
+    {
+     "x": -3,
+     "z": -20.0,
+     "h": 6.0,
+     "lean": 0.17
+    },
+    {
+     "x": 2,
+     "z": -18.5,
+     "h": 7.2,
+     "lean": 0.22
+    },
+    {
+     "x": 8,
+     "z": -21.5,
+     "h": 8.4,
+     "lean": 0.12
+    },
+    {
+     "x": 13,
+     "z": -20.0,
+     "h": 9.6,
+     "lean": 0.17
+    },
+    {
+     "x": 18,
+     "z": -18.5,
+     "h": 6.0,
+     "lean": 0.22
+    },
+    {
+     "x": 23,
+     "z": -21.5,
+     "h": 7.2,
+     "lean": 0.12
+    }
+   ],
+   "photos": [
+    "09-lawn-edge-to-sea-and-bay.jpg",
+    "03-pavilion-looking-to-point-and-pool-corner.jpg",
+    "29-pavilion-corner-bay-lawn-and-sea.jpg",
+    "45-listing-bay-and-mainland-hills-from-lawn.jpg",
+    "60-listing-sunloungers-palms-and-lagoon.jpg",
+    "61-listing-lawn-edge-palms-and-bay-a.jpg",
+    "62-listing-seaward-palms-and-reef-flat.jpg",
+    "63-listing-bay-and-mainland-through-scrub.jpg",
+    "66-listing-view-from-bure-to-reef.jpg",
+    "70-listing-lawn-edge-palms-and-bay-b.jpg"
+   ]
+  },
+  {
+   "id": "forecourt",
+   "name": "Grounds, forecourt and side lawns",
+   "kind": "ground",
+   "group": "Site",
+   "confirmed": true,
+   "box": {
+    "x": -30,
+    "z": -4.5,
+    "w": 60,
+    "d": 44.5
+   },
+   "colors": {
+    "ground": "#cdbf9a"
+   },
+   "description": "Sandy ground and dry, patchy lawn round the house on a low headland of ~5,455 m2 (listing). A sand track arrives from the landward side at the entry porch; sandy side paths run along both wings to the pool side. The right-hand lawn slopes down to a dense tree line (photo 64); AC outdoor units, gas bottles and taps sit against the wings' outer walls (photos 1 and 13). Coconut palms and casuarina all round.",
+   "props": [
+    {
+     "type": "planter",
+     "x": 23,
+     "z": 30.1
+    },
+    {
+     "type": "planter",
+     "x": 26.5,
+     "z": 30.1
+    },
+    {
+     "type": "planter",
+     "x": 33.5,
+     "z": 30.1
+    },
+    {
+     "type": "planter",
+     "x": 37,
+     "z": 30.1
+    },
+    {
+     "type": "planter",
+     "x": 19.8,
+     "z": 27.5,
+     "rot": 90
+    },
+    {
+     "type": "ac-unit",
+     "x": 19.7,
+     "z": 19.0
+    },
+    {
+     "type": "ac-unit",
+     "x": 19.7,
+     "z": 21.5
+    },
+    {
+     "type": "ac-unit",
+     "x": 40.3,
+     "z": 15.5
+    },
+    {
+     "type": "gas-bottle",
+     "x": 40.3,
+     "z": 13.8
+    },
+    {
+     "type": "gas-bottle",
+     "x": 40.3,
+     "z": 14.3
+    },
+    {
+     "type": "bicycle",
+     "x": 32,
+     "z": 18.5,
+     "rot": 20
+    }
+   ],
+   "trees": [
+    {
+     "x": -16.0,
+     "z": -4.0,
+     "h": 6.0
+    },
+    {
+     "x": -18.5,
+     "z": -0.7999999999999998,
+     "h": 7.5
+    },
+    {
+     "x": -21.0,
+     "z": 2.4000000000000004,
+     "h": 9.0
+    },
+    {
+     "x": -16.0,
+     "z": 5.600000000000001,
+     "h": 6.0
+    },
+    {
+     "x": -18.5,
+     "z": 8.8,
+     "h": 7.5
+    },
+    {
+     "x": -21.0,
+     "z": 12.0,
+     "h": 9.0
+    },
+    {
+     "x": -16.0,
+     "z": 15.200000000000003,
+     "h": 6.0
+    },
+    {
+     "x": -18.5,
+     "z": 18.400000000000002,
+     "h": 7.5
+    },
+    {
+     "x": -21.0,
+     "z": 21.6,
+     "h": 9.0
+    },
+    {
+     "x": -16.0,
+     "z": 24.8,
+     "h": 6.0
+    },
+    {
+     "x": -18.5,
+     "z": 28.0,
+     "h": 7.5
+    },
+    {
+     "x": -21.0,
+     "z": 31.200000000000003,
+     "h": 9.0
+    },
+    {
+     "x": 16.0,
+     "z": -4.0,
+     "h": 6.0
+    },
+    {
+     "x": 18.5,
+     "z": -0.7999999999999998,
+     "h": 7.5
+    },
+    {
+     "x": 21.0,
+     "z": 2.4000000000000004,
+     "h": 9.0
+    },
+    {
+     "x": 16.0,
+     "z": 5.600000000000001,
+     "h": 6.0
+    },
+    {
+     "x": 18.5,
+     "z": 8.8,
+     "h": 7.5
+    },
+    {
+     "x": 21.0,
+     "z": 12.0,
+     "h": 9.0
+    },
+    {
+     "x": 16.0,
+     "z": 15.200000000000003,
+     "h": 6.0
+    },
+    {
+     "x": 18.5,
+     "z": 18.400000000000002,
+     "h": 7.5
+    },
+    {
+     "x": 21.0,
+     "z": 21.6,
+     "h": 9.0
+    },
+    {
+     "x": 16.0,
+     "z": 24.8,
+     "h": 6.0
+    },
+    {
+     "x": 18.5,
+     "z": 28.0,
+     "h": 7.5
+    },
+    {
+     "x": 21.0,
+     "z": 31.200000000000003,
+     "h": 9.0
+    },
+    {
+     "x": -24.0,
+     "z": 33,
+     "h": 6.0
+    },
+    {
+     "x": -19.8,
+     "z": 36,
+     "h": 7.5
+    },
+    {
+     "x": -15.6,
+     "z": 33,
+     "h": 9.0
+    },
+    {
+     "x": -11.399999999999999,
+     "z": 36,
+     "h": 6.0
+    },
+    {
+     "x": -7.199999999999999,
+     "z": 33,
+     "h": 7.5
+    },
+    {
+     "x": -3.0,
+     "z": 36,
+     "h": 9.0
+    },
+    {
+     "x": 1.2000000000000028,
+     "z": 33,
+     "h": 6.0
+    },
+    {
+     "x": 5.400000000000002,
+     "z": 36,
+     "h": 7.5
+    },
+    {
+     "x": 9.600000000000001,
+     "z": 33,
+     "h": 9.0
+    },
+    {
+     "x": 13.800000000000004,
+     "z": 36,
+     "h": 6.0
+    },
+    {
+     "x": 18.0,
+     "z": 33,
+     "h": 7.5
+    },
+    {
+     "x": 22.200000000000003,
+     "z": 36,
+     "h": 9.0
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": -3.0,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": -0.7999999999999998,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 1.4000000000000004,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 3.6000000000000005,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 5.800000000000001,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 8.0,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 10.200000000000001,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 12.400000000000002,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 14.600000000000001,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 16.8,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 19.0,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 21.200000000000003,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 23.400000000000002,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 25.6,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -13.5,
+     "z": 27.800000000000004,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": -14.5,
+     "z": 30.0,
+     "r": 0.9,
+     "color": "#6a9a3c"
+    },
+    {
+     "type": "shrub",
+     "x": 12.5,
+     "z": 21.0,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 13.5,
+     "z": 22.5,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 12.5,
+     "z": 24.0,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 13.5,
+     "z": 25.5,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 12.5,
+     "z": 27.0,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 13.5,
+     "z": 28.5,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 12.5,
+     "z": 30.0,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "shrub",
+     "x": 13.5,
+     "z": 31.5,
+     "r": 0.8,
+     "color": "#5e8a3a"
+    },
+    {
+     "type": "croton",
+     "x": -11.2,
+     "z": 2
+    },
+    {
+     "type": "croton",
+     "x": -11.2,
+     "z": 4.5
+    },
+    {
+     "type": "croton",
+     "x": -11.2,
+     "z": 7
+    },
+    {
+     "type": "tall-shrub",
+     "x": -11,
+     "z": 12,
+     "h": 1.6,
+     "color": "#6e9a3a"
+    },
+    {
+     "type": "tall-shrub",
+     "x": -11,
+     "z": 13,
+     "h": 1.6,
+     "color": "#6e9a3a"
+    },
+    {
+     "type": "tall-shrub",
+     "x": -11,
+     "z": 14,
+     "h": 1.6,
+     "color": "#6e9a3a"
+    },
+    {
+     "type": "tall-shrub",
+     "x": -11,
+     "z": 15,
+     "h": 1.6,
+     "color": "#6e9a3a"
+    },
+    {
+     "type": "tall-shrub",
+     "x": -11,
+     "z": 16,
+     "h": 1.6,
+     "color": "#6e9a3a"
+    }
+   ],
+   "photos": [
+    "13-house-side-wall-ac-unit.jpg",
+    "37-side-path-along-wing-to-pool-side.jpg",
+    "38-entry-porch-front-on.jpg",
+    "41-landward-wing-end-room-planter.jpg",
+    "43-listing-aerial-from-landward-right.jpg",
+    "44-listing-aerial-from-reef-flat.jpg",
+    "64-listing-right-side-lawn-and-hedge.jpg"
+   ]
+  },
+  {
+   "id": "sea",
+   "name": "Lagoon and reef flat",
+   "kind": "water",
+   "group": "Site",
+   "confirmed": true,
+   "box": {
+    "x": -40,
+    "z": -60,
+    "w": 80,
+    "d": 38
+   },
+   "colors": {
+    "water": "#5fc9d4"
+   },
+   "description": "Pale turquoise reef flat with dark coral patches and scattered rocks, a dark blue band of deep water at the horizon. To the left, a bay curving to a sandy beach, a coconut-fringed point and green mainland hills; a distant island on the horizon.",
+   "photos": [
+    "09-lawn-edge-to-sea-and-bay.jpg",
+    "06-pool-infinity-edge-toward-mainland.jpg",
+    "07-bure-bench-view-east-a.jpg",
+    "44-listing-aerial-from-reef-flat.jpg",
+    "45-listing-bay-and-mainland-hills-from-lawn.jpg",
+    "43-listing-aerial-from-landward-right.jpg"
+   ]
+  }
+ ]
+}

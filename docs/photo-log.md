@@ -14,6 +14,13 @@ Terms used throughout:
 
 ---
 
+
+> **Revision 3 corrections.** Re-read against the listing photos: photo **01** is the *right*
+> (BBQ) verandah with bedroom 2 at its end, not the master; **12** is bedroom 2 and **33** the
+> master (mirror-image rooms); **31** is a third bedroom (heliconia), not bedroom 2; **24** is
+> taken from the kitchen's courtyard door; the side verandahs run along the great room's flanks,
+> not along the wings, so "bedroom opens onto the lawn" in 01/02 means onto the verandah's end.
+
 ## 01 — Exterior, rear lawn, pavilion and bedroom wing
 `01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg`
 
@@ -591,3 +598,124 @@ Establishes: entry façade and porch for the model; roof forms of the landward w
 - The end room of the far wing: off-white render, a raised gable over it, pair of louvre
   windows and a single, a large rendered planter box; grey roof, ply soffits; coconut palms
   behind; a neighbouring roof visible through the trees at right.
+
+## 42 — Listing: pool from the spa end toward the mainland
+`42-listing-pool-from-spa-end-toward-mainland.jpg` (listing photo 1)
+
+- Spa nook in the foreground at the right end of the pool, pool running away to the left with
+  the wet edge on the seaward side; pavilion posts and stepped rafter tails at left; mainland
+  hills ahead. Pool here is pale turquoise: **before the blue mosaic renovation**.
+
+## 43 — Listing: aerial from the landward-right
+`43-listing-aerial-from-landward-right.jpg` (listing photo 2)
+
+- **The roof plan.** A compact grey hip (great room) sits in the middle of a big flat white
+  membrane roof (the pergola): across the front as the pool pavilion, down both flanks of the
+  great room as the side verandahs, and round the courtyard. Two long grey hip roofs (the
+  wings) run landward from behind the side verandahs, one each side of the courtyard, palms
+  rising between them; a third grey roof closes the landward end with a lower porch roof.
+  Pool off the pavilion at the right end, loungers beside it, a small rendered block where the
+  bure now stands (not yet built). Sand track arriving from the landward side.
+
+## 44 — Listing: aerial from the reef flat
+`44-listing-aerial-from-reef-flat.jpg` (listing photo 3)
+
+- Seaward elevation from over the reef: pavilion posts across the whole front, pool in front
+  of the right half, the great room hip set back from the pergola edge, wing roofs behind with
+  a gablet. Shows the headland, the bay and sandy beach to the left, yachts moored off the point.
+
+## 45 — Listing: bay and mainland hills from the lawn
+`45-listing-bay-and-mainland-hills-from-lawn.jpg` — the view to the left: bay, mangrove
+shore, green hills, through the seaward hedge.
+
+## 46 — Listing: great room toward the kitchen bar
+`46-listing-great-room-toward-kitchen-bar.jpg` — from the lounge looking landward: bar with four
+stools centre, flat kitchen ceiling behind, hallway opening right of the bar flanked by carved
+masks, dining table and chairs at left, TV cabinet at right. Pendants and fans on the trusses.
+
+## 47 — Listing: great room from the dining toward the sea
+`47-listing-great-room-from-dining-toward-sea.jpg` — dining table in the foreground, lounge
+beyond, bi-folds open on the seaward and left sides, pool visible at right.
+
+## 48 — Listing: bedroom, black four-poster, bird-of-paradise
+`48-listing-bedroom-four-poster-bird-of-paradise.jpg` — camera in a bi-fold at left; louvre
+door with daylight at the back-left; dark door at right. Same bed as photo 31: probably
+bedroom 3 with an earlier canvas.
+
+## 49 — Listing: twin bedroom, corner louvres
+`49-listing-twin-bedroom-corner-louvres.jpg` — two singles, louvre windows on two walls, cane
+armchair, timber-boarded wall at left: the triple room (34) with two beds.
+
+## 50 — Listing: courtyard walkway toward the hallway and sea
+`50-listing-courtyard-walkway-toward-hallway-and-sea.jpg` — along the right-hand walkway strip:
+wing wall with canvases on the right, garden on the left, and straight ahead through the hallway
+to the dining table and the sea. Opposite wing's grey roof and walkway pergola in the background.
+
+## 51 — Listing: lounge toward the sea and pool
+`51-listing-lounge-toward-sea-and-pool.jpg` — from the lounge: seaward bi-folds, lawn and palms,
+pool and its drain at right. Bi-folds on the left wall too.
+
+## 52 — Listing: left verandah toward the master bedroom
+`52-listing-left-verandah-toward-master-bedroom.jpg` — looking landward along the left verandah:
+great room's lounge bi-folds and kitchen side door on the left, lawn on the right, master
+bedroom's bi-folds straight ahead with the bed inside. Establishes the verandah's width (~4.5 m)
+and that it ends at the bedroom.
+
+## 53 / 57 — Listing: kitchen galley toward the hallway end
+`53-…-a.jpg`, `57-…-b.jpg` — along the galley: hob and oven at left under the louvre window,
+island with sinks at right, fridge nib and frangipani canvas ahead, great room trusses at right.
+
+## 54 — Listing: lounge trusses toward the sea
+`54-listing-lounge-trusses-toward-sea.jpg` — trusses, fans and pendants; bi-folds on the left
+wall and seaward; pool at right.
+
+## 55 — Listing: great room from the kitchen bar toward the sea
+`55-listing-great-room-from-kitchen-bar-toward-sea.jpg` — island top in the foreground.
+
+## 56 — Listing: great room from the hallway end toward the sea
+`56-listing-great-room-from-hallway-end-toward-sea.jpg` — bar at left, lounge ahead, bi-folds
+to the right verandah at right.
+
+## 58 — Listing: right verandah, BBQ and bedroom 2
+`58-listing-right-verandah-bbq-and-bedroom-2.jpg` — the right verandah looking landward: dining
+bi-folds and table at right, lawn at left, bedroom 2's open bi-folds straight ahead (four-poster
+with voile, frangipani canvas), BBQ beside its door, low chest table. Mirror of 52.
+
+## 59 — Listing: bure bench and reef view
+`59-listing-bure-bench-and-reef-view.jpg` — inside the bure: thatch and rafters, rendered
+L-bench, pool corner at bottom-left, reef flat and palms beyond. The bure is lower than the
+terrace.
+
+## 60 — Listing: sun loungers, palms and lagoon
+`60-listing-sunloungers-palms-and-lagoon.jpg` — the pool's seaward strip, pool corner at right.
+
+## 61 / 62 / 70 — Listing: lawn edge, palms and bay
+Seaward lawn edge with the four palms, scrub bank, reef flat, bay and hills to the left.
+
+## 63 — Listing: bay and mainland through scrub
+`63-listing-bay-and-mainland-through-scrub.jpg` — from the lawn's left corner.
+
+## 64 — Listing: right side lawn and hedge
+`64-listing-right-side-lawn-and-hedge.jpg` — the lawn sloping down on the right of the house
+to a clipped hedge and the coconut tree line (as in photo 10).
+
+## 65 — Listing: pavilion toward the bure and pool end
+`65-listing-pavilion-toward-bure-and-pool-end.jpg` — along the pavilion to the right: pool and
+spa at left, bure's thatch ahead-left beyond the pool, great room's right bi-folds and a kayak
+at right.
+
+## 66 — Listing: view from the bure to the reef
+`66-listing-view-from-bure-to-reef.jpg` — under the thatch fringe, palms and reef flat ahead.
+
+## 67 — Listing: courtyard from the walkway corner
+`67-listing-courtyard-from-walkway-corner.jpg` — the far wing and the right wing with canvases,
+louvres and a timber door under wide eaves; walkway pergola with stepped tails; palms, hedge
+block, sandy ground.
+
+## 68 — Listing: courtyard walkway along a wing
+`68-listing-courtyard-walkway-along-wing-paintings.jpg` — along the left-hand strip: canvases
+on the wall at right, garden at left, far wing ahead with a door and grey roof.
+
+## 69 — Listing: right verandah end to the lawn
+`69-listing-right-verandah-end-to-lawn.jpg` — at bedroom 2's door looking out over the right
+lawn: pergola posts, lawn sloping to the palms.

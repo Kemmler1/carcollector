@@ -4,18 +4,22 @@ The single document to hand to another model. Everything here is drawn from the 
 `photos/raw/` (see `docs/photo-log.md` for the evidence per photo). Dimensions are estimates
 unless stated; see `docs/floor-plan-notes.md` for the reasoning and the open questions.
 
-Revision 2 (32 photos). Supersedes revision 1 on the pavilion roof (it is a flat pergola, not
-thatched) and on the plan (it is a courtyard house).
+Revision 3 (70 photos, including the sales listing's 29 and its two aerials). Supersedes
+revision 2 on the plan: the flat pergola roof wraps the great room on three sides and rings the
+courtyard; the master bedroom and bedroom 2 sit behind the two side verandahs and open seaward
+onto them. Listing: 4 bedrooms, 3 bathrooms, pool, 5,455 m², caretaker's accommodation.
 
 ## 1. One-paragraph summary
 
-A single-storey tropical beachfront **courtyard house** on a flat lawn shelf a few metres above
+A single-storey tropical beachfront **courtyard house** on a low headland a few metres above
 a coral reef flat, Fijian in construction and style. A great room (lounge, dining, kitchen)
-under a tall hip roof of dark-stained hardwood trusses faces the sea; bedroom wings run
-landward from both ends and, with a far wing, enclose a planted **central courtyard** of
-coconut palms and clipped hedges. A continuous **flat timber pergola** — dark beams, honey
-board lining, square posts, stepped rafter tails — wraps the whole house: as the pool pavilion
-on the seaward side, as side verandahs along the wings, and as the courtyard walkway. Every
+under a compact hip roof of dark-stained hardwood trusses faces the sea; a continuous **flat
+timber pergola** — dark beams, honey board lining, square posts, stepped rafter tails, a white
+membrane on top — wraps it on three sides as the pool pavilion and two side verandahs, then
+runs on as the walkway round a planted **central courtyard** of coconut palms and clipped
+hedges. Two long hip-roofed bedroom wings run landward either side of the courtyard, each
+starting with a bedroom whose bi-folds face the sea down a verandah; a third wing with the
+entry porch closes the landward end. Every
 room opens to it through dark-stained timber **louvre bi-fold doors**. In front lies a long
 **royal-blue mosaic infinity pool** and, at its far end, a square **thatched bure** with a
 rendered bench and daybed. Palette: chocolate-stained hardwood, honey timber boards, pale ply
@@ -41,41 +45,52 @@ thatch, turquoise lagoon.
 ## 3. Plan and arrangement
 
 Working orientation (unconfirmed): sea is "front". Standing in the great room facing the sea,
-the **master bedroom wing is on the left** and the **BBQ / second bedroom side is on the
-right**. The bure is at the right-hand end of the pool.
+the **master bedroom is on the left** and the **BBQ verandah, bedroom 2, pool and bure are on
+the right**. The mainland and the bay are to the left.
 
 ```
-                 TREES / GARDEN (landward)
-        ┌──────────────────────────────────────┐
-        │          FAR WING  (unseen)          │
-        ├──────┬────────────────────────┬──────┤
-        │      │  walkway (pergola)     │      │
-        │ LEFT │  ┌──────────────────┐  │ RIGHT│
-        │ WING │  │   COURTYARD      │  │ WING │   ← bedrooms open to walkway;
-        │      │  │ palms + hedge    │  │      │     paintings on courtyard walls
-        │master│  └──────────────────┘  │ bed 2│
-        │      │  walkway   hall        │      │
-   lawn ├──────┴────────────────────────┴──────┤ lawn
-   side │ KITCHEN  │      GREAT ROOM           │ side
-   ver. │ galley   │  lounge   ·   dining  ·   │ ver. (BBQ)
-        └──────────┴───────────────────────────┘
-        ════════════ POOL PAVILION (pergola) ═══════════
-        ╔══════════════════════════════╗  ┌───────┐
-        ║ POOL — wet edge seaward side ║  │ BURE  │
-        ╚══════════════════════════════╝  └───────┘
-        lawn ─────────── bank ─────── reef flat ─── sea
+                 TREES / SAND TRACK (landward)
+                       ┌───────┐ porch
+        ┌──────────────┤ entry ├──────────────┐
+        │ caretaker's  │  hall │ bath 3 /     │   landward wing (grey hips, raised gable left)
+        │ flat (?)     │       │ laundry (?)  │
+        ├──────┬───────┴──┬────┴───────┬──────┤
+        │ bed 3│  walkway │            │triple│
+        ├──────┤  ┌───────┴───────┐    ├──────┤   two long hip-roofed wings,
+        │ ens. │  │   COURTYARD   │    │ ens. │   bedroom doors and canvases on
+        ├──────┤  │ palms + hedge │    ├──────┤   the courtyard walls
+        │MASTER│  └───────────────┘    │BED 2 │
+        │ ⇩ sea│  walkway  door  hall  │ ⇩ sea│
+        ├──────┼──────────────────────┼──────┤ ─ ─ one flat pergola roof from here down
+        │ LEFT │ KITCHEN │            │RIGHT │
+   lawn │ VER. │ galley  │ GREAT ROOM │ VER. │ lawn
+        │      │ lounge  ·   dining   │ BBQ  │
+        ├──────┴──────────────────────┴──────┤
+        │        POOL PAVILION (pergola)      │
+        └────────────┬────────────────┬──────┘  ┌──────┐
+   loungers          │ POOL  ─ wet edge │ spa  │  │ BURE │ (lower)
+                     └─────────────────┴──────┘  └──────┘
+        lawn ─────────── bank ─────── reef flat ─── lagoon
 ```
 
 Key facts of the arrangement:
 
-- The **great room** opens on three sides: seaward (pool pavilion), right (side verandah with
-  the dining table just inside and the BBQ just outside), and landward via the kitchen's own
-  courtyard door and a hallway to the walkway.
-- The **master bedroom** opens onto the left side verandah, which runs straight to the sea.
-- A **second bedroom** opens off the right end of the great room / right verandah.
-- Other bedrooms open onto the courtyard walkway (count unknown).
+- The **great room** opens on three sides: seaward (pool pavilion), right (dining bi-folds →
+  BBQ verandah) and left (lounge bi-folds and the kitchen's side door → left verandah). At the
+  back: the kitchen's louvre window and courtyard door, and the hallway beside the fridge.
+- The **side verandahs** (~4.5 m wide) run only the depth of the great room. Each ends at a
+  bedroom's seaward bi-folds: the **master** on the left, **bedroom 2** on the right (with the
+  BBQ at its door). The two rooms are mirror images.
+- The **courtyard walkway** rings the courtyard (~1.8 m) under the same pergola; the hallway
+  and kitchen door open onto its seaward side, the entry door onto its landward side, and
+  bedroom 3, the triple room and the ensuites' doors onto its long sides.
+- The **landward wing** holds the entry (porch on axis), the likely caretaker's flat under the
+  raised gable at the left end, and the third bathroom / laundry under the solar panel.
 - The whole pergola is at one height and one floor level; no steps anywhere between rooms,
   verandahs and pavilion. Door thresholds are flush brass strips.
+- The **pool** sits directly off the pavilion, centred on the dining half, with the spa nook at
+  the right end; the **bure** is beyond the pool's right end, a step lower on a rendered
+  platform. The aerials (43, 44) predate the blue mosaic and the bure.
 
 ## 4. Structures
 
@@ -114,11 +129,12 @@ Key facts of the arrangement:
   open to the sky.
 - **Floor**: grey-taupe tile continuous with inside; a stainless **linear drain grate** runs
   along the pool-side edge of the pavilion.
-- Width ~3.5 m (est.) on the verandahs and walkway, ~5 m (est.) at the pool pavilion.
+- Width ~4.5 m (est.) on the side verandahs and pool pavilion, ~1.8 m (est.) on the courtyard
+  walkway. Flat white membrane on top (the big white roof in aerials 43 and 44).
 
 ### 4.3 Pool and terrace
 
-- Pool: long rectangle, ~12 × 4 m (est.), **royal blue glass mosaic** throughout including
+- Pool: long rectangle, ~12 × 4.5 m (est.), directly off the pavilion, **royal blue glass mosaic** throughout including
   the weir; **infinity/wet edge on the seaward long side**; pale stone coping. A square
   **swim-out / spa nook** with a seat cut into the terrace side at the bure end; a small tiled
   step at the other end. Bronze round skimmer lid in the paving.
@@ -158,20 +174,35 @@ Own bi-fold door to the courtyard side.
 ### Hallway
 From the great room, beside the fridge, landward to the courtyard walkway. Louvre doors off it.
 
-### Master bedroom (left wing)
-Cathedral ply ceiling, dark trusses, black fan, Panasonic wall AC. King four-poster, black
-square posts, white voile tied back, white linen; bird-of-paradise or frangipani canvas; black
-wall reading lights; grey upholstered armchair; dark timber towel cabinet; timber trunk. Louvre
-windows on the verandah wall. Bi-folds open onto the left verandah with the sea straight ahead.
-Door to an ensuite (white tile, mirror, seaward opening). Screened door to the next room.
+### Master bedroom (left wing, seaward end)
+Behind the left verandah; its bi-folds face the sea and close the verandah's end, so the bed
+looks straight down the verandah to the pavilion and the water (32). Cathedral ply ceiling,
+dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster, black square
+posts, white voile tied back, white linen; green canvas; black wall reading lights; grey
+armchair; black chest with a giant clam. Full-height louvres on the outer (lawn) wall. Screened
+door to the courtyard walkway near the back; door at the back-outer corner to the ensuite
+(white tile, mirror, daylight). Photo 33.
 
-### Second bedroom (right end)
-Off the right end of the great room. Four-poster with dark posts, red heliconia canvas, black
-reading lights, tropical-print bedside table, cream render, cathedral ply ceiling. Short tiled
-passage past the bed head to a pale timber door (ensuite, unconfirmed). Louvre windows to lawn.
+### Bedroom 2 (right wing, seaward end)
+Mirror image of the master at the end of the BBQ verandah (1, 12, 58): four-poster with white
+voile, frangipani canvas, AC on the outer wall, full-height louvres to the lawn, screened door
+to the walkway, ensuite behind.
 
-### Courtyard bedrooms (unseen inside)
-Doors and louvre windows onto the walkway; paintings on the walls outside each.
+### Bedroom 3 (courtyard, heliconia)
+Dark four-poster without voile, red heliconia canvas over the bed head (bird-of-paradise in the
+older listing photo 48), black reading lights, tropical-print bedside cabinet, cream render,
+cathedral ply ceiling. Short tiled passage past the bed head to a pale timber door. Bi-folds
+onto the courtyard walkway. Placed at the landward end of the left wing (inferred).
+
+### Bedroom 4 (triple)
+Corner room: three single beds (two in listing photo 49), louvres on two walls, heliconia /
+bird-of-paradise canvas, wall AC, fan, cane armchair, pale timber door. Placed at the landward
+end of the right wing (inferred).
+
+### Caretaker's flat and third bathroom (landward wing, unseen inside)
+Listing: self-contained caretaker's accommodation; 3 bathrooms in total. The left end room with
+the raised gable and its own planter (39, 41) is the likely flat; the right half under the
+solar panel (35, 40) the likely bathroom / laundry.
 
 ### Ensuites
 One glimpsed: white large tile, mirror. Others unknown.
