@@ -23,8 +23,10 @@
   <label><input type="checkbox" id="toggle-wire"> Wireframe</label>
   <label><input type="checkbox" id="toggle-roofs" checked> Roofs</label>
   <label><input type="checkbox" id="toggle-labels" checked> Labels</label>
+  <label><input type="checkbox" id="toggle-markers" checked> Photo spots</label>
   <button id="btn-top">Top view</button>
   <button id="btn-iso">Reset view</button>
+  <button id="btn-onboard">Assign photos</button>
   <button id="btn-diff">Diff vs previous</button>
   <button id="btn-import">Import version</button>
   <button id="btn-export" class="primary">Export for ChatGPT</button>
@@ -44,11 +46,20 @@
     </div>
   </aside>
 
-  <div id="viewport"><canvas id="canvas"></canvas><div id="hint" class="muted">Drag to orbit · scroll to zoom · right-drag to pan · click a part to open it</div></div>
+  <div id="viewport">
+    <canvas id="canvas"></canvas>
+    <div id="hint" class="muted">Drag to orbit · scroll to zoom · right-drag to pan · click a part to open it · click a camera to see that photo</div>
+    <div id="place-banner" class="hidden"></div>
+  </div>
 
   <aside id="detail" class="hidden">
     <button id="detail-close" class="close" title="Close">×</button>
     <div id="detail-body"></div>
+  </aside>
+
+  <aside id="onboard" class="hidden">
+    <button id="onboard-close" class="close" title="Close">×</button>
+    <div id="onboard-body"></div>
   </aside>
 </main>
 
@@ -59,7 +70,11 @@
   </div>
 </div>
 
-<div id="lightbox" class="hidden"><img alt=""><div class="caption"></div></div>
+<div id="lightbox" class="hidden">
+  <img alt="">
+  <div class="caption"></div>
+  <div class="lb-actions"><button id="lb-view">Look from this spot in 3D</button><button id="lb-assign">Assign this photo</button><button id="lb-close">Close</button></div>
+</div>
 
 <script type="module" src="app.js"></script>
 </body>

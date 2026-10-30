@@ -2,7 +2,7 @@
   "version": "v1",
   "basedOn": null,
   "created": "2026-10-30",
-  "summary": "First model built from 41 site photos. All dimensions are estimates. Rooms marked confirmed:false have not been photographed inside.",
+  "summary": "First model built from 41 site photos, with openings, furniture, planting and an estimated camera position for every photo. All dimensions are estimates. Rooms marked confirmed:false have not been photographed inside.",
   "units": "metres",
   "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room.",
   "sections": [
@@ -55,6 +55,136 @@
         "21-great-room-from-kitchen-corner-toward-sea.jpg",
         "25-great-room-from-pavilion-door-trusses.jpg",
         "26-great-room-hallway-and-second-bedroom-door.jpg"
+      ],
+      "openings": [
+        {
+          "type": "bifold",
+          "from": 0.3,
+          "to": 9.7,
+          "side": "sea"
+        },
+        {
+          "type": "bifold",
+          "from": 0.3,
+          "to": 7.7,
+          "side": "right"
+        },
+        {
+          "side": "land",
+          "type": "louvre",
+          "from": 6,
+          "to": 9,
+          "sill": 1.0,
+          "head": 2.0
+        },
+        {
+          "side": "land",
+          "type": "bifold",
+          "from": 4.2,
+          "to": 5.4
+        },
+        {
+          "side": "land",
+          "type": "door",
+          "from": 1.2,
+          "to": 3.0
+        }
+      ],
+      "props": [
+        {
+          "type": "sofa",
+          "x": 2.8,
+          "z": 1.0
+        },
+        {
+          "type": "sofa",
+          "x": 2.8,
+          "z": 3.4,
+          "rot": 180
+        },
+        {
+          "type": "coffee-table",
+          "x": 2.8,
+          "z": 2.2
+        },
+        {
+          "type": "armchair",
+          "x": 1.1,
+          "z": 2.2,
+          "rot": 90
+        },
+        {
+          "type": "armchair",
+          "x": 4.5,
+          "z": 2.2,
+          "rot": -90
+        },
+        {
+          "type": "tv",
+          "x": 0.3,
+          "z": 5.0,
+          "rot": 90
+        },
+        {
+          "type": "dining-table",
+          "x": 8,
+          "z": 2.4
+        },
+        {
+          "type": "chair",
+          "x": 7.2,
+          "z": 1.6,
+          "rot": 180
+        },
+        {
+          "type": "chair",
+          "x": 8,
+          "z": 1.6,
+          "rot": 180
+        },
+        {
+          "type": "chair",
+          "x": 8.8,
+          "z": 1.6,
+          "rot": 180
+        },
+        {
+          "type": "chair",
+          "x": 7.2,
+          "z": 3.2
+        },
+        {
+          "type": "chair",
+          "x": 8,
+          "z": 3.2
+        },
+        {
+          "type": "chair",
+          "x": 8.8,
+          "z": 3.2
+        },
+        {
+          "type": "chair",
+          "x": 6.6,
+          "z": 2.4,
+          "rot": -90
+        },
+        {
+          "type": "chair",
+          "x": 9.4,
+          "z": 2.4,
+          "rot": 90
+        },
+        {
+          "type": "mask",
+          "x": 1.6,
+          "z": 7.9
+        },
+        {
+          "type": "mask",
+          "x": 3.6,
+          "z": 7.9
+        }
       ]
     },
     {
@@ -126,6 +256,59 @@
         "22-kitchen-island-toward-lounge-and-pool.jpg",
         "23-kitchen-galley-island-sinks-desk.jpg",
         "24-kitchen-from-courtyard-door-toward-dining.jpg"
+      ],
+      "props": [
+        {
+          "type": "island",
+          "x": 2.3,
+          "z": 1.3
+        },
+        {
+          "type": "bar-stool",
+          "x": 1.0,
+          "z": 0.5
+        },
+        {
+          "type": "bar-stool",
+          "x": 1.8,
+          "z": 0.5
+        },
+        {
+          "type": "bar-stool",
+          "x": 2.6,
+          "z": 0.5
+        },
+        {
+          "type": "bar-stool",
+          "x": 3.4,
+          "z": 0.5
+        },
+        {
+          "type": "bench",
+          "x": 2.3,
+          "z": 3.6
+        },
+        {
+          "type": "benchtop",
+          "x": 2.3,
+          "z": 3.6
+        },
+        {
+          "type": "fridge",
+          "x": 4.1,
+          "z": 3.5
+        },
+        {
+          "type": "pantry",
+          "x": 0.6,
+          "z": 3.6
+        },
+        {
+          "type": "desk",
+          "x": 0.5,
+          "z": 2.3,
+          "rot": 90
+        }
       ]
     },
     {
@@ -185,6 +368,52 @@
         "33-master-bedroom-full-from-verandah-door.jpg",
         "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg",
         "02-pavilion-edge-bedroom-doors-lawn-sea.jpg"
+      ],
+      "openings": [
+        {
+          "side": "sea",
+          "type": "bifold",
+          "from": 0.5,
+          "to": 4.5
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 0.5,
+          "to": 3.5,
+          "sill": 0.3,
+          "head": 2.1
+        },
+        {
+          "side": "right",
+          "type": "screen",
+          "from": 3.6,
+          "to": 4.5
+        },
+        {
+          "side": "land",
+          "type": "door",
+          "from": 0.8,
+          "to": 1.7
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 2.5,
+          "z": 3.2
+        },
+        {
+          "type": "chest",
+          "x": 1.0,
+          "z": 0.7
+        },
+        {
+          "type": "armchair",
+          "x": 4.3,
+          "z": 1.2,
+          "rot": -90
+        }
       ]
     },
     {
@@ -212,6 +441,16 @@
       "description": "Glimpsed only: white large-format tile and a mirror. Position behind the master is inferred.",
       "photos": [
         "12-master-bedroom.jpg"
+      ],
+      "openings": [
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 1,
+          "to": 2.2,
+          "sill": 1.2,
+          "head": 2.0
+        }
       ]
     },
     {
@@ -239,6 +478,37 @@
       "description": "A door and louvre windows onto the courtyard walkway, with canvases on the wall outside. Not seen inside.",
       "photos": [
         "17-courtyard-walkway-and-garden.jpg"
+      ],
+      "openings": [
+        {
+          "side": "right",
+          "type": "door",
+          "from": 0.6,
+          "to": 1.5
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 2.4,
+          "to": 4.4,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.8,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 2.5,
+          "z": 3.0
+        }
       ]
     },
     {
@@ -264,7 +534,38 @@
         "roof": "#9ea4a9"
       },
       "description": "Not seen inside.",
-      "photos": []
+      "photos": [],
+      "openings": [
+        {
+          "side": "right",
+          "type": "door",
+          "from": 0.6,
+          "to": 1.5
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 2.4,
+          "to": 4.4,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.8,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 2.5,
+          "z": 3.0
+        }
+      ]
     },
     {
       "id": "bedroom-2",
@@ -295,6 +596,42 @@
       "photos": [
         "31-second-bedroom-heliconia-and-passage.jpg",
         "26-great-room-hallway-and-second-bedroom-door.jpg"
+      ],
+      "openings": [
+        {
+          "side": "left",
+          "type": "bifold",
+          "from": 1.0,
+          "to": 3.2
+        },
+        {
+          "side": "sea",
+          "type": "louvre",
+          "from": 0.8,
+          "to": 4.2,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 1,
+          "to": 3.5,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 2.5,
+          "z": 3.2
+        },
+        {
+          "type": "chest",
+          "x": 3.8,
+          "z": 0.6
+        }
       ]
     },
     {
@@ -320,7 +657,17 @@
         "roof": "#9ea4a9"
       },
       "description": "Inferred from the passage in photo 31.",
-      "photos": []
+      "photos": [],
+      "openings": [
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 1,
+          "to": 2.2,
+          "sill": 1.2,
+          "head": 2.0
+        }
+      ]
     },
     {
       "id": "triple-room",
@@ -347,6 +694,52 @@
       "description": "Three single beds in a row, blue bedside tables, red heliconia canvas, black reading lights, wall AC, a louvre window, pale timber wardrobe. Entered through a screened door from the courtyard walkway. Which wing it sits in is a guess.",
       "photos": [
         "34-triple-bedroom-three-singles-heliconia.jpg"
+      ],
+      "openings": [
+        {
+          "side": "left",
+          "type": "screen",
+          "from": 0.6,
+          "to": 1.5
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 2.5,
+          "to": 4.5,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.8,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "single-bed",
+          "x": 1.0,
+          "z": 3.6
+        },
+        {
+          "type": "single-bed",
+          "x": 2.5,
+          "z": 3.6
+        },
+        {
+          "type": "single-bed",
+          "x": 4.0,
+          "z": 3.6
+        },
+        {
+          "type": "wardrobe",
+          "x": 0.9,
+          "z": 0.6
+        }
       ]
     },
     {
@@ -374,6 +767,37 @@
       "description": "Not seen inside. Louvre windows to the side path (photo 37).",
       "photos": [
         "37-side-path-along-wing-to-pool-side.jpg"
+      ],
+      "openings": [
+        {
+          "side": "left",
+          "type": "door",
+          "from": 0.6,
+          "to": 1.5
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 2.4,
+          "to": 4.4,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.8,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 2.5,
+          "z": 3.0
+        }
       ]
     },
     {
@@ -402,6 +826,20 @@
       "photos": [
         "36-courtyard-from-entry-door-looking-seaward.jpg",
         "38-entry-porch-front-on.jpg"
+      ],
+      "openings": [
+        {
+          "side": "land",
+          "type": "screen",
+          "from": 1.2,
+          "to": 2.8
+        },
+        {
+          "side": "sea",
+          "type": "door",
+          "from": 1.2,
+          "to": 2.8
+        }
       ]
     },
     {
@@ -431,6 +869,54 @@
         "39-entry-porch-angled-left-wing.jpg",
         "41-landward-wing-end-room-planter.jpg",
         "35-courtyard-from-walkway-corner-solar-hw.jpg"
+      ],
+      "openings": [
+        {
+          "side": "land",
+          "type": "louvre",
+          "from": 1,
+          "to": 3,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "land",
+          "type": "louvre",
+          "from": 5,
+          "to": 6,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "sea",
+          "type": "louvre",
+          "from": 1.5,
+          "to": 3.5,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "sea",
+          "type": "door",
+          "from": 5.5,
+          "to": 6.4
+        },
+        {
+          "side": "left",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.2,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 3,
+          "z": 2.4,
+          "rot": 90
+        }
       ]
     },
     {
@@ -459,6 +945,60 @@
       "photos": [
         "40-entry-porch-angled-right-wing.jpg",
         "35-courtyard-from-walkway-corner-solar-hw.jpg"
+      ],
+      "openings": [
+        {
+          "side": "land",
+          "type": "louvre",
+          "from": 2,
+          "to": 3,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "land",
+          "type": "louvre",
+          "from": 5,
+          "to": 7,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "sea",
+          "type": "louvre",
+          "from": 1,
+          "to": 3,
+          "sill": 0.9,
+          "head": 2.1
+        },
+        {
+          "side": "sea",
+          "type": "door",
+          "from": 5.5,
+          "to": 6.4
+        },
+        {
+          "side": "right",
+          "type": "louvre",
+          "from": 1.2,
+          "to": 3.2,
+          "sill": 0.9,
+          "head": 2.1
+        }
+      ],
+      "props": [
+        {
+          "type": "bed",
+          "x": 4,
+          "z": 2.4,
+          "rot": 90
+        },
+        {
+          "type": "solar-hw",
+          "x": 4,
+          "z": 2.4,
+          "y": 3.3
+        }
       ]
     },
     {
@@ -543,6 +1083,28 @@
         "17-courtyard-walkway-and-garden.jpg",
         "35-courtyard-from-walkway-corner-solar-hw.jpg",
         "36-courtyard-from-entry-door-looking-seaward.jpg"
+      ],
+      "trees": [
+        {
+          "x": -1.0,
+          "z": 12.5,
+          "h": 8
+        },
+        {
+          "x": 0.9,
+          "z": 14,
+          "h": 9
+        },
+        {
+          "x": -0.2,
+          "z": 16.5,
+          "h": 8.5
+        },
+        {
+          "x": 1.4,
+          "z": 11.5,
+          "h": 7.5
+        }
       ]
     },
     {
@@ -571,6 +1133,75 @@
         "14-pavilion-interior-toward-pool-and-bure.jpg",
         "03-pavilion-looking-to-point-and-pool-corner.jpg",
         "10-pavilion-side-bbq-and-lawn.jpg"
+      ],
+      "props": [
+        {
+          "type": "bean-bag",
+          "x": 8.5,
+          "z": 0.9
+        },
+        {
+          "type": "bean-bag",
+          "x": 9.9,
+          "z": 0.9
+        },
+        {
+          "type": "bean-bag",
+          "x": 11.3,
+          "z": 0.9
+        },
+        {
+          "type": "bean-bag",
+          "x": 12.7,
+          "z": 0.9
+        },
+        {
+          "type": "bean-bag",
+          "x": 14.1,
+          "z": 0.9
+        },
+        {
+          "type": "rocking-chair",
+          "x": 22,
+          "z": 2.6,
+          "rot": 180
+        },
+        {
+          "type": "rocking-chair",
+          "x": 23.6,
+          "z": 2.6,
+          "rot": 180
+        },
+        {
+          "type": "coffee-table",
+          "x": 22.8,
+          "z": 1.4
+        },
+        {
+          "type": "lounger",
+          "x": 1.5,
+          "z": 1.6
+        },
+        {
+          "type": "lounger",
+          "x": 2.5,
+          "z": 1.6
+        },
+        {
+          "type": "bean-bag",
+          "x": 4,
+          "z": 1.2
+        },
+        {
+          "type": "pot",
+          "x": 26.3,
+          "z": 0.8
+        },
+        {
+          "type": "pot",
+          "x": 0.9,
+          "z": 4.2
+        }
       ]
     },
     {
@@ -620,6 +1251,23 @@
       "photos": [
         "10-pavilion-side-bbq-and-lawn.jpg",
         "24-kitchen-from-courtyard-door-toward-dining.jpg"
+      ],
+      "props": [
+        {
+          "type": "bbq",
+          "x": 1.7,
+          "z": 1.2
+        },
+        {
+          "type": "pot",
+          "x": 1.0,
+          "z": 3.0
+        },
+        {
+          "type": "gas-bottle",
+          "x": 3.0,
+          "z": 0.5
+        }
       ]
     },
     {
@@ -725,6 +1373,68 @@
         "09-lawn-edge-to-sea-and-bay.jpg",
         "03-pavilion-looking-to-point-and-pool-corner.jpg",
         "29-pavilion-corner-bay-lawn-and-sea.jpg"
+      ],
+      "trees": [
+        {
+          "x": -24,
+          "z": -21.5,
+          "h": 6.0,
+          "lean": 0.12
+        },
+        {
+          "x": -18,
+          "z": -20.0,
+          "h": 7.2,
+          "lean": 0.17
+        },
+        {
+          "x": -13,
+          "z": -18.5,
+          "h": 8.4,
+          "lean": 0.22
+        },
+        {
+          "x": -8,
+          "z": -21.5,
+          "h": 9.6,
+          "lean": 0.12
+        },
+        {
+          "x": -3,
+          "z": -20.0,
+          "h": 6.0,
+          "lean": 0.17
+        },
+        {
+          "x": 2,
+          "z": -18.5,
+          "h": 7.2,
+          "lean": 0.22
+        },
+        {
+          "x": 8,
+          "z": -21.5,
+          "h": 8.4,
+          "lean": 0.12
+        },
+        {
+          "x": 13,
+          "z": -20.0,
+          "h": 9.6,
+          "lean": 0.17
+        },
+        {
+          "x": 18,
+          "z": -18.5,
+          "h": 6.0,
+          "lean": 0.22
+        },
+        {
+          "x": 23,
+          "z": -21.5,
+          "h": 7.2,
+          "lean": 0.12
+        }
       ]
     },
     {
@@ -748,6 +1458,410 @@
         "13-house-side-wall-ac-unit.jpg",
         "38-entry-porch-front-on.jpg",
         "41-landward-wing-end-room-planter.jpg"
+      ],
+      "trees": [
+        {
+          "x": -16.0,
+          "z": -4.0,
+          "h": 6.0
+        },
+        {
+          "x": -18.5,
+          "z": -0.7999999999999998,
+          "h": 7.5
+        },
+        {
+          "x": -21.0,
+          "z": 2.4000000000000004,
+          "h": 9.0
+        },
+        {
+          "x": -16.0,
+          "z": 5.600000000000001,
+          "h": 6.0
+        },
+        {
+          "x": -18.5,
+          "z": 8.8,
+          "h": 7.5
+        },
+        {
+          "x": -21.0,
+          "z": 12.0,
+          "h": 9.0
+        },
+        {
+          "x": -16.0,
+          "z": 15.200000000000003,
+          "h": 6.0
+        },
+        {
+          "x": -18.5,
+          "z": 18.400000000000002,
+          "h": 7.5
+        },
+        {
+          "x": -21.0,
+          "z": 21.6,
+          "h": 9.0
+        },
+        {
+          "x": -16.0,
+          "z": 24.8,
+          "h": 6.0
+        },
+        {
+          "x": -18.5,
+          "z": 28.0,
+          "h": 7.5
+        },
+        {
+          "x": -21.0,
+          "z": 31.200000000000003,
+          "h": 9.0
+        },
+        {
+          "x": 16.0,
+          "z": -4.0,
+          "h": 6.0
+        },
+        {
+          "x": 18.5,
+          "z": -0.7999999999999998,
+          "h": 7.5
+        },
+        {
+          "x": 21.0,
+          "z": 2.4000000000000004,
+          "h": 9.0
+        },
+        {
+          "x": 16.0,
+          "z": 5.600000000000001,
+          "h": 6.0
+        },
+        {
+          "x": 18.5,
+          "z": 8.8,
+          "h": 7.5
+        },
+        {
+          "x": 21.0,
+          "z": 12.0,
+          "h": 9.0
+        },
+        {
+          "x": 16.0,
+          "z": 15.200000000000003,
+          "h": 6.0
+        },
+        {
+          "x": 18.5,
+          "z": 18.400000000000002,
+          "h": 7.5
+        },
+        {
+          "x": 21.0,
+          "z": 21.6,
+          "h": 9.0
+        },
+        {
+          "x": 16.0,
+          "z": 24.8,
+          "h": 6.0
+        },
+        {
+          "x": 18.5,
+          "z": 28.0,
+          "h": 7.5
+        },
+        {
+          "x": 21.0,
+          "z": 31.200000000000003,
+          "h": 9.0
+        },
+        {
+          "x": -24.0,
+          "z": 33,
+          "h": 6.0
+        },
+        {
+          "x": -19.8,
+          "z": 36,
+          "h": 7.5
+        },
+        {
+          "x": -15.6,
+          "z": 33,
+          "h": 9.0
+        },
+        {
+          "x": -11.399999999999999,
+          "z": 36,
+          "h": 6.0
+        },
+        {
+          "x": -7.199999999999999,
+          "z": 33,
+          "h": 7.5
+        },
+        {
+          "x": -3.0,
+          "z": 36,
+          "h": 9.0
+        },
+        {
+          "x": 1.2000000000000028,
+          "z": 33,
+          "h": 6.0
+        },
+        {
+          "x": 5.400000000000002,
+          "z": 36,
+          "h": 7.5
+        },
+        {
+          "x": 9.600000000000001,
+          "z": 33,
+          "h": 9.0
+        },
+        {
+          "x": 13.800000000000004,
+          "z": 36,
+          "h": 6.0
+        },
+        {
+          "x": 18.0,
+          "z": 33,
+          "h": 7.5
+        },
+        {
+          "x": 22.200000000000003,
+          "z": 36,
+          "h": 9.0
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": -3.0,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": -0.7999999999999998,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 1.4000000000000004,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 3.6000000000000005,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 5.800000000000001,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 8.0,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 10.200000000000001,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 12.400000000000002,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 14.600000000000001,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 16.8,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 19.0,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 21.200000000000003,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 23.400000000000002,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 25.6,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -13.5,
+          "z": 27.800000000000004,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": -14.5,
+          "z": 30.0,
+          "r": 0.9,
+          "color": "#6a9a3c"
+        },
+        {
+          "type": "shrub",
+          "x": 12.5,
+          "z": 21.0,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 13.5,
+          "z": 22.5,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 12.5,
+          "z": 24.0,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 13.5,
+          "z": 25.5,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 12.5,
+          "z": 27.0,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 13.5,
+          "z": 28.5,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 12.5,
+          "z": 30.0,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        },
+        {
+          "type": "shrub",
+          "x": 13.5,
+          "z": 31.5,
+          "r": 0.8,
+          "color": "#5e8a3a"
+        }
+      ],
+      "props": [
+        {
+          "type": "planter",
+          "x": 23,
+          "z": 30.1
+        },
+        {
+          "type": "planter",
+          "x": 26.5,
+          "z": 30.1
+        },
+        {
+          "type": "planter",
+          "x": 33.5,
+          "z": 30.1
+        },
+        {
+          "type": "planter",
+          "x": 37,
+          "z": 30.1
+        },
+        {
+          "type": "planter",
+          "x": 19.3,
+          "z": 27,
+          "rot": 90
+        },
+        {
+          "type": "ac-unit",
+          "x": 19.6,
+          "z": 8
+        },
+        {
+          "type": "ac-unit",
+          "x": 19.6,
+          "z": 12
+        },
+        {
+          "type": "gas-bottle",
+          "x": 19.5,
+          "z": 9.3
+        },
+        {
+          "type": "gas-bottle",
+          "x": 19.5,
+          "z": 9.8
+        },
+        {
+          "type": "bicycle",
+          "x": 32,
+          "z": 19,
+          "rot": 20
+        }
       ]
     },
     {
@@ -772,5 +1886,335 @@
         "07-bure-bench-view-east-a.jpg"
       ]
     }
-  ]
+  ],
+  "photoSpots": {
+    "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg": {
+      "x": -16,
+      "y": 1.6,
+      "z": 4,
+      "lookX": -8,
+      "lookY": 1.5,
+      "lookZ": 1
+    },
+    "02-pavilion-edge-bedroom-doors-lawn-sea.jpg": {
+      "x": -11,
+      "y": 1.6,
+      "z": -0.5,
+      "lookX": -9,
+      "lookY": 1.5,
+      "lookZ": -8
+    },
+    "03-pavilion-looking-to-point-and-pool-corner.jpg": {
+      "x": -9,
+      "y": 1.5,
+      "z": -4,
+      "lookX": -20,
+      "lookY": 1,
+      "lookZ": -20
+    },
+    "04-kitchen-rear-wall.jpg": {
+      "x": -3,
+      "y": 1.5,
+      "z": 5.5,
+      "lookX": -3,
+      "lookY": 1.3,
+      "lookZ": 8
+    },
+    "05-living-room-toward-kitchen-island.jpg": {
+      "x": -1,
+      "y": 1.5,
+      "z": 1,
+      "lookX": -3,
+      "lookY": 1.8,
+      "lookZ": 6
+    },
+    "06-pool-infinity-edge-toward-mainland.jpg": {
+      "x": -6,
+      "y": 1.5,
+      "z": -5.5,
+      "lookX": 6,
+      "lookY": 0.5,
+      "lookZ": -9
+    },
+    "07-bure-bench-view-east-a.jpg": {
+      "x": 10,
+      "y": 1,
+      "z": -7,
+      "lookX": 16,
+      "lookY": 0.5,
+      "lookZ": -7
+    },
+    "08-bure-bench-view-east-b.jpg": {
+      "x": 10,
+      "y": 1,
+      "z": -7,
+      "lookX": 16,
+      "lookY": 0.5,
+      "lookZ": -7.5
+    },
+    "09-lawn-edge-to-sea-and-bay.jpg": {
+      "x": -8,
+      "y": 1.6,
+      "z": -16,
+      "lookX": -8,
+      "lookY": 0,
+      "lookZ": -30
+    },
+    "10-pavilion-side-bbq-and-lawn.jpg": {
+      "x": 14,
+      "y": 1.6,
+      "z": 2,
+      "lookX": 6,
+      "lookY": 1.5,
+      "lookZ": -4
+    },
+    "11-pavilion-wide-roof-pool-bure-a.jpg": {
+      "x": 10.5,
+      "y": 1.2,
+      "z": -8,
+      "lookX": -2,
+      "lookY": 2,
+      "lookZ": 2
+    },
+    "12-master-bedroom.jpg": {
+      "x": -7.5,
+      "y": 1.5,
+      "z": -0.5,
+      "lookX": -7.5,
+      "lookY": 1.5,
+      "lookZ": 4
+    },
+    "13-house-side-wall-ac-unit.jpg": {
+      "x": -11,
+      "y": 1.6,
+      "z": 8,
+      "lookX": -11,
+      "lookY": 1.5,
+      "lookZ": 18
+    },
+    "14-pavilion-interior-toward-pool-and-bure.jpg": {
+      "x": -3,
+      "y": 1.5,
+      "z": 0,
+      "lookX": 8,
+      "lookY": 1,
+      "lookZ": -8
+    },
+    "15-bure-interior-roof-and-daybed.jpg": {
+      "x": 10,
+      "y": 1.2,
+      "z": -6.5,
+      "lookX": 10.5,
+      "lookY": 2,
+      "lookZ": -11
+    },
+    "16-pavilion-wide-roof-pool-bure-b.jpg": {
+      "x": 10.5,
+      "y": 1.2,
+      "z": -8,
+      "lookX": -2,
+      "lookY": 2,
+      "lookZ": 2
+    },
+    "17-courtyard-walkway-and-garden.jpg": {
+      "x": -5.5,
+      "y": 1.5,
+      "z": 9,
+      "lookX": -2,
+      "lookY": 1.5,
+      "lookZ": 19
+    },
+    "18-kitchen-pantry-and-lounge-from-side-door.jpg": {
+      "x": -5.5,
+      "y": 1.5,
+      "z": 6,
+      "lookX": 3,
+      "lookY": 1.5,
+      "lookZ": 0
+    },
+    "19-dining-from-side-verandah-doors-a.jpg": {
+      "x": 12,
+      "y": 1.5,
+      "z": 2.5,
+      "lookX": -3,
+      "lookY": 1.5,
+      "lookZ": 2.5
+    },
+    "20-dining-from-side-verandah-doors-b.jpg": {
+      "x": 12,
+      "y": 1.5,
+      "z": 2.5,
+      "lookX": -3,
+      "lookY": 1.5,
+      "lookZ": 2.5
+    },
+    "21-great-room-from-kitchen-corner-toward-sea.jpg": {
+      "x": -4,
+      "y": 1.5,
+      "z": 7,
+      "lookX": 3,
+      "lookY": 1.5,
+      "lookZ": -2
+    },
+    "22-kitchen-island-toward-lounge-and-pool.jpg": {
+      "x": -4,
+      "y": 1.5,
+      "z": 6.5,
+      "lookX": 4,
+      "lookY": 1,
+      "lookZ": -4
+    },
+    "23-kitchen-galley-island-sinks-desk.jpg": {
+      "x": -4.5,
+      "y": 1.5,
+      "z": 5,
+      "lookX": -2,
+      "lookY": 1.2,
+      "lookZ": 8
+    },
+    "24-kitchen-from-courtyard-door-toward-dining.jpg": {
+      "x": -1,
+      "y": 1.5,
+      "z": 8.5,
+      "lookX": 6,
+      "lookY": 1.5,
+      "lookZ": -1
+    },
+    "25-great-room-from-pavilion-door-trusses.jpg": {
+      "x": 0,
+      "y": 1.5,
+      "z": -0.5,
+      "lookX": 0,
+      "lookY": 2.5,
+      "lookZ": 8
+    },
+    "26-great-room-hallway-and-second-bedroom-door.jpg": {
+      "x": 4,
+      "y": 1.5,
+      "z": -0.5,
+      "lookX": 3,
+      "lookY": 1.5,
+      "lookZ": 9
+    },
+    "27-pavilion-along-house-toward-bure.jpg": {
+      "x": -10,
+      "y": 1.5,
+      "z": -1,
+      "lookX": 10,
+      "lookY": 1.5,
+      "lookZ": -6
+    },
+    "28-pavilion-toward-pool-and-bure-end.jpg": {
+      "x": -4,
+      "y": 1.5,
+      "z": -3,
+      "lookX": 8,
+      "lookY": 1,
+      "lookZ": -9
+    },
+    "29-pavilion-corner-bay-lawn-and-sea.jpg": {
+      "x": -13,
+      "y": 1.5,
+      "z": -1,
+      "lookX": 0,
+      "lookY": 1.5,
+      "lookZ": -9
+    },
+    "30-bedroom-side-verandah-toward-sea.jpg": {
+      "x": -12,
+      "y": 1.5,
+      "z": 8,
+      "lookX": -12,
+      "lookY": 1.5,
+      "lookZ": -6
+    },
+    "31-second-bedroom-heliconia-and-passage.jpg": {
+      "x": 6,
+      "y": 1.5,
+      "z": 2,
+      "lookX": 8,
+      "lookY": 1.5,
+      "lookZ": 5
+    },
+    "32-bedroom-looking-out-to-verandah-and-sea.jpg": {
+      "x": -9.5,
+      "y": 1.5,
+      "z": 4,
+      "lookX": -9.5,
+      "lookY": 1.5,
+      "lookZ": -6
+    },
+    "33-master-bedroom-full-from-verandah-door.jpg": {
+      "x": -7.5,
+      "y": 1.5,
+      "z": 0.2,
+      "lookX": -7.5,
+      "lookY": 1.5,
+      "lookZ": 5
+    },
+    "34-triple-bedroom-three-singles-heliconia.jpg": {
+      "x": 5.2,
+      "y": 1.5,
+      "z": 10.5,
+      "lookX": 9,
+      "lookY": 1.5,
+      "lookZ": 13
+    },
+    "35-courtyard-from-walkway-corner-solar-hw.jpg": {
+      "x": -4,
+      "y": 1.5,
+      "z": 9,
+      "lookX": 3,
+      "lookY": 2,
+      "lookZ": 22
+    },
+    "36-courtyard-from-entry-door-looking-seaward.jpg": {
+      "x": 0,
+      "y": 1.5,
+      "z": 24,
+      "lookX": 0,
+      "lookY": 1.5,
+      "lookZ": 8
+    },
+    "37-side-path-along-wing-to-pool-side.jpg": {
+      "x": 12,
+      "y": 1.6,
+      "z": 22,
+      "lookX": 12,
+      "lookY": 1,
+      "lookZ": 5
+    },
+    "38-entry-porch-front-on.jpg": {
+      "x": 0,
+      "y": 1.6,
+      "z": 33,
+      "lookX": 0,
+      "lookY": 2,
+      "lookZ": 25
+    },
+    "39-entry-porch-angled-left-wing.jpg": {
+      "x": 6,
+      "y": 1.6,
+      "z": 31,
+      "lookX": -5,
+      "lookY": 2,
+      "lookZ": 24
+    },
+    "40-entry-porch-angled-right-wing.jpg": {
+      "x": -6,
+      "y": 1.6,
+      "z": 31,
+      "lookX": 5,
+      "lookY": 2,
+      "lookZ": 24
+    },
+    "41-landward-wing-end-room-planter.jpg": {
+      "x": -9,
+      "y": 1.6,
+      "z": 31,
+      "lookX": -7,
+      "lookY": 2,
+      "lookZ": 24
+    }
+  }
 }

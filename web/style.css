@@ -28,6 +28,7 @@ main { flex: 1; display: flex; min-height: 0; }
 #section-list .group { padding: 8px 12px 2px; font-size: 11px; letter-spacing: .08em;
   text-transform: uppercase; color: var(--muted); }
 #section-list .item { padding: 6px 12px; cursor: pointer; display: flex; gap: 8px; align-items: center; }
+#section-list .item > span:nth-child(2) { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 #section-list .item:hover { background: var(--panel-2); }
 #section-list .item.active { background: #2f3540; border-left: 3px solid var(--accent); padding-left: 9px; }
 .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid #0006; flex: none; }
@@ -91,3 +92,23 @@ main { flex: 1; display: flex; min-height: 0; }
   #sidebar, #detail { width: auto; max-height: 38vh; }
   #viewport { min-height: 45vh; }
 }
+
+/* onboarding + photo spots */
+#onboard { width: 400px; background: var(--panel); border-left: 1px solid var(--line); overflow: auto; position: relative; }
+#onboard .close { position: absolute; right: 6px; top: 6px; }
+#onboard-body { padding: 16px; }
+#onboard-body h2 { margin: 0 0 4px; font-size: 18px; }
+#onboard-body h3 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 16px 0 6px; }
+#onboard-body textarea { width: 100%; resize: vertical; }
+.progress { height: 6px; background: var(--panel-2); border-radius: 3px; margin: 8px 0; overflow: hidden; }
+.progress div { height: 100%; background: var(--accent); }
+.ob-photo { width: 100%; border-radius: 6px; cursor: zoom-in; border: 1px solid var(--line); }
+.ob-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; max-height: 32vh; overflow: auto; background: var(--panel-2); padding: 8px; border-radius: 6px; }
+.ob-group { grid-column: 1 / -1; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.ob-check { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+.ob-nav { justify-content: space-between; }
+#place-banner { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #1a1205;
+  padding: 8px 14px; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 16px #0008; }
+.lb-actions { margin-top: 10px; display: flex; gap: 8px; }
+#lightbox button:disabled { opacity: .4; }
+@media (max-width: 900px) { #onboard { width: auto; max-height: 45vh; } }
