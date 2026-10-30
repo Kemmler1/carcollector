@@ -501,3 +501,93 @@ Establishes: at least two bedrooms have four-posters and the same art style.
 - Cathedral ply ceiling with dark trusses.
 
 Establishes: the master's doors face the sea along the verandah axis.
+
+---
+
+# Batch 3 (photos 33–41) — the entry and the landward wing
+
+## 33 — Master bedroom, full, from the verandah door
+`33-master-bedroom-full-from-verandah-door.jpg`
+
+- Cathedral ply ceiling with two dark trusses (black gusset plates), silver 3-blade fan.
+- King four-poster, dark posts, white voile tied at the posts, white linen; a green
+  bamboo/heliconia canvas above the head; black reading lights.
+- **Left wall**: a honey timber door with a **woven mesh screen panel** → leads to the
+  courtyard walkway (this is the "screened door"). A black chest with a giant clam shell on
+  it below the open bi-fold.
+- **Back wall**: an open timber door into the **ensuite**, through which the sea shows — the
+  ensuite has a seaward window/opening on the end wall.
+- **Right wall**: full-height dark louvre windows to the side verandah; Panasonic wall AC
+  above. Bi-folds (foreground) also open to the verandah.
+- Grey tile, pale sage render.
+
+Establishes: master is the seaward room of the left wing; ensuite beyond it toward the sea.
+
+## 34 — Triple bedroom
+`34-triple-bedroom-three-singles-heliconia.jpg`
+
+- **Three single beds** in a row, white linen, blue bedside tables; red heliconia canvas;
+  black reading lights; wall AC; a louvre window in a dark frame; a pale timber **wardrobe**
+  with a long bar pull at right.
+- Hip/cathedral ply ceiling with dark trusses and a black fan.
+- Camera from a doorway with a honey timber frame and a woven-mesh screen panel.
+- Walls warm cream.
+
+Establishes: a third bedroom type (kids'/bunk room) — on the courtyard walkway (screen door).
+
+## 35 — Courtyard from the walkway corner
+`35-courtyard-from-walkway-corner-solar-hw.jpg`
+
+- Looking across the courtyard to the far wing: the walkway's pergola has an **open beam
+  grid at the corner** (sky through it) and a honey board lining elsewhere.
+- Far wing: off-white render, a run of three **bird-of-paradise / tropical canvases**
+  between louvre windows and a dark door; grey corrugated roof with a **solar hot-water
+  unit** on it; ply soffit, exposed rafters.
+- Courtyard garden: a dense hedge block of lime-green shrubs ~1.8 m, a broad-leaf shrub,
+  three slim palms, bicycles parked among them, sandy ground.
+- Walkway floor: pale grey-cream tile.
+
+## 36 — Courtyard from the entry door looking seaward
+`36-courtyard-from-entry-door-looking-seaward.jpg`
+
+Camera standing in the **front door** looking straight through the courtyard.
+
+- The courtyard is enclosed on both sides by wings with paintings and louvre windows, and
+  ahead by the **back wall of the great room** (grey roof, louvre windows, canvases).
+- Pergola over the walkway all round; hedge block and palms centre; bicycles.
+- The entry door is a timber screen door (mesh panel) with a steel bar pull.
+
+Establishes: the entry is on the landward wing, on axis with the courtyard and great room.
+
+## 37 — Side path along a wing
+`37-side-path-along-wing-to-pool-side.jpg`
+
+- A sandy path along the outside of a wing from the entry toward the pool side: rendered
+  wall, planter box, a dark louvre window, downpipe; coconut palms, hibiscus and
+  bougainvillea hedge; a glimpse of the pool/sea at the far end. A square concrete service
+  pit lid at the corner.
+
+## 38 / 39 / 40 — Entry porch
+`38-entry-porch-front-on.jpg`, `39-…-angled-left-wing.jpg`, `40-…-angled-right-wing.jpg`
+
+- **Porch**: a free-standing gable roof of dark hardwood — two king-post trusses with black
+  steel plates, honey board lining, dark fascia, a grey metal roof on top — carried on
+  **four square posts on rendered plinths** (~1 m high). Floor: grey-taupe tiles, three
+  steps up to the door.
+- **Front door**: double timber doors with woven mesh screen panels, long stainless pulls.
+- **Façade either side**: off-white render, dark louvre windows (pairs and singles), white
+  PVC downpipes, rendered **planter boxes** along the base with crotons and tropical shrubs;
+  grey corrugated hip roofs, ply soffits, exposed rafters, dark fascia.
+- To the left (photo 39) the far wing's left end has a **raised gable** (bedroom cathedral
+  ceiling) and the wing steps forward. To the right (photo 40) the right wing runs back with
+  louvre windows.
+- Forecourt: bare sand, coconut palms and scrub around.
+
+Establishes: entry façade and porch for the model; roof forms of the landward wing.
+
+## 41 — Landward wing end room with planter
+`41-landward-wing-end-room-planter.jpg`
+
+- The end room of the far wing: off-white render, a raised gable over it, pair of louvre
+  windows and a single, a large rendered planter box; grey roof, ply soffits; coconut palms
+  behind; a neighbouring roof visible through the trees at right.

@@ -1,0 +1,776 @@
+{
+  "version": "v1",
+  "basedOn": null,
+  "created": "2026-10-30",
+  "summary": "First model built from 41 site photos. All dimensions are estimates. Rooms marked confirmed:false have not been photographed inside.",
+  "units": "metres",
+  "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room.",
+  "sections": [
+    {
+      "id": "great-room",
+      "name": "Great room",
+      "kind": "room",
+      "group": "Living",
+      "confirmed": true,
+      "box": {
+        "x": -5,
+        "z": 0,
+        "w": 10,
+        "d": 8
+      },
+      "wallHeight": 3.4,
+      "roof": {
+        "type": "hip",
+        "height": 3.2
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#8d8578",
+        "roof": "#9ea4a9"
+      },
+      "openSides": [
+        "sea",
+        "right"
+      ],
+      "description": "One tall space under a hip roof: four dark-stained hardwood trusses with black steel king-post plates, pale ply lining, two black ceiling fans, eight white cylinder pendants on a grid. A massive dark header beam on square honey-timber posts carries the roof over the open sides. Seaward wall and right wall are louvre bi-fold doors folded fully back; the landward side has the kitchen's courtyard door and a hallway beside the fridge. Floor is grey-taupe stone-look porcelain, 600 mm, running outside without a step.",
+      "materials": [
+        "Dark chocolate-stained hardwood trusses and header beam",
+        "Pale ply ceiling lining",
+        "Honey timber posts and boarded wall above the kitchen",
+        "Grey-taupe 600 mm porcelain tile",
+        "Honey-timber louvre bi-fold doors, black steel hinges, brass threshold strips"
+      ],
+      "furniture": [
+        "Two black leather sofas and two armchairs on thick round timber log legs, blue-grey patterned cushions",
+        "Chunky timber coffee table",
+        "8-seat dark timber dining table with slatted chairs",
+        "Low dark TV cabinet",
+        "Frangipani canvases; two carved Pacific masks flanking the hallway"
+      ],
+      "photos": [
+        "05-living-room-toward-kitchen-island.jpg",
+        "18-kitchen-pantry-and-lounge-from-side-door.jpg",
+        "19-dining-from-side-verandah-doors-a.jpg",
+        "20-dining-from-side-verandah-doors-b.jpg",
+        "21-great-room-from-kitchen-corner-toward-sea.jpg",
+        "25-great-room-from-pavilion-door-trusses.jpg",
+        "26-great-room-hallway-and-second-bedroom-door.jpg"
+      ]
+    },
+    {
+      "id": "lounge",
+      "name": "Lounge",
+      "kind": "zone",
+      "group": "Living",
+      "confirmed": true,
+      "box": {
+        "x": -5,
+        "z": 0,
+        "w": 6,
+        "d": 4
+      },
+      "colors": {
+        "floor": "#7d766a"
+      },
+      "description": "Seaward half of the great room, in front of the kitchen island. Sofas face the pool.",
+      "photos": [
+        "21-great-room-from-kitchen-corner-toward-sea.jpg",
+        "22-kitchen-island-toward-lounge-and-pool.jpg"
+      ]
+    },
+    {
+      "id": "dining",
+      "name": "Dining",
+      "kind": "zone",
+      "group": "Living",
+      "confirmed": true,
+      "box": {
+        "x": 1,
+        "z": 0,
+        "w": 4,
+        "d": 5
+      },
+      "colors": {
+        "floor": "#7d766a"
+      },
+      "description": "Right side of the great room, just inside the right verandah doors. The BBQ sits outside those doors.",
+      "photos": [
+        "19-dining-from-side-verandah-doors-a.jpg",
+        "20-dining-from-side-verandah-doors-b.jpg"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "kind": "zone",
+      "group": "Living",
+      "confirmed": true,
+      "box": {
+        "x": -5,
+        "z": 4,
+        "w": 4.5,
+        "d": 4
+      },
+      "colors": {
+        "floor": "#857d70"
+      },
+      "description": "Galley bay at the landward-left of the great room under a flat ply ceiling with downlights, open to the lounge above bench height. Island ~4 m with a raised bar ledge, 1.5-bowl stainless sink, dishwasher, four dark bar stools. Back bench: gas hob, under-bench oven, cream render splashback, four-panel louvre window above. Tall dark pantry bank and LG fridge in rendered nibs. A desk with cane chair at the end of the galley. Own bi-fold door to the courtyard side.",
+      "materials": [
+        "Dark-stained vertical-board cabinets with long stainless pulls",
+        "Sand/beige stone benchtops",
+        "Cream render splashback",
+        "Pale ply ceiling, dark battens"
+      ],
+      "photos": [
+        "04-kitchen-rear-wall.jpg",
+        "22-kitchen-island-toward-lounge-and-pool.jpg",
+        "23-kitchen-galley-island-sinks-desk.jpg",
+        "24-kitchen-from-courtyard-door-toward-dining.jpg"
+      ]
+    },
+    {
+      "id": "hallway",
+      "name": "Hallway to courtyard",
+      "kind": "zone",
+      "group": "Living",
+      "confirmed": true,
+      "box": {
+        "x": 2,
+        "z": 8,
+        "w": 1.8,
+        "d": 1.8
+      },
+      "colors": {
+        "floor": "#9a958b"
+      },
+      "description": "Short hall from the great room, beside the fridge, landward to the courtyard walkway. Louvre doors off it (rooms unknown).",
+      "photos": [
+        "26-great-room-hallway-and-second-bedroom-door.jpg"
+      ]
+    },
+    {
+      "id": "master-bedroom",
+      "name": "Master bedroom",
+      "kind": "room",
+      "group": "Left wing",
+      "confirmed": true,
+      "box": {
+        "x": -10,
+        "z": 0,
+        "w": 5,
+        "d": 5.5
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.8
+      },
+      "colors": {
+        "wall": "#e9e3d3",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "openSides": [
+        "sea"
+      ],
+      "description": "Seaward room of the left wing. Cathedral ply ceiling on two dark trusses with black gusset plates, silver fan, Panasonic wall AC. King four-poster with dark square posts, white voile and white linen; green bamboo canvas over the bed; black reading lights. Bi-folds open seaward onto the left verandah with the sea straight ahead; full-height louvres on the verandah wall. Screened honey-timber door on the courtyard wall; door at the back to the ensuite. Black chest with a giant clam shell.",
+      "materials": [
+        "Pale sage render",
+        "Light grey tile",
+        "Dark louvre windows with black levers"
+      ],
+      "photos": [
+        "12-master-bedroom.jpg",
+        "32-bedroom-looking-out-to-verandah-and-sea.jpg",
+        "33-master-bedroom-full-from-verandah-door.jpg",
+        "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg",
+        "02-pavilion-edge-bedroom-doors-lawn-sea.jpg"
+      ]
+    },
+    {
+      "id": "master-ensuite",
+      "name": "Master ensuite",
+      "kind": "room",
+      "group": "Left wing",
+      "confirmed": false,
+      "box": {
+        "x": -10,
+        "z": 5.5,
+        "w": 5,
+        "d": 3
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.4
+      },
+      "colors": {
+        "wall": "#e9e3d3",
+        "floor": "#f1f1ee",
+        "roof": "#9ea4a9"
+      },
+      "description": "Glimpsed only: white large-format tile and a mirror. Position behind the master is inferred.",
+      "photos": [
+        "12-master-bedroom.jpg"
+      ]
+    },
+    {
+      "id": "left-wing-room-a",
+      "name": "Left wing room A (unconfirmed)",
+      "kind": "room",
+      "group": "Left wing",
+      "confirmed": false,
+      "box": {
+        "x": -10,
+        "z": 9.8,
+        "w": 5,
+        "d": 5.2
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.6
+      },
+      "colors": {
+        "wall": "#e9e3d3",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "A door and louvre windows onto the courtyard walkway, with canvases on the wall outside. Not seen inside.",
+      "photos": [
+        "17-courtyard-walkway-and-garden.jpg"
+      ]
+    },
+    {
+      "id": "left-wing-room-b",
+      "name": "Left wing room B (unconfirmed)",
+      "kind": "room",
+      "group": "Left wing",
+      "confirmed": false,
+      "box": {
+        "x": -10,
+        "z": 15,
+        "w": 5,
+        "d": 5.2
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.6
+      },
+      "colors": {
+        "wall": "#e9e3d3",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Not seen inside.",
+      "photos": []
+    },
+    {
+      "id": "bedroom-2",
+      "name": "Bedroom 2 (heliconia)",
+      "kind": "room",
+      "group": "Right wing",
+      "confirmed": true,
+      "box": {
+        "x": 5,
+        "z": 0,
+        "w": 5,
+        "d": 5.5
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.8
+      },
+      "colors": {
+        "wall": "#efe7d2",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "openSides": [
+        "right"
+      ],
+      "description": "Opens off the right end of the great room through a dark louvre bi-fold. Four-poster with dark posts, red heliconia-on-bamboo canvas, black reading lights, tropical-print bedside table. Short tiled passage past the bed head to a pale timber door (ensuite, unconfirmed). Louvre windows to the lawn.",
+      "photos": [
+        "31-second-bedroom-heliconia-and-passage.jpg",
+        "26-great-room-hallway-and-second-bedroom-door.jpg"
+      ]
+    },
+    {
+      "id": "bedroom-2-ensuite",
+      "name": "Bedroom 2 ensuite (unconfirmed)",
+      "kind": "room",
+      "group": "Right wing",
+      "confirmed": false,
+      "box": {
+        "x": 5,
+        "z": 5.5,
+        "w": 5,
+        "d": 3
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.4
+      },
+      "colors": {
+        "wall": "#efe7d2",
+        "floor": "#f1f1ee",
+        "roof": "#9ea4a9"
+      },
+      "description": "Inferred from the passage in photo 31.",
+      "photos": []
+    },
+    {
+      "id": "triple-room",
+      "name": "Triple bedroom",
+      "kind": "room",
+      "group": "Right wing",
+      "confirmed": true,
+      "box": {
+        "x": 5,
+        "z": 9.8,
+        "w": 5,
+        "d": 5.2
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.6
+      },
+      "colors": {
+        "wall": "#efe7d2",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Three single beds in a row, blue bedside tables, red heliconia canvas, black reading lights, wall AC, a louvre window, pale timber wardrobe. Entered through a screened door from the courtyard walkway. Which wing it sits in is a guess.",
+      "photos": [
+        "34-triple-bedroom-three-singles-heliconia.jpg"
+      ]
+    },
+    {
+      "id": "right-wing-room-b",
+      "name": "Right wing room B (unconfirmed)",
+      "kind": "room",
+      "group": "Right wing",
+      "confirmed": false,
+      "box": {
+        "x": 5,
+        "z": 15,
+        "w": 5,
+        "d": 5.2
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.6
+      },
+      "colors": {
+        "wall": "#efe7d2",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Not seen inside. Louvre windows to the side path (photo 37).",
+      "photos": [
+        "37-side-path-along-wing-to-pool-side.jpg"
+      ]
+    },
+    {
+      "id": "entry-hall",
+      "name": "Entry hall",
+      "kind": "room",
+      "group": "Landward wing",
+      "confirmed": true,
+      "box": {
+        "x": -2,
+        "z": 20.2,
+        "w": 4,
+        "d": 4.8
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.4
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#9a958b",
+        "roof": "#9ea4a9"
+      },
+      "description": "Behind the double front doors, on axis with the courtyard and the great room. From the door you look straight through the courtyard to the back of the great room.",
+      "photos": [
+        "36-courtyard-from-entry-door-looking-seaward.jpg",
+        "38-entry-porch-front-on.jpg"
+      ]
+    },
+    {
+      "id": "far-left-room",
+      "name": "Landward wing, left room (unconfirmed)",
+      "kind": "room",
+      "group": "Landward wing",
+      "confirmed": false,
+      "box": {
+        "x": -10,
+        "z": 20.2,
+        "w": 8,
+        "d": 4.8
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "gable",
+        "height": 1.8
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Has a raised gable (a cathedral-ceilinged bedroom, probably), louvre windows and a planter box on the forecourt side, canvases on the courtyard side.",
+      "photos": [
+        "39-entry-porch-angled-left-wing.jpg",
+        "41-landward-wing-end-room-planter.jpg",
+        "35-courtyard-from-walkway-corner-solar-hw.jpg"
+      ]
+    },
+    {
+      "id": "far-right-room",
+      "name": "Landward wing, right room (unconfirmed)",
+      "kind": "room",
+      "group": "Landward wing",
+      "confirmed": false,
+      "box": {
+        "x": 2,
+        "z": 20.2,
+        "w": 8,
+        "d": 4.8
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "hip",
+        "height": 1.6
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Louvre windows and planters on the forecourt side. Solar hot-water unit on this roof.",
+      "photos": [
+        "40-entry-porch-angled-right-wing.jpg",
+        "35-courtyard-from-walkway-corner-solar-hw.jpg"
+      ]
+    },
+    {
+      "id": "entry-porch",
+      "name": "Entry porch",
+      "kind": "porch",
+      "group": "Landward wing",
+      "confirmed": true,
+      "box": {
+        "x": -2.5,
+        "z": 25,
+        "w": 5,
+        "d": 4
+      },
+      "wallHeight": 3.4,
+      "roof": {
+        "type": "gable",
+        "height": 1.6
+      },
+      "colors": {
+        "floor": "#8d8578",
+        "roof": "#9ea4a9",
+        "timber": "#5a3a24"
+      },
+      "description": "Free-standing gable of dark hardwood: two king-post trusses with black steel plates, honey board lining, grey metal roof, on four square posts standing on rendered plinths ~1 m high. Three steps up to double timber screen doors with long stainless pulls. Rendered planter boxes with crotons along the façade either side.",
+      "photos": [
+        "38-entry-porch-front-on.jpg",
+        "39-entry-porch-angled-left-wing.jpg",
+        "40-entry-porch-angled-right-wing.jpg"
+      ]
+    },
+    {
+      "id": "courtyard-walkway",
+      "name": "Courtyard walkway",
+      "kind": "pergola",
+      "group": "Courtyard",
+      "confirmed": true,
+      "box": {
+        "x": -5,
+        "z": 8,
+        "w": 10,
+        "d": 12.2
+      },
+      "hole": {
+        "x": -3.2,
+        "z": 9.8,
+        "w": 6.4,
+        "d": 8.6
+      },
+      "wallHeight": 2.9,
+      "colors": {
+        "floor": "#c9c8c0",
+        "timber": "#5a3a24",
+        "lining": "#c98f4e"
+      },
+      "description": "Covered walkway on all four sides of the courtyard, under the same dark-beam / honey-board pergola as the pavilion, with an open beam grid at the corners. Pale grey-cream tile. Bedroom doors, louvre windows and a run of tropical canvases (bird-of-paradise, frangipani, banana) on every courtyard-facing wall.",
+      "photos": [
+        "17-courtyard-walkway-and-garden.jpg",
+        "35-courtyard-from-walkway-corner-solar-hw.jpg",
+        "36-courtyard-from-entry-door-looking-seaward.jpg"
+      ]
+    },
+    {
+      "id": "courtyard-garden",
+      "name": "Courtyard garden",
+      "kind": "garden",
+      "group": "Courtyard",
+      "confirmed": true,
+      "box": {
+        "x": -3.2,
+        "z": 9.8,
+        "w": 6.4,
+        "d": 8.6
+      },
+      "colors": {
+        "ground": "#d8c9a6",
+        "hedge": "#9ccc3c",
+        "palm": "#4f8a3a"
+      },
+      "description": "Open to the sky. Sandy ground, a dense block of lime-green clipped shrubs about 1.8 m high, a broad-leaf shrub, three slim coconut palms rising above the roofs, bicycles parked among them.",
+      "photos": [
+        "17-courtyard-walkway-and-garden.jpg",
+        "35-courtyard-from-walkway-corner-solar-hw.jpg",
+        "36-courtyard-from-entry-door-looking-seaward.jpg"
+      ]
+    },
+    {
+      "id": "pool-pavilion",
+      "name": "Pool pavilion",
+      "kind": "pergola",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": -13.5,
+        "z": -5,
+        "w": 27,
+        "d": 5
+      },
+      "wallHeight": 3.2,
+      "colors": {
+        "floor": "#8d8578",
+        "timber": "#5a3a24",
+        "lining": "#c98f4e"
+      },
+      "description": "Flat timber pergola along the whole seaward face: dark square posts ~200 mm, heavy dark beams, rafters at ~900 mm with a three-step notched tail, honey board lining above. Grey-taupe tile continuous with inside; a stainless linear drain along the pool edge. Two carved timber rocking chairs, a low timber chest table, five grey-beige bean bags along the pool, white sun loungers at the lawn corner. A few bays at the left corner are open to the sky.",
+      "photos": [
+        "27-pavilion-along-house-toward-bure.jpg",
+        "28-pavilion-toward-pool-and-bure-end.jpg",
+        "29-pavilion-corner-bay-lawn-and-sea.jpg",
+        "14-pavilion-interior-toward-pool-and-bure.jpg",
+        "03-pavilion-looking-to-point-and-pool-corner.jpg",
+        "10-pavilion-side-bbq-and-lawn.jpg"
+      ]
+    },
+    {
+      "id": "left-verandah",
+      "name": "Left side verandah",
+      "kind": "pergola",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": -13.5,
+        "z": 0,
+        "w": 3.5,
+        "d": 20.2
+      },
+      "wallHeight": 3.2,
+      "colors": {
+        "floor": "#6f6b66",
+        "timber": "#5a3a24",
+        "lining": "#c98f4e"
+      },
+      "description": "Runs along the outside of the left wing straight to the sea, under the pergola. Dark grey tile. The wing's wall on this side is clad in horizontal honey timber boards with dark louvre bi-folds and windows. Master bedroom doors open onto it.",
+      "photos": [
+        "30-bedroom-side-verandah-toward-sea.jpg",
+        "02-pavilion-edge-bedroom-doors-lawn-sea.jpg",
+        "01-exterior-rear-lawn-pavilion-and-bedroom-wing.jpg"
+      ]
+    },
+    {
+      "id": "right-verandah",
+      "name": "Right side verandah (BBQ)",
+      "kind": "pergola",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": 10,
+        "z": 0,
+        "w": 3.5,
+        "d": 20.2
+      },
+      "wallHeight": 3.2,
+      "colors": {
+        "floor": "#8d8578",
+        "timber": "#5a3a24",
+        "lining": "#c98f4e"
+      },
+      "description": "Along the right side of the great room and right wing. The dining doors open onto it; a stainless 4-burner hooded BBQ and black glazed pots with palms sit just outside them. Dense tree line beyond.",
+      "photos": [
+        "10-pavilion-side-bbq-and-lawn.jpg",
+        "24-kitchen-from-courtyard-door-toward-dining.jpg"
+      ]
+    },
+    {
+      "id": "pool-terrace",
+      "name": "Pool terrace",
+      "kind": "zone",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": -8,
+        "z": -11.5,
+        "w": 16,
+        "d": 6.5
+      },
+      "colors": {
+        "floor": "#d9cfb8"
+      },
+      "description": "Cream/beige stone-look pavers around the pool, lighter than the house tile. Bronze round skimmer lid.",
+      "photos": [
+        "06-pool-infinity-edge-toward-mainland.jpg"
+      ]
+    },
+    {
+      "id": "pool",
+      "name": "Pool",
+      "kind": "pool",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": -6,
+        "z": -10,
+        "w": 12,
+        "d": 4
+      },
+      "depth": 1.5,
+      "spa": {
+        "x": 6,
+        "z": -8,
+        "w": 1.6,
+        "d": 1.6
+      },
+      "colors": {
+        "water": "#1f3fc4",
+        "coping": "#e6dfcc"
+      },
+      "description": "Long rectangle, royal blue glass mosaic throughout including the weir. Infinity/wet edge on the seaward long side spilling to a trough. Pale stone coping. A square swim-out / spa nook with a seat cut into the terrace side at the bure end; a small tiled step at the other end.",
+      "photos": [
+        "06-pool-infinity-edge-toward-mainland.jpg",
+        "28-pavilion-toward-pool-and-bure-end.jpg",
+        "07-bure-bench-view-east-a.jpg",
+        "08-bure-bench-view-east-b.jpg"
+      ]
+    },
+    {
+      "id": "bure",
+      "name": "Bure",
+      "kind": "bure",
+      "group": "Outdoor",
+      "confirmed": true,
+      "box": {
+        "x": 8,
+        "z": -11,
+        "w": 5,
+        "d": 5
+      },
+      "wallHeight": 2.4,
+      "roof": {
+        "type": "thatch",
+        "height": 2.4
+      },
+      "colors": {
+        "floor": "#d9cfb8",
+        "roof": "#a08a5c",
+        "timber": "#8a6a48",
+        "bench": "#eee9dc"
+      },
+      "description": "Square, open on all sides, at the far right end of the pool beside the spa nook. Round natural de-barked posts, square dark ridge beam, a grid of dark rafters and purlins infilled with woven pandanus panels (diamond weave), natural palm thatch outside with a ragged eave fringe. Rendered L-shaped bench with grey tile top along the seaward and one side edge; a raised rendered daybed platform with a dark brown cushion.",
+      "photos": [
+        "11-pavilion-wide-roof-pool-bure-a.jpg",
+        "16-pavilion-wide-roof-pool-bure-b.jpg",
+        "15-bure-interior-roof-and-daybed.jpg",
+        "07-bure-bench-view-east-a.jpg",
+        "08-bure-bench-view-east-b.jpg"
+      ]
+    },
+    {
+      "id": "lawn-seaward",
+      "name": "Seaward lawn and bank",
+      "kind": "ground",
+      "group": "Site",
+      "confirmed": true,
+      "box": {
+        "x": -30,
+        "z": -22,
+        "w": 60,
+        "d": 17
+      },
+      "colors": {
+        "ground": "#b9a874"
+      },
+      "description": "Flat shelf of coarse dry tropical grass ending in a vegetated bank (beach hibiscus, scrub, coconut palms) dropping ~3–6 m to the reef flat. No beach directly below. Yellow-flowered shrub hedge on the edge.",
+      "photos": [
+        "09-lawn-edge-to-sea-and-bay.jpg",
+        "03-pavilion-looking-to-point-and-pool-corner.jpg",
+        "29-pavilion-corner-bay-lawn-and-sea.jpg"
+      ]
+    },
+    {
+      "id": "forecourt",
+      "name": "Forecourt and side paths",
+      "kind": "ground",
+      "group": "Site",
+      "confirmed": true,
+      "box": {
+        "x": -30,
+        "z": -5,
+        "w": 60,
+        "d": 45
+      },
+      "colors": {
+        "ground": "#cdbf9a"
+      },
+      "description": "Bare sand around the landward side and along both wings. Rendered planter boxes along the entry façade with crotons. Coconut palms, casuarina and broad-leaf scrub as a tree line. A sandy side path runs along the right wing from the forecourt to the pool side. Services (AC units, gas bottles) on the left wing's outer wall.",
+      "photos": [
+        "37-side-path-along-wing-to-pool-side.jpg",
+        "13-house-side-wall-ac-unit.jpg",
+        "38-entry-porch-front-on.jpg",
+        "41-landward-wing-end-room-planter.jpg"
+      ]
+    },
+    {
+      "id": "sea",
+      "name": "Reef flat and sea",
+      "kind": "water",
+      "group": "Site",
+      "confirmed": true,
+      "box": {
+        "x": -40,
+        "z": -60,
+        "w": 80,
+        "d": 38
+      },
+      "colors": {
+        "water": "#5fc9d4"
+      },
+      "description": "Pale turquoise reef flat with dark coral patches and scattered rocks, a dark blue band of deep water at the horizon. To the left, a bay curving to a sandy beach, a coconut-fringed point and green mainland hills; a distant island on the horizon.",
+      "photos": [
+        "09-lawn-edge-to-sea-and-bay.jpg",
+        "06-pool-infinity-edge-toward-mainland.jpg",
+        "07-bure-bench-view-east-a.jpg"
+      ]
+    }
+  ]
+}

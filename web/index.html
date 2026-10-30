@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House Mock-up</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/three.module.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body>
+<header id="topbar">
+  <strong>House mock-up</strong>
+  <label>Version
+    <select id="version-select"></select>
+  </label>
+  <span id="version-summary" class="muted"></span>
+  <span class="spacer"></span>
+  <label><input type="checkbox" id="toggle-wire"> Wireframe</label>
+  <label><input type="checkbox" id="toggle-roofs" checked> Roofs</label>
+  <label><input type="checkbox" id="toggle-labels" checked> Labels</label>
+  <button id="btn-top">Top view</button>
+  <button id="btn-iso">Reset view</button>
+  <button id="btn-diff">Diff vs previous</button>
+  <button id="btn-import">Import version</button>
+  <button id="btn-export" class="primary">Export for ChatGPT</button>
+</header>
+
+<main>
+  <aside id="sidebar">
+    <input id="filter" type="search" placeholder="Filter sections…">
+    <div id="section-list"></div>
+    <div id="general-comments">
+      <h3>Whole-house notes</h3>
+      <div id="general-comment-list" class="comment-list"></div>
+      <form id="general-comment-form" class="comment-form">
+        <textarea rows="2" placeholder="Something to change or add anywhere…"></textarea>
+        <button>Add</button>
+      </form>
+    </div>
+  </aside>
+
+  <div id="viewport"><canvas id="canvas"></canvas><div id="hint" class="muted">Drag to orbit · scroll to zoom · right-drag to pan · click a part to open it</div></div>
+
+  <aside id="detail" class="hidden">
+    <button id="detail-close" class="close" title="Close">×</button>
+    <div id="detail-body"></div>
+  </aside>
+</main>
+
+<div id="modal" class="hidden">
+  <div class="modal-box">
+    <div class="modal-head"><h2 id="modal-title"></h2><button class="close" id="modal-close">×</button></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="lightbox" class="hidden"><img alt=""><div class="caption"></div></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
