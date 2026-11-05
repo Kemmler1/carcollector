@@ -2,7 +2,7 @@
   "version": "v3",
   "basedOn": "v2",
   "created": "2026-11-05",
-  "summary": "v3: first MEASURED model, from the owner's hand-drawn plan (floorplan/measured-sketch-2026-11-05.webp). House 16 m wide; great room 9.5 x 6.5 m; verandahs 3.3 m; pavilion 3 m to posts; courtyard 4.7 x 4.7 m; seaward bedrooms 4 x 4 m with 2 x 2 m ensuites and a 1.6 m robe/drawer slot between them and the landward bedrooms; laundry 2.6 x 1.5 m; entry corridor 2.6 m. Rooms keep their photos and props from v2.",
+  "summary": "v3: first MEASURED model, from the owner's hand-drawn plan (floorplan/measured-sketch-2026-11-05.webp). House 16 m wide; great room 9.5 x 6.5 m; verandahs 3.3 m; pavilion 3 m to posts; courtyard 4.7 x 4.7 m; seaward bedrooms 4 x 4 m with 2 x 2 m ensuites and a 1.6 m robe/drawer slot between them and the landward bedrooms; laundry 2.6 x 1.5 m; entry corridor 2.6 m. Rooms keep their photos and props from v2. Wing detail confirmed by the owner: 4 x 4 bedroom in front, floating 2.5 m bedhead wall, 2 m robe behind one side and 2 x 2 m ensuite behind the other; both wings 9.8 m deep; the great room is noticeably taller than the other rooms.",
   "units": "metres",
   "axes": "x = across the house (positive toward the BBQ / bure side), z = landward (negative toward the sea), y = up. Origin is the seaward-left corner of the great room. Bedroom W is on the x-negative side (the headland/bay side), bedroom E on the x-positive side (pool/bure/BBQ side).",
   "source": {
@@ -594,7 +594,7 @@
       "wallHeight": 3.4,
       "roof": {
         "type": "hip",
-        "height": 3.2
+        "height": 3.0
       },
       "colors": {
         "wall": "#ece6d6",
@@ -1271,7 +1271,7 @@
         "w": 4.0,
         "d": 4.0
       },
-      "wallHeight": 2.7,
+      "wallHeight": 2.9,
       "roof": {
         "type": "hip",
         "height": 1.9
@@ -1281,7 +1281,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Seaward room of the left wing, directly behind the left verandah: its bi-folds face the sea and close the verandah's end, so from the bed you look straight down the verandah to the pavilion and the water (photo 32). Cathedral ply ceiling on dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster with dark square posts and white voile, white linen; green canvas; black reading lights; black chest with a giant clam; grey armchair. Full-height louvres on the outer (lawn) wall; screened honey-timber door on the courtyard wall near the back; door at the back-outer corner to the ensuite (daylight beyond). Photo 33 is this room; photo 12 is its mirror image, bedroom 2. The room is SUNKEN about 0.3 m below the verandah with a step down inside the bi-folds. The louvre bi-fold shutters fold fully back against the piers so the whole seaward wall opens. The bed is centred in the room; the bi-fold opening is offset toward the outer wall, so the doors are off the bed's axis.",
+      "description": "Seaward room of the left wing, directly behind the left verandah: its bi-folds face the sea and close the verandah's end, so from the bed you look straight down the verandah to the pavilion and the water (photo 32). Cathedral ply ceiling on dark trusses with black gusset plates, fan, Panasonic wall AC. King four-poster with dark square posts and white voile, white linen; green canvas; black reading lights; black chest with a giant clam; grey armchair. Full-height louvres on the outer (lawn) wall; screened honey-timber door on the courtyard wall near the back; door at the back-outer corner to the ensuite (daylight beyond). Photo 33 is this room; photo 12 is its mirror image, bedroom 2. Measured 4 x 4 m. Behind the bed a floating 2.5 m bedhead wall with a gap at each end: the 2 m robe is behind one side and the 2 x 2 m ensuite behind the other, under the same wing roof. The room is sunken about 0.3 m below the verandah; the louvre bi-folds fold fully back; the bi-fold opening is offset from the bed axis.",
       "materials": [
         "Pale sage render",
         "Light grey tile",
@@ -1306,30 +1306,24 @@
           "type": "screen",
           "from": 2.7,
           "to": 3.6
-        },
-        {
-          "side": "land",
-          "type": "door",
-          "from": 0.8,
-          "to": 1.6
         }
       ],
       "props": [
         {
           "type": "bed",
           "x": 2.0,
-          "z": 2.6
+          "z": 2.9
         },
         {
           "type": "chest",
-          "x": 3.4,
+          "x": 0.6,
           "z": 0.6
         },
         {
           "type": "armchair",
-          "x": 0.6,
+          "x": 3.4,
           "z": 0.8,
-          "rot": 90
+          "rot": -90
         }
       ],
       "photos": [
@@ -1351,44 +1345,46 @@
       },
       "floorLevel": -0.3,
       "changes": "Sunken floor, bi-folds fully opening, bi-fold opening offset from the room centre (owner, after the walkthrough).",
-      "measured": true
+      "measured": true,
+      "partition": {
+        "from": 0.75,
+        "to": 3.25,
+        "at": 4.0,
+        "height": 2.4
+      },
+      "roofSpan": {
+        "d": 6.0
+      }
     },
     {
       "id": "master-ensuite",
-      "name": "Bed 2 ensuite (2 x 2 m)",
+      "name": "Bed 2 ensuite (2 x 2 m, behind the bedhead wall)",
       "kind": "room",
       "group": "Left wing",
       "confirmed": true,
       "box": {
-        "x": -6.05,
+        "x": -8.05,
         "z": 10.5,
         "w": 2.0,
         "d": 2.0
       },
       "wallHeight": 2.7,
       "roof": {
-        "type": "hip",
-        "height": 1.4,
-        "under": "master-bedroom"
+        "type": "flat",
+        "height": 0
       },
       "colors": {
         "wall": "#e9e3d3",
         "floor": "#f1f1ee",
         "roof": "#9ea4a9"
       },
-      "description": "Vanity with round basin on a dark cabinet, toilet, mirror, louvre window, heliconia canvas. Door at the bedroom's back-outer corner. Video 80–90 s.",
+      "description": "Reached round the end of the floating 2.5 m bedhead wall. Vanity, toilet, walk-in shower, louvre window on the outer wall.",
       "openings": [
-        {
-          "side": "sea",
-          "type": "door",
-          "from": 0.4,
-          "to": 1.3
-        },
         {
           "side": "left",
           "type": "louvre",
-          "from": 0.5,
-          "to": 1.5,
+          "from": 0.6,
+          "to": 1.4,
           "sill": 1.2,
           "head": 2.0
         }
@@ -1482,12 +1478,12 @@
       "group": "Right wing",
       "confirmed": true,
       "box": {
-        "x": 4.05,
+        "x": 4.050000000000001,
         "z": 6.5,
         "w": 4.0,
         "d": 4.0
       },
-      "wallHeight": 2.7,
+      "wallHeight": 2.9,
       "roof": {
         "type": "hip",
         "height": 1.9
@@ -1497,7 +1493,7 @@
         "floor": "#8f8a82",
         "roof": "#9ea4a9"
       },
-      "description": "Seaward room of the right wing, the mirror of the master: its bi-folds face the sea and close the end of the BBQ verandah (photos 1 and 58 show the bed through them from the verandah). Cathedral ply ceiling, dark trusses, fan, Panasonic wall AC on the outer wall. King four-poster with white voile and white linen, frangipani canvas, black reading lights. Full-height louvres on the outer (lawn) wall; screened door to the courtyard walkway near the back; door at the back-outer corner to the ensuite. Photo 12 is this room. The room is SUNKEN about 0.3 m below the verandah with a step down inside the bi-folds. The louvre bi-fold shutters fold fully back against the piers so the whole seaward wall opens. The bed is centred in the room; the bi-fold opening is offset toward the outer wall, so the doors are off the bed's axis.",
+      "description": "Seaward room of the right wing, the mirror of the master: its bi-folds face the sea and close the end of the BBQ verandah (photos 1 and 58 show the bed through them from the verandah). Cathedral ply ceiling, dark trusses, fan, Panasonic wall AC on the outer wall. King four-poster with white voile and white linen, frangipani canvas, black reading lights. Full-height louvres on the outer (lawn) wall; screened door to the courtyard walkway near the back; door at the back-outer corner to the ensuite. Photo 12 is this room. Measured 4 x 4 m. Behind the bed a floating 2.5 m bedhead wall with a gap at each end: the 2 m robe is behind one side and the 2 x 2 m ensuite behind the other, under the same wing roof. The room is sunken about 0.3 m below the verandah; the louvre bi-folds fold fully back; the bi-fold opening is offset from the bed axis.",
       "openings": [
         {
           "side": "sea",
@@ -1517,30 +1513,24 @@
           "type": "screen",
           "from": 0.4,
           "to": 1.3
-        },
-        {
-          "side": "land",
-          "type": "door",
-          "from": 2.4,
-          "to": 3.2
         }
       ],
       "props": [
         {
           "type": "bed",
           "x": 2.0,
-          "z": 2.6
+          "z": 2.9
         },
         {
           "type": "chest",
-          "x": 0.6,
+          "x": 3.4,
           "z": 0.6
         },
         {
           "type": "armchair",
-          "x": 3.4,
+          "x": 0.6,
           "z": 0.8,
-          "rot": -90
+          "rot": 90
         }
       ],
       "photos": [
@@ -1561,44 +1551,46 @@
       },
       "floorLevel": -0.3,
       "changes": "Sunken floor, bi-folds fully opening, bi-fold opening offset from the room centre (owner, after the walkthrough).",
-      "measured": true
+      "measured": true,
+      "partition": {
+        "from": 0.75,
+        "to": 3.25,
+        "at": 4.0,
+        "height": 2.4
+      },
+      "roofSpan": {
+        "d": 6.0
+      }
     },
     {
       "id": "bedroom-2-ensuite",
-      "name": "Bed 1 ensuite (2 x 2 m)",
+      "name": "Bed 1 ensuite (2 x 2 m, behind the bedhead wall)",
       "kind": "room",
       "group": "Right wing",
       "confirmed": true,
       "box": {
-        "x": 4.05,
+        "x": 6.050000000000001,
         "z": 10.5,
         "w": 2.0,
         "d": 2.0
       },
       "wallHeight": 2.7,
       "roof": {
-        "type": "hip",
-        "height": 1.4,
-        "under": "bedroom-2"
+        "type": "flat",
+        "height": 0
       },
       "colors": {
         "wall": "#efe7d2",
         "floor": "#f1f1ee",
         "roof": "#9ea4a9"
       },
-      "description": "Walk-in shower with glass screen, vanity, toilet, mirror, louvre window, heliconia canvas. Video 150–160 s.",
+      "description": "Reached round the end of the floating 2.5 m bedhead wall. Vanity, toilet, walk-in shower, louvre window on the outer wall.",
       "openings": [
-        {
-          "side": "sea",
-          "type": "door",
-          "from": 3.2,
-          "to": 4.1
-        },
         {
           "side": "right",
           "type": "louvre",
-          "from": 0.5,
-          "to": 1.5,
+          "from": 0.6,
+          "to": 1.4,
           "sill": 1.2,
           "head": 2.0
         }
@@ -2600,7 +2592,7 @@
         "floor": "#f1f1ee",
         "roof": "#9ea4a9"
       },
-      "description": "WC and basin at the landward end of the courtyard, left of the entry corridor. Measured 2.6 x 1.6 m. The walk-in shower seen on the video is in this room or the one beside it.",
+      "description": "WC, basin, mirror and walk-in shower with glass screen at the landward end of the courtyard, left of the entry corridor (video 25-40 s). Measured 2.6 x 1.6 m.",
       "openings": [
         {
           "side": "right",
@@ -2657,6 +2649,84 @@
       ],
       "photos": [],
       "props": []
+    },
+    {
+      "id": "bedroom-2-robe",
+      "name": "Bed 1 robe (2 x 2 m)",
+      "kind": "room",
+      "group": "Right wing",
+      "confirmed": true,
+      "measured": true,
+      "box": {
+        "x": 4.050000000000001,
+        "z": 10.5,
+        "w": 2.0,
+        "d": 2.0
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "flat",
+        "height": 0
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Walk-in robe behind the bedhead wall: wardrobe and 1.6 m of drawers. Reached round the other end of the floating wall.",
+      "openings": [],
+      "props": [
+        {
+          "type": "wardrobe",
+          "x": 1.0,
+          "z": 1.6
+        },
+        {
+          "type": "chest",
+          "x": 1.0,
+          "z": 0.5
+        }
+      ],
+      "photos": []
+    },
+    {
+      "id": "master-bedroom-robe",
+      "name": "Bed 2 robe (2 x 2 m)",
+      "kind": "room",
+      "group": "Left wing",
+      "confirmed": true,
+      "measured": true,
+      "box": {
+        "x": -6.050000000000001,
+        "z": 10.5,
+        "w": 2.0,
+        "d": 2.0
+      },
+      "wallHeight": 2.7,
+      "roof": {
+        "type": "flat",
+        "height": 0
+      },
+      "colors": {
+        "wall": "#ece6d6",
+        "floor": "#8f8a82",
+        "roof": "#9ea4a9"
+      },
+      "description": "Walk-in robe behind the bedhead wall: wardrobe and 1.6 m of drawers. Reached round the other end of the floating wall.",
+      "openings": [],
+      "props": [
+        {
+          "type": "wardrobe",
+          "x": 1.0,
+          "z": 1.6
+        },
+        {
+          "type": "chest",
+          "x": 1.0,
+          "z": 0.5
+        }
+      ],
+      "photos": []
     }
   ]
 }

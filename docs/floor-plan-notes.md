@@ -11,6 +11,11 @@
 > cupboard) **4 × 3.8 m**; laundry **2.6 × 1.5 m**; entry corridor **2.6 m**; bathroom 3 at the
 > landward end left of the entry. Beds: the current master bed is a 215 cm super-king; the owner
 > wants a 183 cm king with 2 × 30 cm bedsides on the 2.5 m wall (243 cm total, 7 cm spare).
+> **Wing detail (owner, 2026-11-05):** each seaward bedroom is 4 × 4 m with a *floating* 2.5 m bedhead
+> wall across the back, a gap at each end; behind it the wing's next 2 m band is split into a 2 m
+> walk-in robe (wardrobe + 1.6 m drawers) on the courtyard side and a 2 × 2 m ensuite on the outer
+> side, all under one roof. Both wings are 9.8 m deep. Bathroom 3 (WC + walk-in shower) is one room.
+> Heights not measured; the great room is noticeably taller than the other rooms.
 > Everything below this box predates the measurements.
 
 

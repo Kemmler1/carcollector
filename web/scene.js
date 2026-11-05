@@ -188,6 +188,10 @@ function buildRoom(ctx, sec) {
     if (open.has(side) && !ops.length) ops = [{ type: 'bifold', from: 0.3, to: len - 0.3 }];
     g.add(placeWall(wallWithOpenings(len, H, ops, wallMat, sec.id), side, sec.box));
   }
+  if (sec.partition) { // floating internal wall, parallel to the sea wall at depth `at` from the sea edge
+    const pt = sec.partition, len = pt.to - pt.from;
+    g.add(tag(box(len, pt.height || H, 0.15, wallMat, x + pt.from + len / 2, (pt.height || H) / 2, z + pt.at - 0.075), sec.id));
+  }
   // exposed trusses under a hip/gable roof so roofs-off still shows the structure
   if (sec.roof && sec.roof.type !== 'flat' && (sec.roof.height || 0) >= 1.6) {
     const n = Math.max(2, Math.round((w >= d ? w : d) / 2.5));
@@ -204,7 +208,7 @@ function buildRoom(ctx, sec) {
       g.add(truss); ctx.roofs.push(truss);
     }
   }
-  addRoof(ctx, g, sec, cx, cz, H);
+  if (sec.roofSpan) { const rs = { ...sec, box: { ...sec.box, d: sec.roofSpan.d } }; addRoof(ctx, g, rs, cx, z + sec.roofSpan.d / 2, H); } else addRoof(ctx, g, sec, cx, cz, H);
   addProps(g, sec);
   if (sec.floorLevel) {
     g.position.y = sec.floorLevel; // sunken room: whole room drops; walls extend down to the outside floor
