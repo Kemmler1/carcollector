@@ -77,6 +77,22 @@ for `right`.
 
 ## Version control
 
+Three layers, from safest to loosest:
+
+1. **Git.** Every committed model (`web/data/versions/vN.json`), every photo and every doc is in
+   history; `git log`/`git revert` undo anything. Nothing a visitor does in the app touches git.
+2. **Published reviews.** The app's "Publish changes" writes one new timestamped file per person
+   per publish into `web/data/review/` (never overwrites). The maintainer reads these, folds the
+   good parts into the next `vN.json`, and discards the rest.
+3. **In-browser history** (File → History & Restore…, ⌘H). Every edit a visitor makes in their
+   browser — plan moves, camera spots, notes, assignments, comments — is auto-snapshotted ~1.5 s
+   after they stop; they can also name a snapshot before trying something. **Restore** returns to
+   any snapshot (the current state is saved first, so a restore is undoable). **Reset to
+   published** throws every browser edit away and shows the committed version again. **Download
+   all edits** saves their state as a file. Up to 40 auto snapshots are kept; named ones are never
+   trimmed. All of it is per browser: one person's experiments never reach anyone else.
+
+
 Browser-saved versions are only on that machine. To make a version permanent, drop the
 downloaded `vN.json` into `web/data/versions/`, add its filename to `index.json`, and commit.
 Generated images for a version go in `renders/vN/` (create it) and are referenced from the

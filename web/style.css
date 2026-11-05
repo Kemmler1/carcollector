@@ -207,3 +207,4 @@ main { flex: 1; display: flex; min-height: 0; }
 #spot-svg .cam { cursor: grab; } #spot-svg .look { cursor: grab; }
 #spot-svg .cam:active, #spot-svg .look:active { cursor: grabbing; }
 #cmp-publish.dirty { border-color: var(--accent); color: var(--accent); }
+.hist-row { display: flex; align-items: center; gap: 10px; } .hist-row .spacer { flex: 1; }

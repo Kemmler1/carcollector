@@ -8,6 +8,7 @@ const photoUrl = (f) => (/^\d{3}-v\d{3}s-/.test(f) ? '../photos/video/' : '../ph
 const LS_VERSIONS = 'house.versions';       // versions imported in the browser, keyed by version id
 const LS_COMMENTS = 'house.comments';       // { [versionId]: { [sectionId|'general']: Comment[] } }
 const LS_ASSIGN = 'house.assignments';
+const LS_HISTORY = 'house.history';        // [{id, when, label, auto, version, state:{working, assign, comments}}] newest first
 const LS_WORKING = 'house.working';        // { [versionId]: sections[] } — edits made in the plan editor      // { photos: {file: [sectionId]}, spots: {file: spot}, notes: {file: text} }
 
 const state = {
@@ -23,7 +24,7 @@ const state = {
   onboardIndex: 0,
 };
 function loadJSON(key, fallback) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; } }
-function saveJSON(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { console.warn('localStorage failed', e); } }
+let saveJSON = function (key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { console.warn('localStorage failed', e); } };
 function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 const $ = (id) => document.getElementById(id);
 
@@ -413,14 +414,15 @@ $('cmp-publish').onclick = async () => {
   }
   const btn = $('cmp-publish'); btn.disabled = true; btn.textContent = 'Publishing…';
   try {
-    const path = `web/data/review/${state.base.version}-review.json`;
-    const body = { version: state.base.version, published: new Date().toISOString(), note: prompt('One line on what you changed (optional):', '') || '',
+    const who = (prompt('Your name (so the change is credited):', loadJSON('house.who', '') || '') || 'anon').trim(); _saveJSON('house.who', who);
+    const path = `web/data/review/${state.base.version}-${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}-${who.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.json`;
+    const body = { version: state.base.version, who, published: new Date().toISOString(), note: prompt('One line on what you changed (optional):', '') || '',
       spots: state.assign.spots, notes: state.assign.notes, photos: state.assign.photos, planEdits: state.working[state.base.version] ? state.current.sections : undefined };
     const api = `https://api.github.com/repos/${gh.repo}/contents/${path}`;
     const headers = { Authorization: `Bearer ${gh.token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' };
     const existing = await fetch(api, { headers }).then(r => r.ok ? r.json() : null).catch(() => null);
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(body, null, 2))));
-    const res = await fetch(api, { method: 'PUT', headers, body: JSON.stringify({ message: `Review: camera spots and notes from the app (${Object.keys(body.spots).length} spots, ${Object.keys(body.notes).length} notes)`, content, sha: existing?.sha }) });
+    const res = await fetch(api, { method: 'PUT', headers, body: JSON.stringify({ message: `Review from ${who}: ${Object.keys(body.spots).length} spots, ${Object.keys(body.notes).length} notes${body.planEdits ? ', plan edits' : ''}${body.note ? ' — ' + body.note : ''}`, content, sha: existing?.sha }) });
     if (!res.ok) throw new Error((await res.json()).message || res.status);
     state.dirty = false; btn.classList.remove('dirty'); btn.textContent = 'Published ✓'; setTimeout(() => btn.textContent = 'Publish changes', 2000);
   } catch (e) { btn.textContent = 'Publish failed'; alert('Publish failed: ' + e.message + (String(e.message).includes('Bad credentials') ? '\n\nRe-enter the token: File → Revert… no — clear it with localStorage.removeItem("house.github") in the console.' : '')); }
@@ -795,6 +797,43 @@ function renderPlanSelection() {
 }
 
 // ---------------------------------------------------------------------------
+// History: snapshots of everything editable in the browser (plan edits, spots, notes,
+// assignments, comments). Auto-snapshot after each change burst; named ones from the menu.
+// ---------------------------------------------------------------------------
+const HISTORY_MAX = 40;
+function historyList() { return loadJSON(LS_HISTORY, []); }
+function snapshotState() { return JSON.parse(JSON.stringify({ working: state.working, assign: state.assign, comments: state.comments })); }
+function takeSnapshot(label, auto = false) {
+  const list = historyList();
+  const snap = { id: Date.now().toString(36), when: new Date().toISOString(), label: label || (auto ? 'auto' : 'snapshot'), auto, version: state.base.version, state: snapshotState() };
+  if (auto && list[0] && JSON.stringify(list[0].state) === JSON.stringify(snap.state)) return; // auto: nothing changed since last snapshot
+  list.unshift(snap);
+  while (list.length > HISTORY_MAX) { const i = list.map(x => x.auto).lastIndexOf(true); if (i < 0) break; list.splice(i, 1); } // trim oldest autos, keep named
+  _saveJSON(LS_HISTORY, list);
+}
+let autoSnapTimer = null;
+function autoSnapshot() { clearTimeout(autoSnapTimer); autoSnapTimer = setTimeout(() => takeSnapshot('', true), 1500); }
+function applySnapshot(st) {
+  state.working = st.working || {}; state.assign = st.assign || { photos: {}, spots: {}, notes: {} }; state.comments = st.comments || {};
+  _saveJSON(LS_WORKING, state.working); _saveJSON(LS_ASSIGN, state.assign); _saveJSON(LS_COMMENTS, state.comments);
+  setVersion(state.base.version); modal.classList.add('hidden');
+}
+function showHistory() {
+  const list = historyList();
+  const rows = list.map(x => `<div class="diff-row hist-row"><b>${esc(x.label)}</b> <span class="muted">${new Date(x.when).toLocaleString()} · ${esc(x.version)}${x.auto ? ' · auto' : ''}</span><span class="spacer"></span><button data-restore="${x.id}">Restore</button></div>`).join('');
+  openModal('History', `<div class="note">Every edit made in this browser (plan, camera spots, notes, assignments) is snapshotted here. Restore puts things back exactly as they were at that point; the current state is saved first, so a restore can itself be undone. <b>Reset to published</b> discards all browser edits and returns to the committed <code>${esc(state.base.version)}</code>.</div>
+    <div class="actions"><button class="primary" id="hist-snap">Save snapshot…</button><button id="hist-reset">Reset to published ${esc(state.base.version)}</button><button id="hist-export">Download all edits</button></div>
+    ${rows || '<div class="muted" style="margin-top:12px">No snapshots yet.</div>'}`);
+  $('hist-snap').onclick = () => { const l = prompt('Name this snapshot:', 'before trying ' + new Date().toLocaleTimeString()); if (l != null) { takeSnapshot(l); showHistory(); } };
+  $('hist-reset').onclick = () => { if (confirm(`Discard every edit made in this browser and go back to the published ${state.base.version}? A snapshot is kept so this can be undone.`)) { takeSnapshot('before reset'); applySnapshot({}); } };
+  $('hist-export').onclick = () => download(`house-edits-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify({ exported: new Date().toISOString(), ...snapshotState() }, null, 2));
+  document.querySelectorAll('[data-restore]').forEach(b => b.onclick = () => { const snap = historyList().find(x => x.id === b.dataset.restore); if (snap && confirm(`Restore "${snap.label}"?`)) { takeSnapshot('before restore'); applySnapshot(snap.state); } });
+}
+$('btn-history').onclick = showHistory;
+const _saveJSON = saveJSON;
+saveJSON = function (key, value) { _saveJSON(key, value); if (key === LS_WORKING || key === LS_ASSIGN || key === LS_COMMENTS) autoSnapshot(); };
+
+// ---------------------------------------------------------------------------
 // Mac-style menu bar: menu items trigger the (hidden) controls by id
 // ---------------------------------------------------------------------------
 document.querySelectorAll('[data-click]').forEach(el => el.addEventListener('click', () => { closeMenus(); $(el.dataset.click).click(); }));
@@ -815,11 +854,12 @@ $('btn-download').onclick = () => download(`${state.base.version}.json`, JSON.st
 $('btn-help').onclick = () => openModal('Keyboard shortcuts', `<div class="shortcuts">
   <div><kbd>R</kbd> Reset view</div><div><kbd>T</kbd> Top / plan view</div><div><kbd>W</kbd> Walk through (then WASD, Shift, Q/E, Esc)</div>
   <div><kbd>P</kbd> Floor plan editor (⌫ delete, ⌘Z undo, R rotate item, arrows nudge)</div><div><kbd>C</kbd> Compare photos</div><div><kbd>A</kbd> Assign photos</div><div><kbd>←</kbd> <kbd>→</kbd> Previous / next photo in Compare</div>
-  <div><kbd>O</kbd> / <kbd>S</kbd> Overlay / side-by-side in Compare</div><div><kbd>⌘E</kbd> Export</div><div><kbd>⌘I</kbd> Import version</div><div><kbd>Esc</kbd> Close / exit mode</div></div>`);
+  <div><kbd>O</kbd> / <kbd>S</kbd> Overlay / side-by-side in Compare</div><div><kbd>⌘E</kbd> Export</div><div><kbd>⌘H</kbd> History (snapshots, restore, reset)</div><div><kbd>⌘I</kbd> Import version</div><div><kbd>Esc</kbd> Close / exit mode</div></div>`);
 addEventListener('keydown', e => {
   if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || view.isWalking()) return;
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'e') { e.preventDefault(); $('btn-export').click(); }
   else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'i') { e.preventDefault(); $('btn-import').click(); }
+  else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'h') { e.preventDefault(); $('btn-history').click(); }
   else if (e.metaKey || e.ctrlKey || e.altKey) return;
   else if (state.planOn && e.key !== 'p') return;
   else if (e.key === 'r') $('btn-iso').click(); else if (e.key === 't') $('btn-top').click(); else if (e.key === 'w') $('btn-walk').click(); else if (e.key === 'p') $('btn-plan').click();
