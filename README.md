@@ -36,8 +36,8 @@ fixture and view), precise enough to:
   courtyard; master bedroom and bedroom 2 sit behind the two side verandahs and open seaward onto
   them; two long hip-roofed wings run landward either side of the courtyard; a landward wing holds
   the entry, a probable caretaker's flat and the third bathroom.
-- No measurements yet. Every dimension in the docs is an estimate from photos and is marked as such.
-- 3D model `v2` lives in `web/` (serve the repo root and open `/web/`). `v1` is kept for the diff.
+- **Measured plan received 2026-11-05** (`floorplan/measured-sketch-2026-11-05.webp`); `v3` is built from it. Dimensions in older docs are estimates.
+- 3D model `v3` (measured) lives in `web/`; `v2` and `v1` are kept for the diff. The old `v2` text: (serve the repo root and open `/web/`). `v1` is kept for the diff.
   Rooms not yet photographed inside are marked `?`.
 - Floor plan drawing not started; the `box` values in `web/data/versions/v2.json` are the current
   best estimate of the plan (editable in the app's Plan view).

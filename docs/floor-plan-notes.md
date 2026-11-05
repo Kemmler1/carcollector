@@ -1,5 +1,19 @@
 # Floor plan notes
 
+> **Revision 4 — measured (2026-11-05).** The owner's hand-drawn plan with tape measurements is
+> at `floorplan/measured-sketch-2026-11-05.webp` (and the bed note, `bed-note-2026-11-05.webp`).
+> `web/data/versions/v3.json` is built from it; sections carry `measured: true`. Measured values:
+> house **16 m** wide overall; great room **9.5 × 6.5 m**; side verandahs **3.3 m**; pool pavilion
+> **3 m** house-wall-to-posts; kitchen back-bench zone **2 m**, island **4.5 m** from the seaward
+> edge; courtyard garden **4.7 × 4.7 m**; seaward bedrooms (Bed 1 right, Bed 2 left) **4 × 4 m**
+> with a **2.5 m** bedside wall, ensuites **2 × 2 m**, robe/drawer slot **1.6 m** (right wing stack
+> 3.8 + 2 + 4 m); landward bedrooms Bed 3 (triple, left) and Bed 4 (queen, right, with a "SB"
+> cupboard) **4 × 3.8 m**; laundry **2.6 × 1.5 m**; entry corridor **2.6 m**; bathroom 3 at the
+> landward end left of the entry. Beds: the current master bed is a 215 cm super-king; the owner
+> wants a 183 cm king with 2 × 30 cm bedsides on the 2.5 m wall (243 cm total, 7 cm spare).
+> Everything below this box predates the measurements.
+
+
 Working notes toward `floorplan/`. Everything here is inferred from photos; nothing is measured.
 Revision 3 (70 photos: 41 site photos + 29 listing photos, two of them aerials).
 
